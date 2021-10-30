@@ -1,51 +1,82 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, import_of_legacy_library_into_null_safe, duplicate_ignore
+// ignore_for_file: prefer_const_constructors
 
-// import 'dart:async';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
-void main() {
-  runApp(MyApp());
+
+
+void main(){
+  runApp(Splash());
 }
-  
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Splash Screen',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: Splash2(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-class Splash2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SplashScreen(
-      // imagePath:'assets/chapchap_logo.png',
-      
-      image: Image.network('https://i1.wp.com/chapchap.co/wp-content/uploads/2020/07/chapchao_logo_200x62.png?fit=272%2C62&ssl=1'),
-          // image: AssetImage('assets/chapchap_logo.png'),
-      seconds: 6,
-      navigateAfterSeconds: SecondScreen(),
-      title: Text('Growing your business',textScaleFactor: 2,),
-      
-      loadingText: Text("Loading"),
-      photoSize: 200.0,
-      loaderColor: Colors.red,
-    );
-  }
-}
+
 // ignore: use_key_in_widget_constructors
-class SecondScreen extends StatelessWidget {
+class Splash extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      home: SplashScreen(),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({ Key? key }) : super(key: key);
+
+  BuildContext? get context => null;
+ @override
+// ignore: override_on_non_overriding_member
+void initState(){
+  //  super.initState();
+   Timer(Duration(seconds:3),(){
+     Navigator.of(context!).
+     pushReplacement(MaterialPageRoute(builder: (_)=>Homepage()));
+   });
+ }
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Text("Profile")),
+      backgroundColor: Colors.white,
       body: Center(
-        child:Text("Home page",textScaleFactor: 2,)
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/chapchap-logo.png',height:200,width: 200,),
+            // SizedBox(height: 10,),
+            Text('Grow Your Business',style: TextStyle(color: Colors.red,fontSize:25)),
+            SizedBox(height: 10,),
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            )
+          ],
+        ),
+      ),
+      
+    );
+  }
+}
+
+ class Homepage extends StatefulWidget {
+  const Homepage({ Key? key }) : super(key: key);
+
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor:Colors.red[200],
+        title: Text('Profiles'),
+      ),
+      body: Center(
+        child:Text('Home sweet home')
       ),
     );
   }
