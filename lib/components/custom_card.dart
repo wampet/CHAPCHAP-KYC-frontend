@@ -23,7 +23,7 @@ class CustomCard extends StatefulWidget {
     this.title = 'Upload your selfie',
     this.style = const TextStyle(color: Colors.white, fontSize: 16),
     this.innerIcon =  KycIcons.add_a_photo,
-    this.onTap,
+    this.onTap,a
   }) : super(key: key);
 
   @override
