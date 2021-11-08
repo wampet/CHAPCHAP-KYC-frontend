@@ -1,16 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-// ignore: unused_import
-
-//import 'package:intl/intl.dart';
 import 'lc1_letter.dart';
 
-void main() {
-  runApp(MaterialApp(home: n_id()));
-}
-
-class n_id extends StatelessWidget {
-  const n_id({Key? key}) : super(key: key);
+class RegisteredNationalID extends StatelessWidget {
+  const RegisteredNationalID({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +38,10 @@ class n_id extends StatelessWidget {
               minHeight: 15,
             ),
             Row(
-              children: [
-                const Text('Upload your National ID ',
+              children: const [
+                Text('Upload your National ID ',
                     style: TextStyle(fontSize: 23)),
-                const Text(
+                Text(
                   ' Verified',
                   style: TextStyle(fontSize: 20, color: Colors.green),
                 ),
@@ -54,7 +49,7 @@ class n_id extends StatelessWidget {
             ),
             SizedBox(height: 3),
             Row(
-              children: [
+              children: const [
                 Text('Front', style: TextStyle(fontSize: 23)),
               ],
             ),
@@ -70,7 +65,7 @@ class n_id extends StatelessWidget {
               child: Center(
                   //heightFactor: 2,
                   child: Row(
-                children: [
+                children: const [
                   SizedBox(
                     width: 135,
                     height: 170,
@@ -88,7 +83,7 @@ class n_id extends StatelessWidget {
           
             SizedBox(height: 3),
             Row(
-              children: [Text('Back', style: TextStyle(fontSize: 23))],
+              children: const [Text('Back', style: TextStyle(fontSize: 23))],
             ),
             SizedBox(
               height: 10,
@@ -103,7 +98,7 @@ class n_id extends StatelessWidget {
               child: Center(
                  
                   child: Row(
-                children: [
+                children: const [
                   SizedBox(
                     width: 135,
                     height: 170,

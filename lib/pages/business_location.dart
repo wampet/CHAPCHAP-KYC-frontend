@@ -1,14 +1,14 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
-class SelfieUpload extends StatefulWidget {
-  const SelfieUpload({Key? key}) : super(key: key);
+class IndividualSelfie extends StatefulWidget {
+  const IndividualSelfie({Key? key}) : super(key: key);
 
   @override
-  State<SelfieUpload> createState() => _SelfieUploadState();
+  State IndividualSelfie> createState() =>  IndividualSelfieState();
 }
 
-class _SelfieUploadState extends State<SelfieUpload> {
+class  IndividualSelfieState extends State IndividualSelfie> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

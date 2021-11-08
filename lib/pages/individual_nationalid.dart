@@ -1,16 +1,14 @@
 // ignore: file_names
 // ignore: file_names
 // ignore: file_names
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 // ignore: unused_import
 
 //import 'package:intl/intl.dart';
-import 'n_id.dart';
-
-void main() {
-  runApp(MaterialApp(home: National_id()));
-}
+import 'registered_nationalid.dart';
 
 class National_id extends StatelessWidget {
   const National_id({Key? key}) : super(key: key);
