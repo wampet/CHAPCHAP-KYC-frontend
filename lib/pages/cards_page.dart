@@ -94,6 +94,31 @@ class _CardsPageState extends State<CardsPage> {
           ),
         ),
         Card(
+          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/businessselfie');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your Profile Picture',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
+        Card(
           margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
           color: Colors.red,
           child: InkWell(
@@ -113,7 +138,7 @@ class _CardsPageState extends State<CardsPage> {
                   ),
                 ),
               ),
-              title: Text('Upload your registration Certificate',
+              title: Text('Upload your Registration Certificate',
                   style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),

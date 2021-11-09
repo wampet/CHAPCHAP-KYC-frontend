@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 // ignore: unused_import
+import '../kyc_icons_icons.dart';
 
 //import 'package:intl/intl.dart';
 import 'registered_nationalid.dart';
@@ -67,7 +68,15 @@ class National_id extends StatelessWidget {
                   borderRadius: BorderRadius.circular(0.5)),
               child: InkWell(
                onTap: (){},
-               child: ListTile(),
+               child: Container(
+                 width: 300,
+                 height: 200,
+                 child: Icon(
+                        KycIcons.doc_text_inv,
+                        size: 50,
+                        color: Colors.red,
+                      ),
+               ),
               ),
               
             ),
@@ -85,13 +94,21 @@ class National_id extends StatelessWidget {
                   borderRadius: BorderRadius.circular(0.5)),
               child: InkWell(
                onTap: (){},
-               child: ListTile(),
+               child: Container(
+                 width: 300,
+                 height: 200,
+                child: Icon(
+                        KycIcons.doc_text_inv,
+                        size: 50,
+                        color: Colors.red,
+                      ),
+               ),
               ),
               
             ),
             Row(
               children: [
-                Text('1 of 3',
+                Text('1 of 4',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
               
                 SizedBox(

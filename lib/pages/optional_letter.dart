@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../kyc_icons_icons.dart';
-class LcLetter extends StatefulWidget {
-  const LcLetter({Key? key}) : super(key: key);
+
+class OptionalLetter extends StatefulWidget {
+  const OptionalLetter({Key? key}) : super(key: key);
 
   @override
-  State<LcLetter> createState() => _LcLetterState();
+  State<OptionalLetter> createState() => _OptionalLetterState();
 }
 
-class _LcLetterState extends State<LcLetter> {
+class _OptionalLetterState extends State<OptionalLetter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _LcLetterState extends State<LcLetter> {
         ),
         backgroundColor: Colors.white70,
         title: const Text(
-          "Registered Company",
+          "Individual Owner",
           style: TextStyle(color: Colors.red),
         ),
         centerTitle: true,
@@ -42,14 +43,17 @@ class _LcLetterState extends State<LcLetter> {
             SizedBox(
               height: 30,
             ),
-            Row(
+            Column(
               children: [
-                const Text('Upload Your LC1 Letter ',
+                const Text('Upload your LC1 Letter ',
                     style: TextStyle(fontSize: 16)),
+                    Text('(Optional)',
+                    style: TextStyle(fontSize: 16))
               ],
             ),
             const Text('Verified',
                 style: TextStyle(fontSize: 16, color: Colors.green)),
+
             SizedBox(height: 10),
             SizedBox(
               height: 40,
@@ -68,10 +72,7 @@ class _LcLetterState extends State<LcLetter> {
                         color: Colors.red,
                       ),
                     ))),
-            SizedBox(height: 60),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 70),
             Text('Your Upload will help us confirm your identity',
                 style: TextStyle(fontSize: 16)),
             SizedBox(height: 25),
@@ -80,14 +81,14 @@ class _LcLetterState extends State<LcLetter> {
                 SizedBox(
                   width: 7,
                 ),
-                Text('2 of 5',
+                Text('4 of 4',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
                 SizedBox(
                   width: 200,
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/businessselfie');
+                    Navigator.pushNamed(context, '/finalScreen');
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),

@@ -20,7 +20,9 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
             'Registered Company',
             style: TextStyle(color: Colors.red),
           ),
-          leading:IconButton(onPressed: (){}, 
+          leading:IconButton(onPressed: (){
+             Navigator.of(context).pop();
+          }, 
             icon: const Icon(Icons.arrow_back),
             color: Colors.red,
             ),  
@@ -103,12 +105,14 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('1 of 5',
+                    const Text('3 of 5',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 250),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){}, 
+                      onPressed: (){
+                         Navigator.pushNamed(context, '/businesscertificate');
+                      }, 
                       child: const Text('Next'))
                   ],
                 ))

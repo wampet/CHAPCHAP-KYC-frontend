@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -9,10 +8,10 @@ class IndividualCards extends StatefulWidget {
   const IndividualCards({Key? key}) : super(key: key);
 
   @override
-   IndividualCardsState createState() =>  IndividualCardsState();
+  IndividualCardsState createState() => IndividualCardsState();
 }
 
-class  IndividualCardsState extends State <IndividualCards> {
+class IndividualCardsState extends State<IndividualCards> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class  IndividualCardsState extends State <IndividualCards> {
             )),
         leading: IconButton(
           onPressed: () {
-             Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
           color: Colors.red,
@@ -38,18 +37,17 @@ class  IndividualCardsState extends State <IndividualCards> {
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
-                color: Colors.black,
-                fontSize: 17,
-                fontWeight: FontWeight.bold
-              )),
+                  color: Colors.black,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold)),
         ),
         // CustomCard(),
         Card(
           margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
           color: Colors.red,
           child: InkWell(
-            onTap:(){
-             Navigator.pushNamed(context, '/individualNationalId');
+            onTap: () {
+              Navigator.pushNamed(context, '/individualNationalId');
             },
             child: ListTile(
               leading: Card(
@@ -69,12 +67,12 @@ class  IndividualCardsState extends State <IndividualCards> {
             ),
           ),
         ),
-        
+
         Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
           color: Colors.red,
           child: InkWell(
-            onTap: (){
+            onTap: () {
               Navigator.pushNamed(context, '/selfieUpload');
             },
             child: ListTile(
@@ -95,13 +93,12 @@ class  IndividualCardsState extends State <IndividualCards> {
             ),
           ),
         ),
-        
+
         Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
           color: Colors.red,
           child: InkWell(
-            onTap: 
-            (){
+            onTap: () {
               Navigator.pushNamed(context, '/individuallocation');
             },
             child: ListTile(
@@ -121,10 +118,33 @@ class  IndividualCardsState extends State <IndividualCards> {
                   style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),
+        ),
+        Card(
+          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/optionalletter');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your LC1 Letter(Optional)',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
         )
       ]),
     );
   }
 }
-
-

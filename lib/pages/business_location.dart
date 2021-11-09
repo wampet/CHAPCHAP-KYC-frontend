@@ -106,7 +106,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          '4 of 4',
+                          '5 of 5',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 15,
