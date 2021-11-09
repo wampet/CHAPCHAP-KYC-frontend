@@ -45,7 +45,7 @@ class _OptionalLetterState extends State<OptionalLetter> {
             ),
             Column(
               children: [
-                const Text('Upload a Letter from Your LC1 Chairperson ',
+                const Text('Upload your LC1 Letter ',
                     style: TextStyle(fontSize: 16)),
                     Text('(Optional)',
                     style: TextStyle(fontSize: 16))

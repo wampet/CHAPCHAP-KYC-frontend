@@ -44,7 +44,7 @@ class _LcLetterState extends State<LcLetter> {
             ),
             Row(
               children: [
-                const Text('Upload a Letter from Your LC1 Chairperson ',
+                const Text('Upload Your LC1 Letter ',
                     style: TextStyle(fontSize: 16)),
               ],
             ),
