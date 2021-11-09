@@ -42,6 +42,35 @@ class IndividualCardsState extends State<IndividualCards> {
                   fontWeight: FontWeight.bold)),
         ),
         // CustomCard(),
+        //selfie
+        //id
+        //business location
+        //LCletter
+         Card(
+          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/selfieUpload');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your Selfie',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
         Card(
           margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
           color: Colors.red,
@@ -68,31 +97,7 @@ class IndividualCardsState extends State<IndividualCards> {
           ),
         ),
 
-        Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
-          color: Colors.red,
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, '/selfieUpload');
-            },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.doc_text_inv,
-                    size: 20,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              title: Text('Upload your Selfie',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-          ),
-        ),
+       
 
         Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),

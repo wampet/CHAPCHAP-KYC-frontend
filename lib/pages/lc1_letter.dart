@@ -106,7 +106,7 @@ class _LcLetterState extends State<LcLetter> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('4 of 5',
+                    const Text('2 of 5',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 200),
                     ElevatedButton(
