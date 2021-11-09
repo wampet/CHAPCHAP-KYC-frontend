@@ -141,16 +141,18 @@ class RegisteredNationalID extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Container(
                   margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
                   child: const Text(
-                    '1 of 3',
+                    '2 of 5',
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),

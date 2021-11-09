@@ -143,10 +143,11 @@ class National_id extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Container(
                   margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
                   child: const Text(
-                    '1 of 3',
+                    '2 of 4',
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 15,
@@ -159,7 +160,7 @@ class National_id extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/selfieUpload');
+                        Navigator.pushNamed(context, '/individuallocation');
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.red),

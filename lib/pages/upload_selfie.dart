@@ -105,13 +105,13 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('3 of 5',
+                    const Text('1 of 5',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 250),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: (){
-                         Navigator.pushNamed(context, '/businesscertificate');
+                         Navigator.pushNamed(context, '/registeredNationalId');
                       }, 
                       child: const Text('Next'))
                   ],
