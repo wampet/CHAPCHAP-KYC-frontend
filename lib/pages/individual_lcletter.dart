@@ -2,34 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../kyc_icons_icons.dart';
 
-class LcLetter extends StatefulWidget {
-  const LcLetter({Key? key}) : super(key: key);
+class IndividualLCletter extends StatefulWidget {
+  const IndividualLCletter({Key? key}) : super(key: key);
 
   @override
-  State<LcLetter> createState() => _LcLetterState();
+  State<IndividualLCletter> createState() => _IndividualLCletterState();
 }
 
-class _LcLetterState extends State<LcLetter> {
+class _IndividualLCletterState extends State<IndividualLCletter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          color: Colors.red,
-          iconSize: 30,
-        ),
-        backgroundColor: Colors.white70,
-        title: const Text(
-          "Registered Company",
-          style: TextStyle(color: Colors.red),
-        ),
-        centerTitle: true,
-      ),
-      body:  Container(  
+       appBar: AppBar(
+          title: const Text(
+            'Individual Owner',
+            style: TextStyle(color: Colors.red),
+          ),
+          leading:IconButton(onPressed: (){
+             Navigator.of(context).pop();
+          }, 
+            icon: const Icon(Icons.arrow_back),
+            color: Colors.red,
+            ),  
+            backgroundColor: Colors.white,
+         ),
+         body: Container(  
            margin: const EdgeInsets.fromLTRB(25.0, 15, 25, 25),
           child: Column(
             children: [
@@ -106,7 +103,7 @@ class _LcLetterState extends State<LcLetter> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('4 of 5',
+                    const Text('4 of 4',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 200),
                     ElevatedButton(

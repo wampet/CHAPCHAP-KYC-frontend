@@ -11,7 +11,7 @@ import 'package:chapchap_kyc_frontend/pages/upload_selfie.dart';
 import 'package:chapchap_kyc_frontend/pages/individual_nationalid.dart';
 import 'package:chapchap_kyc_frontend/pages/cards.dart';
 import 'package:chapchap_kyc_frontend/pages/lc1_letter.dart';
-import 'package:chapchap_kyc_frontend/pages/optional_letter.dart';
+import 'package:chapchap_kyc_frontend/pages/individual_lcletter.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -20,7 +20,7 @@ void main() => runApp(MaterialApp(
         '/selfieUpload': (context) => const SelfieUpload(),
         '/splashScreen': (context) => const SplashScreen(),
         '/finalScreen': (context) => const FinalScreen(),
-        '/optionalletter':(context)=>const OptionalLetter(),
+        '/optionalletter':(context)=>const IndividualLCletter(),
         '/Lcletter':(context)=>const LcLetter(),
         '/cardspage': (context) => const CardsPage(),
         '/selectuser': (context) => const SelectUser(),
