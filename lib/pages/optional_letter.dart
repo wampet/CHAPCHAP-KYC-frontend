@@ -43,14 +43,17 @@ class _OptionalLetterState extends State<OptionalLetter> {
             SizedBox(
               height: 30,
             ),
-            Row(
+            Column(
               children: [
                 const Text('Upload a Letter from Your LC1 Chairperson ',
                     style: TextStyle(fontSize: 16)),
+                    Text('(Optional)',
+                    style: TextStyle(fontSize: 16))
               ],
             ),
             const Text('Verified',
                 style: TextStyle(fontSize: 16, color: Colors.green)),
+
             SizedBox(height: 10),
             SizedBox(
               height: 40,
