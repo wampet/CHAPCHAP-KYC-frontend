@@ -25,7 +25,7 @@ class _CardsPageState extends State<CardsPage> {
             )),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/selfieUpload');
+             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
           color: Colors.red,
@@ -38,78 +38,93 @@ class _CardsPageState extends State<CardsPage> {
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
-                color: Colors.black,
-                fontSize: 17,
-                fontWeight: FontWeight.bold
-              )),
+                  color: Colors.black,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold)),
         ),
         // CustomCard(),
-        const Card(
+        Card(
           margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
           color: Colors.red,
-          child: ListTile(
-            leading: Card(
-              color: Colors.white,
-              margin: EdgeInsets.all(5),
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  KycIcons.id_card,
-                  size: 20,
-                  color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/registeredNationalId');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.id_card,
+                    size: 20,
+                    color: Colors.red,
+                  ),
                 ),
               ),
+              title: Text('Upload your National ID',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
-            title: Text('Upload your National ID',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-          ),
-        ),
-        const Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
-          color: Colors.red,
-          child: ListTile(
-            leading: Card(
-              color: Colors.white,
-              margin: EdgeInsets.all(5),
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  KycIcons.doc_text_inv,
-                  size: 20,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-            title: Text('Upload your LC Letter',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-          ),
-        ),
-        const Card(
-          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-          color: Colors.red,
-          child: ListTile(
-            leading: Card(
-              color: Colors.white,
-              margin: EdgeInsets.all(5),
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  KycIcons.doc_text_inv,
-                  size: 20,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-            title: Text('Upload your registration Certificate',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
           ),
         ),
         Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
           color: Colors.red,
           child: InkWell(
-            onTap: 
-            (){},
+            onTap: () {
+              Navigator.pushNamed(context, '/Lcletter');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your LC Letter',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
+        Card(
+          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/businesscertificate');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your registration Certificate',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
+        Card(
+          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/businesslocation');
+            },
             child: ListTile(
               leading: Card(
                 color: Colors.white,
@@ -132,5 +147,3 @@ class _CardsPageState extends State<CardsPage> {
     );
   }
 }
-
-

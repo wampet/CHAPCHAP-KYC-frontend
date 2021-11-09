@@ -2,14 +2,14 @@ import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class BusinessLocation extends StatefulWidget {
-  const BusinessLocation({Key? key}) : super(key: key);
+class IndividualLocation extends StatefulWidget {
+  const IndividualLocation({Key? key}) : super(key: key);
 
   @override
-  _BusinessLocationState createState() => _BusinessLocationState();
+  _IndividualLocationState createState() => _IndividualLocationState();
 }
 
-class _BusinessLocationState extends State<BusinessLocation> {
+class _IndividualLocationState extends State<IndividualLocation> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,9 @@ class _BusinessLocationState extends State<BusinessLocation> {
             'Individual Owner',
             style: TextStyle(color: Colors.red),
           ),
-          leading:IconButton(onPressed: (){}, 
+          leading:IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, 
             icon: const Icon(KycIcons.arrow_back),
             color: Colors.red,
             ),  
@@ -107,7 +109,9 @@ class _BusinessLocationState extends State<BusinessLocation> {
                     const SizedBox(width: 250),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){}, 
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/finalScreen');
+                      }, 
                       child: const Text('Next'))
                   ],
                 ))

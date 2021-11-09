@@ -65,34 +65,11 @@ class National_id extends StatelessWidget {
 
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
+              child: InkWell(
+               onTap: (){},
+               child: ListTile(),
+              ),
               
-              child: Center(
-               
-                  child: Row(
-                children: [
-                  SizedBox(
-                    width: 122,
-                    height: 180,
-                    child: GestureDetector(
-                      onTap: () {
-                        print('object');
-                      },
-                    ),
-                  ),
-                  Icon(Icons.insert_drive_file, size: 50, color: Colors.black),
-                  SizedBox(
-                    width: 150,
-                    height: 140,
-                    child: GestureDetector(
-                      onTap: () {
-                        print('object');
-                      },
-                    ),
-                  ),
-                ],
-              )
-                  
-                  ),
             ),
             
             SizedBox(height: 3),
@@ -104,42 +81,17 @@ class National_id extends StatelessWidget {
             ),
             
             Card(
-              
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
+              child: InkWell(
+               onTap: (){},
+               child: ListTile(),
+              ),
               
-              child: Center(
-                  
-                  child: Row(
-                children: [
-                  SizedBox(
-                    width: 120,
-                    height: 180,
-                    child: GestureDetector(
-                      onTap: () {
-                        print('object');
-                      },
-                    ),
-                  ),
-                  Icon(Icons.insert_drive_file, size: 50, color: Colors.black),
-                  SizedBox(
-                    width: 150,
-                    height: 140,
-                    child: GestureDetector(
-                      onTap: () {
-                        print('object');
-                      },
-                    ),
-                  ),
-                ],
-              )
-                  
-                  ),
             ),
             Row(
               children: [
-                Text('2 of 5',
+                Text('1 of 3',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
               
                 SizedBox(
@@ -147,8 +99,7 @@ class National_id extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => n_id()));
+                    Navigator.pushNamed(context, '/selfieUpload');
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),

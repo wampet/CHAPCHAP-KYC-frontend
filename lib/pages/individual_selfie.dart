@@ -19,7 +19,9 @@ class _SelfieUploadState extends State<SelfieUpload> {
             )),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: const Icon(Icons.arrow_back),
           color: Colors.red,
         ),
@@ -103,7 +105,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          '1 of 5',
+                          '2 of 3',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 15,
@@ -116,7 +118,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/cardspage');
+                              Navigator.pushNamed(context, '/individuallocation');
                             },
                             style: ButtonStyle(
                               backgroundColor:

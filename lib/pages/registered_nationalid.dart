@@ -1,8 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'lc1_letter.dart';
 
 class RegisteredNationalID extends StatelessWidget {
   const RegisteredNationalID({Key? key}) : super(key: key);
@@ -76,11 +73,8 @@ class RegisteredNationalID extends StatelessWidget {
                     height: 150,
                   )
                 ],
-              )
-                  
-                  ),
+              )),
             ),
-          
             SizedBox(height: 3),
             Row(
               children: const [Text('Back', style: TextStyle(fontSize: 23))],
@@ -88,15 +82,10 @@ class RegisteredNationalID extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            
             Card(
-            
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
-  
               child: Center(
-                 
                   child: Row(
                 children: const [
                   SizedBox(
@@ -109,34 +98,27 @@ class RegisteredNationalID extends StatelessWidget {
                     height: 150,
                   )
                 ],
-              )
-                  
-                  ),
+              )),
             ),
             Row(
               children: [
-                Text('2 of 5',
+                Text('1 of 4',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
-                
                 SizedBox(
                   width: 200,
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => lc1_letter()));
+                    Navigator.pushNamed(context, '/Lcletter');
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),
                 ),
               ],
             ),
-
-            
           ],
         ),
       ),
-     
     );
   }
 }

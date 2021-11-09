@@ -1,10 +1,6 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
-
-
-
-
 class FinalScreen extends StatefulWidget {
   const FinalScreen({Key? key}) : super(key: key);
 

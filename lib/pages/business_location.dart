@@ -1,25 +1,28 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
-class IndividualSelfie extends StatefulWidget {
-  const IndividualSelfie({Key? key}) : super(key: key);
+
+class BusinessLocation extends StatefulWidget {
+  const BusinessLocation({ Key? key }) : super(key: key);
 
   @override
-  State IndividualSelfie> createState() =>  IndividualSelfieState();
+  _BusinessLocationState createState() => _BusinessLocationState();
 }
 
-class  IndividualSelfieState extends State IndividualSelfie> {
+class _BusinessLocationState extends State<BusinessLocation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registerd Company',
+        title: const Text('Registered Company',
             style: TextStyle(
               color: Colors.red,
             )),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: const Icon(Icons.arrow_back),
           color: Colors.red,
         ),
@@ -103,7 +106,7 @@ class  IndividualSelfieState extends State IndividualSelfie> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          '1 of 5',
+                          '4 of 4',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 15,
@@ -116,7 +119,7 @@ class  IndividualSelfieState extends State IndividualSelfie> {
                         padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/cardspage');
+                              Navigator.pushNamed(context, '/finalScreen');
                             },
                             style: ButtonStyle(
                               backgroundColor:

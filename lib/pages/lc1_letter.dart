@@ -1,19 +1,14 @@
-// ignore: file_names
-// ignore: file_names
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-// ignore: unused_import
 
-//import 'package:intl/intl.dart';
+class LcLetter extends StatefulWidget {
+  const LcLetter({Key? key}) : super(key: key);
 
-void main() {
-  runApp(MaterialApp(home: lc1_letter()));
+  @override
+  State<LcLetter> createState() => _LcLetterState();
 }
 
-class lc1_letter extends StatelessWidget {
-  const lc1_letter({Key? key}) : super(key: key);
-
+class _LcLetterState extends State<LcLetter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,18 +51,13 @@ class lc1_letter extends StatelessWidget {
             const Text('Verified',
                 style: TextStyle(fontSize: 16, color: Colors.green)),
             SizedBox(height: 10),
-
             SizedBox(
               height: 40,
             ),
             Card(
-    
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
-              
               child: Center(
-                  
                   child: Row(
                 children: [
                   SizedBox(
@@ -90,13 +80,9 @@ class lc1_letter extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
-                  
-                  ),
+              )),
             ),
-            
             SizedBox(height: 60),
-
             SizedBox(
               height: 10,
             ),
@@ -108,30 +94,23 @@ class lc1_letter extends StatelessWidget {
                 SizedBox(
                   width: 7,
                 ),
-                Text('2 of 5',
+                Text('2 of 4',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
-                
                 SizedBox(
                   width: 200,
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    
-                    print('object Pressed');
+                    Navigator.pushNamed(context, '/businesscertificate');
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),
                 ),
               ],
             ),
-
-            
           ],
         ),
       ),
-      
     );
   }
-
- 
 }
