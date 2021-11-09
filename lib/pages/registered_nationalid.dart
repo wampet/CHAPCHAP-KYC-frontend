@@ -100,7 +100,7 @@ class RegisteredNationalID extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('1 of 5',
+                Text('2 of 5',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
                 SizedBox(
                   width: 200,

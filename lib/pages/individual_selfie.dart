@@ -105,7 +105,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          '2 of 4',
+                          '1 of 4',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 15,
@@ -118,7 +118,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/individuallocation');
+                              Navigator.pushNamed(context, '/individualNationalId');
                             },
                             style: ButtonStyle(
                               backgroundColor:

@@ -106,13 +106,13 @@ class _LcLetterState extends State<LcLetter> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('2 of 5',
+                    const Text('3 of 5',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 200),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: (){
-                         Navigator.pushNamed(context, '/finalScreen');
+                         Navigator.pushNamed(context, '/businesscertificate');
                       }, 
                       child: const Text('Next'))
                   ],

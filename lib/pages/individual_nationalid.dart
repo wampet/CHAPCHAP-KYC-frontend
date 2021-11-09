@@ -108,7 +108,7 @@ class National_id extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('1 of 4',
+                Text('2 of 4',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
               
                 SizedBox(
@@ -116,7 +116,7 @@ class National_id extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/selfieUpload');
+                    Navigator.pushNamed(context, '/individuallocation');
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),
