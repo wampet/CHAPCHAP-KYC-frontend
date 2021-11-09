@@ -104,13 +104,14 @@ class _IndividualLocationState extends State<IndividualLocation> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('3 of 3',
+                    const Text('3 of 4',
                     style: TextStyle(color: Colors.red),),
                     const SizedBox(width: 250),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: (){
-                        Navigator.pushNamed(context, '/finalScreen');
+                        //Navigator.pushNamed(context, '/finalScreen');
+                        Navigator.pushNamed(context, '/optionalletter');
                       }, 
                       child: const Text('Next'))
                   ],

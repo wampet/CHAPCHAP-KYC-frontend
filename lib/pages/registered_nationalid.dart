@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+import '../kyc_icons_icons.dart';
 class RegisteredNationalID extends StatelessWidget {
   const RegisteredNationalID({Key? key}) : super(key: key);
 
@@ -54,26 +54,23 @@ class RegisteredNationalID extends StatelessWidget {
               height: 3,
             ),
             Card(
-              //color: Colors.red,
+            
 
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
-              //child: Center(
-              child: Center(
-                  //heightFactor: 2,
-                  child: Row(
-                children: const [
-                  SizedBox(
-                    width: 135,
-                    height: 170,
-                  ),
-                  Icon(Icons.insert_drive_file, size: 50, color: Colors.black),
-                  SizedBox(
-                    width: 100,
-                    height: 150,
-                  )
-                ],
-              )),
+              child: InkWell(
+               onTap: (){},
+               child: Container(
+                 width: 300,
+                 height: 200,
+                 child: Icon(
+                        KycIcons.doc_text_inv,
+                        size: 50,
+                        color: Colors.red,
+                      ),
+               ),
+              ),
+              
             ),
             SizedBox(height: 3),
             Row(
@@ -83,26 +80,27 @@ class RegisteredNationalID extends StatelessWidget {
               height: 10,
             ),
             Card(
+            
+
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.5)),
-              child: Center(
-                  child: Row(
-                children: const [
-                  SizedBox(
-                    width: 135,
-                    height: 170,
-                  ),
-                  Icon(Icons.insert_drive_file, size: 50, color: Colors.black),
-                  SizedBox(
-                    width: 100,
-                    height: 150,
-                  )
-                ],
-              )),
+              child: InkWell(
+               onTap: (){},
+               child: Container(
+                 width: 300,
+                 height: 200,
+                 child: Icon(
+                        KycIcons.doc_text_inv,
+                        size: 50,
+                        color: Colors.red,
+                      ),
+               ),
+              ),
+              
             ),
             Row(
               children: [
-                Text('1 of 4',
+                Text('1 of 5',
                     style: TextStyle(fontSize: 23, color: Colors.red)),
                 SizedBox(
                   width: 200,

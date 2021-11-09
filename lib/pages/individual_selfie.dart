@@ -105,7 +105,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          '2 of 3',
+                          '2 of 4',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 15,

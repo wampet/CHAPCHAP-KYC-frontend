@@ -99,7 +99,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        '3 of 4',
+                        '4 of 5',
                         style: TextStyle(color: Colors.red),
                       ),
                       const SizedBox(width: 250),
