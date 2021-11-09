@@ -28,59 +28,55 @@ class _IndividualLocationState extends State<IndividualLocation> {
             backgroundColor: Colors.white,
          ),
          body: Container(  
-           margin: const EdgeInsets.fromLTRB(25.0, 15, 25, 25),
+           margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
           child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Column( 
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 10.0),
-                      child: const Text(
-                        'Progress',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        ),
+              Column( 
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 5, 10, 0),
+                    child: const Text(
+                      'Progress',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 14,
                       ),
-                    ) ,
-                    Container(
-                      alignment: Alignment.topCenter,
-                      margin: const EdgeInsets.all(10),
-                      child: const LinearProgressIndicator(
-                          value: 0.7,
-                          backgroundColor: Colors.grey,
-                          minHeight: 10,
-                          color: Colors.red
-                      ) ,
                     ),
-                  ],
-              )),
-              
-            Expanded(
-              flex: 1,
-              child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                    'Upload a picture of your \nBusiness Premises',
-                    style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                          )
-                       ),
-                      Text(
-                    'pending',
-                    style: TextStyle(color: Colors.amber,
-                    fontWeight: FontWeight.bold,)
-                    )
-                    ],
-                  )
+                  ) ,
+                  Container(
+                    alignment: Alignment.topCenter,
+                    margin: const EdgeInsets.fromLTRB(0, 5, 10, 30),
+                    child: const LinearProgressIndicator(
+                        value: 0.9,
+                        backgroundColor: Colors.grey,
+                        minHeight: 10,
+                        color: Colors.red
+                    ) ,
+                  ),
+                ],
               ),
+              
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                  'Upload your \nBusiness Premises',
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                        )
+                     ),
+                    //  SizedBox(width: 10),
+                    Text(
+                  'pending',
+                  style: TextStyle(color: Colors.orange,
+                  fontWeight: FontWeight.bold,)
+                  )
+                  ],
+                ),
               Expanded(
-                flex: 4,
+                flex: 2,
                 child: CircleAvatar(
                     radius: 90.0,
                     backgroundColor: Colors.white,
@@ -105,8 +101,9 @@ class _IndividualLocationState extends State<IndividualLocation> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                     const Text('3 of 4',
-                    style: TextStyle(color: Colors.red),),
-                    const SizedBox(width: 250),
+                    style: TextStyle( fontSize: 15,
+                      fontWeight: FontWeight.bold,color: Colors.red),),
+                    const SizedBox(width: 40),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: (){

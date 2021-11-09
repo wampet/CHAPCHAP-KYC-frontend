@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   custom_splash:
   splashscreen:
+  dotted_border: ^2.0.0+1
+  # dotted_border: ^2.0.0+1
 
 
 dev_dependencies:

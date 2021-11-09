@@ -60,7 +60,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                          'Upload a picture of your \nBusiness Certificate of \nincorporation',
+                          'Upload your Certificate \nof incorporation',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
@@ -102,7 +102,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                         '4 of 5',
                         style: TextStyle(color: Colors.red),
                       ),
-                      const SizedBox(width: 250),
+                      const SizedBox(width: 60),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(primary: Colors.red),
                           onPressed: () {

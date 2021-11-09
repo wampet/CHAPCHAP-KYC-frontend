@@ -3,13 +3,10 @@
 // ignore: file_names
 // ignore_for_file: prefer_const_constructors
 
+import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-// ignore: unused_import
-import '../kyc_icons_icons.dart';
-
-//import 'package:intl/intl.dart';
-import 'registered_nationalid.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class National_id extends StatelessWidget {
   const National_id({Key? key}) : super(key: key);
@@ -37,100 +34,146 @@ class National_id extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: <Widget>[
-            const Text('Progress', style: TextStyle(fontSize: 25)),
-            LinearProgressIndicator(
-              backgroundColor: Colors.grey,
-              value: 0.4,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-              minHeight: 15,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 5, 10, 0),
+                  child: const Text(
+                    'Progress',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 3, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: const LinearProgressIndicator(
+                      value: 0.7,
+                      backgroundColor: Colors.grey,
+                      minHeight: 10,
+                      color: Colors.red),
+                ),
+              ],
             ),
             Row(
-              children: [
-                const Text('Upload your National ID ',
-                    style: TextStyle(fontSize: 23)),
-                const Text(' Pending',
-                    style: TextStyle(fontSize: 20, color: Colors.orange))
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 30, 10, 0),
+                  child: const Text(
+                    'Upload your National ID ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(5, 30, 10, 0),
+                  child: const Text(
+                    'pending',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 9,
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 3),
-            Row(
-              children: [
-                Text('Front', style: TextStyle(fontSize: 23)),
-              ],
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            Card(
-            
-
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.5)),
-              child: InkWell(
-               onTap: (){},
-               child: Container(
-                 width: 300,
-                 height: 200,
-                 child: Icon(
-                        KycIcons.doc_text_inv,
-                        size: 50,
-                        color: Colors.red,
-                      ),
-               ),
-              ),
-              
-            ),
-            
-            SizedBox(height: 3),
-            Row(
-              children: [Text('Back', style: TextStyle(fontSize: 23))],
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.5)),
-              child: InkWell(
-               onTap: (){},
-               child: Container(
-                 width: 300,
-                 height: 200,
-                child: Icon(
-                        KycIcons.doc_text_inv,
-                        size: 50,
-                        color: Colors.red,
-                      ),
-               ),
-              ),
-              
-            ),
-            Row(
-              children: [
-                Text('2 of 4',
-                    style: TextStyle(fontSize: 23, color: Colors.red)),
-              
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(0, 15, 10, 0),
+                        child: Text('Front', style: TextStyle(fontSize: 16))),
+                  ],
+                ),
                 SizedBox(
-                  width: 180,
+                  height: 3,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/individuallocation');
-                  },
-                  child: Text('Next'),
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                DottedBorder(
+                  
+                  color: Colors.red,
+                  strokeWidth: 1,
+                  child: Container(
+                      // height:,
+                      padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            KycIcons.id_card,
+                            color: Colors.red,
+                            size: 80,
+                          ))),
+                ),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(0, 20, 0, 5),
+                        child: Text('Back', style: TextStyle(fontSize: 16))),
+                  ],
+                ),
+               
+                DottedBorder(
+                  color: Colors.red,
+                  strokeWidth: 1,
+                  child: Container(
+                      // height:,
+                      padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            KycIcons.id_card,
+                            color: Colors.red,
+                            size: 80,
+                          ))),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                  child: const Text(
+                    '2 of 4',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/individuallocation');
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                      ),
+                      child: const Text('Next',
+                          style: TextStyle(color: Colors.white))),
                 ),
               ],
             ),
 
-            
           ],
         ),
       ),
-
     );
   }
-
-
 }

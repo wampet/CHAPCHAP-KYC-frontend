@@ -1,6 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
 import '../kyc_icons_icons.dart';
+
 class RegisteredNationalID extends StatelessWidget {
   const RegisteredNationalID({Key? key}) : super(key: key);
 
@@ -23,97 +28,148 @@ class RegisteredNationalID extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
+       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: <Widget>[
-            const Text('Progress', style: TextStyle(fontSize: 25)),
-            LinearProgressIndicator(
-              backgroundColor: Colors.grey,
-              value: 0.4,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-              minHeight: 15,
-            ),
-            Row(
-              children: const [
-                Text('Upload your National ID ',
-                    style: TextStyle(fontSize: 23)),
-                Text(
-                  ' Verified',
-                  style: TextStyle(fontSize: 20, color: Colors.green),
-                ),
-              ],
-            ),
-            SizedBox(height: 3),
-            Row(
-              children: const [
-                Text('Front', style: TextStyle(fontSize: 23)),
-              ],
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            Card(
-            
-
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.5)),
-              child: InkWell(
-               onTap: (){},
-               child: Container(
-                 width: 300,
-                 height: 200,
-                 child: Icon(
-                        KycIcons.doc_text_inv,
-                        size: 50,
-                        color: Colors.red,
-                      ),
-               ),
-              ),
-              
-            ),
-            SizedBox(height: 3),
-            Row(
-              children: const [Text('Back', style: TextStyle(fontSize: 23))],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-            
-
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.5)),
-              child: InkWell(
-               onTap: (){},
-               child: Container(
-                 width: 300,
-                 height: 200,
-                 child: Icon(
-                        KycIcons.doc_text_inv,
-                        size: 50,
-                        color: Colors.red,
-                      ),
-               ),
-              ),
-              
-            ),
-            Row(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('2 of 5',
-                    style: TextStyle(fontSize: 23, color: Colors.red)),
-                SizedBox(
-                  width: 200,
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 5, 10, 0),
+                  child: const Text(
+                    'Progress',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/Lcletter');
-                  },
-                  child: Text('Next'),
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 3, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: const LinearProgressIndicator(
+                      value: 0.7,
+                      backgroundColor: Colors.grey,
+                      minHeight: 10,
+                      color: Colors.red),
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 30, 10, 0),
+                  child: const Text(
+                    'Upload your National ID ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(5, 30, 10, 0),
+                  child: const Text(
+                    'pending',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 9,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 3),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(0, 15, 10, 0),
+                        child: Text('Front', style: TextStyle(fontSize: 16))),
+                  ],
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                DottedBorder(
+                  
+                  color: Colors.red,
+                  strokeWidth: 1,
+                  child: Container(
+                      // height:,
+                      padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            KycIcons.id_card,
+                            color: Colors.red,
+                            size: 80,
+                          ))),
+                ),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(0, 20, 0, 5),
+                        child: Text('Back', style: TextStyle(fontSize: 16))),
+                  ],
+                ),
+               
+                DottedBorder(
+                  color: Colors.red,
+                  strokeWidth: 1,
+                  child: Container(
+                      // height:,
+                      padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            KycIcons.id_card,
+                            color: Colors.red,
+                            size: 80,
+                          ))),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                  child: const Text(
+                    '2 of 5',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Lcletter');
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                      ),
+                      child: const Text('Next',
+                          style: TextStyle(color: Colors.white))),
+                ),
+              ],
+            ),
+
           ],
         ),
       ),
