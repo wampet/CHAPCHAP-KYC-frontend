@@ -22,82 +22,79 @@ class SelectUser extends StatelessWidget {
           backgroundColor: Colors.white,
         ),
         body: Container(
-            padding: const EdgeInsets.fromLTRB(40.0, 25.0, 0, 25.0),
+            margin :const EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 25.0),
             child: Column(
+              crossAxisAlignment:CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                    flex: 1,
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const <Widget>[
-                          Text('Hello John',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17)),
-                          Text(
-                            'Let\'s start by getting to know your business type',
-                            style: TextStyle(fontSize: 15.0),
-                          )
-                        ])),
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    margin: const EdgeInsets.all(10.0),
-                    height: 250,
-                    width: 300.0,
-                    child: Card(
-                      color: Colors.red,
-                      child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/individualcards');
-                          },
-                          
-
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.person,
-                                color: Colors.white,
-                                size: 60.0,
-                              ),
-                              Text(
-                                'Individual Owner',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          )),
+                    Container(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const <Widget>[
+                            Text('Hello John',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 17)),
+                            Text(
+                              'Let\'s start by getting to know your business type',
+                              style: TextStyle(fontSize: 15.0),
+                            )
+                          ]),
                     ),
+                        
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0,10,0,10),
+                  height: 250,
+                  width: 250,
+                  child: Card(
+                    color: Colors.red,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/individualcards');
+                        },
+                        
+
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.person,
+                              color: Colors.white,
+                              size: 80.0,
+                            ),
+                            Text(
+                              'Individual Owner',
+                              style: TextStyle(color: Colors.white, fontWeight:FontWeight.bold,fontSize:16),
+                            ),
+                          ],
+                        )),
                   ),
                 ),
-                Expanded(
-                    flex: 4,
-                    child: Container(
-                      margin: const EdgeInsets.all(10.0),
-                      height: 250,
-                      width: 300.0,
-                      child: Card(
-                          color: Colors.red,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/cardspage');
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  KycIcons.group,
-                                  color: Colors.white,
-                                  size: 60.0,
-                                ),
-                                Text(
-                                  'Registered Owner',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0,10,0,10),
+                  height: 250,
+                  width: 250,
+                  child: Card(
+                      color: Colors.red,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/cardspage');
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              KycIcons.group,
+                              color: Colors.white,
+                              size: 80.0,
                             ),
-                          )),
-                    )),
+                            Text(
+                              'Registered Owner',
+                              style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:16),
+                            ),
+                          ],
+                        ),
+                      )),
+                ),
               ],
             )));
   }
