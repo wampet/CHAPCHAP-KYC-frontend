@@ -46,7 +46,8 @@ class IndividualCardsState extends State<IndividualCards> {
                       ),
                     ),
                   ),
-                  Container(
+                  Container
+                  (
                     margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: const LinearProgressIndicator(
