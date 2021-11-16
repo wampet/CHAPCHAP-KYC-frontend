@@ -1,5 +1,11 @@
+// import 'dart:html';
+
+import 'dart:io';
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
+import 'package:chapchap_kyc_frontend/pages/kyc_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SelfieUpload extends StatefulWidget {
   const SelfieUpload({Key? key}) : super(key: key);
@@ -9,6 +15,7 @@ class SelfieUpload extends StatefulWidget {
 }
 
 class _SelfieUploadState extends State<SelfieUpload> {
+ File _pickedImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,31 +39,6 @@ class _SelfieUploadState extends State<SelfieUpload> {
           constraints: const BoxConstraints(maxHeight: 600.0),
           child: Column(
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
-                    child: const Text(
-                      'Progress',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const LinearProgressIndicator(
-                        value: 0.7,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red),
-                  ),
-                ],
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -66,7 +48,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       'Take your selfie',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -77,24 +59,61 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       'pending',
                       style: TextStyle(
                         color: Colors.orange,
-                        fontSize: 9,
+                        fontSize: 10,
                       ),
                     ),
                   ),
                 ],
               ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
-                radius: 80,
-              ),
+              // const CircleAvatar(
+              //   backgroundColor: Colors.white,
+              //   child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
+              //   radius: 80,
+              // ),
               Column(
                 children: [
+                  Container(
+                    height: 100,
+                    width: 100,
+                    child: Image.asset(
+                      'assets/face-scan.png',
+                      color: Colors.red,
+                    ),
+                  ),
+                  Container(
+                    // decoration: ,
+                    width: 150,
+                    margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    padding: EdgeInsets.all(8),
+                    color: Colors.red,
+                    child: InkWell(
+                      onTap: () {
+                        _showPickedOptionsDialog(context);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(
+                              KycIcons.photo_camera,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            child: const Text('Take your selfie',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   // ignore: avoid_unnecessary_containers
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                     child: const Text(
-                      'Your selfie will help us to confirm your identity and to serve you better.',
+                      'Make sure your face fits well within the frame',
                       style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ),
@@ -114,19 +133,19 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/individualNationalId');
+                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, '/individualNationalId');
                             },
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.red),
+                            child: Icon(
+                              Kyc.right_circle,
+                              color: Colors.red,
+                              size: 40,
                             ),
-                            child: const Text('Next',
-                                style: TextStyle(color: Colors.white))),
-                      ),
+                          )),
                     ],
                   ),
                 ],
@@ -136,5 +155,35 @@ class _SelfieUploadState extends State<SelfieUpload> {
         ),
       ),
     );
+  }
+
+  _loadPicker(ImageSource source) async {
+    File picked = await ImagePicker().pickImage(source: source);
+    if (picked != null) {
+      setState(() {
+        _pickedImage = picked as File;
+        //picked = _pickedImage;
+      });
+    }
+  }
+
+  void _showPickedOptionsDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: Text('Pick from Gallery'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    title: Text('Take a Picture'),
+                    onTap: () {},
+                  )
+                ],
+              ),
+            ));
   }
 }
