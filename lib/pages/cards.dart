@@ -32,8 +32,34 @@ class IndividualCardsState extends State<IndividualCards> {
         centerTitle: true,
       ),
       body: Column(children: [
+        Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
+                    child: const Text(
+                      'Progress',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Container
+                  (
+                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: const LinearProgressIndicator(
+                        value: 0.7,
+                        backgroundColor: Colors.grey,
+                        minHeight: 10,
+                        color: Colors.red),
+                  ),
+                ],
+              ),
         Container(
-          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
@@ -42,33 +68,11 @@ class IndividualCardsState extends State<IndividualCards> {
                   fontWeight: FontWeight.bold)),
         ),
         // CustomCard(),
-        Card(
-          margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
-          color: Colors.red,
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, '/individualNationalId');
-            },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.id_card,
-                    size: 20,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              title: Text('Upload your National ID',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-          ),
-        ),
-
-        Card(
+        //selfie
+        //id
+        //business location
+        //LCletter
+         Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
           color: Colors.red,
           child: InkWell(
@@ -93,9 +97,36 @@ class IndividualCardsState extends State<IndividualCards> {
             ),
           ),
         ),
+        Card(
+          margin: EdgeInsets.fromLTRB(20, 9, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/individualNationalId');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.id_card,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your National ID',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
+
+       
 
         Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(20, 10, 20, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -120,7 +151,7 @@ class IndividualCardsState extends State<IndividualCards> {
           ),
         ),
         Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(20, 10, 20, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {

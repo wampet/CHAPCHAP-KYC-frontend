@@ -33,8 +33,33 @@ class _CardsPageState extends State<CardsPage> {
         centerTitle: true,
       ),
       body: Column(children: [
+        Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
+                    child: const Text(
+                      'Progress',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: const LinearProgressIndicator(
+                        value: 0.7,
+                        backgroundColor: Colors.grey,
+                        minHeight: 10,
+                        color: Colors.red),
+                  ),
+                ],
+              ),
         Container(
-          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsets.fromLTRB(20, 30, 20, 10),
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
@@ -43,6 +68,37 @@ class _CardsPageState extends State<CardsPage> {
                   fontWeight: FontWeight.bold)),
         ),
         // CustomCard(),
+
+        //Selfie
+        //id
+        //letter
+        //certificate
+        //business location
+       Card(
+          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          color: Colors.red,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/businessselfie');
+            },
+            child: ListTile(
+              leading: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(5),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    KycIcons.doc_text_inv,
+                    size: 20,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              title: Text('Upload your Profile Picture',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+          ),
+        ),
         Card(
           margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
           color: Colors.red,
@@ -93,31 +149,7 @@ class _CardsPageState extends State<CardsPage> {
             ),
           ),
         ),
-        Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
-          color: Colors.red,
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, '/businessselfie');
-            },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.doc_text_inv,
-                    size: 20,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              title: Text('Upload your Profile Picture',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-          ),
-        ),
+        
         Card(
           margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
           color: Colors.red,
