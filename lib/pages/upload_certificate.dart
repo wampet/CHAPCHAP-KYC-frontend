@@ -1,6 +1,7 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class BusinessCertificate extends StatefulWidget {
   const BusinessCertificate({Key? key}) : super(key: key);
@@ -46,11 +47,12 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                       Container(
                         alignment: Alignment.topCenter,
                         margin: const EdgeInsets.all(10),
-                        child: const LinearProgressIndicator(
-                            value: 0.7,
-                            backgroundColor: Colors.grey,
-                            minHeight: 10,
-                            color: Colors.red),
+                        child: const StepProgressIndicator(
+                                totalSteps: 5,
+                                currentStep: 4,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                       ),
                     ],
                   )),

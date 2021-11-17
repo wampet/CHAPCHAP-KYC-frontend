@@ -1,6 +1,7 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class IndividualLocation extends StatefulWidget {
   const IndividualLocation({Key? key}) : super(key: key);
@@ -46,12 +47,12 @@ class _IndividualLocationState extends State<IndividualLocation> {
                   Container(
                     alignment: Alignment.topCenter,
                     margin: const EdgeInsets.fromLTRB(0, 5, 10, 30),
-                    child: const LinearProgressIndicator(
-                        value: 0.9,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red
-                    ) ,
+                    child: const StepProgressIndicator(
+                                totalSteps: 4,
+                                currentStep: 3,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                   ),
                 ],
               ),

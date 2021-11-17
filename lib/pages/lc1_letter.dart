@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 
 class LcLetter extends StatefulWidget {
@@ -52,12 +53,12 @@ class _LcLetterState extends State<LcLetter> {
                     Container(
                       alignment: Alignment.topCenter,
                       margin: const EdgeInsets.all(10),
-                      child: const LinearProgressIndicator(
-                          value: 0.7,
-                          backgroundColor: Colors.grey,
-                          minHeight: 10,
-                          color: Colors.red
-                      ) ,
+                      child: const StepProgressIndicator(
+                                totalSteps: 5,
+                                currentStep: 3,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                     ),
                   ],
               )),
