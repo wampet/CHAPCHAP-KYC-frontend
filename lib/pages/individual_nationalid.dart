@@ -3,13 +3,18 @@
 // ignore: file_names
 // ignore_for_file: prefer_const_constructors
 
+
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:image_picker/image_picker.dart';
 
 class National_id extends StatelessWidget {
   const National_id({Key? key}) : super(key: key);
+  
+
 
   @override
   Widget build(BuildContext context) {

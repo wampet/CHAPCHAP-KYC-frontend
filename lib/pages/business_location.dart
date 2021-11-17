@@ -1,6 +1,16 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
+
+import 'dart:async';
+//import 'dart:io';
+
+import 'package:flutter/foundation.dart';
+//import 'package:flutter/material.dart';
+//import 'package:image_picker/image_picker.dart';
+//import 'package:video_player/video_player.dart';
 
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({ Key? key }) : super(key: key);
@@ -10,6 +20,14 @@ class BusinessLocation extends StatefulWidget {
 }
 
 class _BusinessLocationState extends State<BusinessLocation> {
+   File? _image;
+    final ImagePicker _picker = ImagePicker();
+   Future<void> getImage()async{
+  final image =await _picker.pickImage(source: ImageSource.camera);
+  if(image != null){
+    setState(()=> _image = File(image.path));
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,10 +102,19 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ),
                 ],
               ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
-                radius: 80,
+              Container(
+                //backgroundColor: Colors.white,
+                //radius: 70,
+                child:_image==null ? InkWell(
+                  onTap: getImage,
+                  // onTap: (){
+                  //   print('object');
+                  // },
+                  child: Container(
+                    child:Text('Upload Your image') ,
+                  )):Image.file(_image!),
+                //   child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red))
+                // :Image.file(_image!)
               ),
               Column(
                 children: [

@@ -38,6 +38,8 @@ dependencies:
   splashscreen:
   dotted_border: ^2.0.0+1
   # dotted_border: ^2.0.0+1
+  image_picker: ^0.8.4+4
+  video_player: ^2.2.7
 
 
 dev_dependencies:
