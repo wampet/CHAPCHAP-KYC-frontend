@@ -27,6 +27,17 @@ class _BusinessLocationState extends State<BusinessLocation> {
   if(image != null){
     setState(()=> _image = File(image.path));
   }
+  Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+  }
+  
+  // void ShowPicker(content)  {
+    
+  // }
+  
 }
   @override
   Widget build(BuildContext context) {
@@ -103,17 +114,26 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 ],
               ),
               Container(
-                //backgroundColor: Colors.white,
-                //radius: 70,
+                
+                
                 child:_image==null ? InkWell(
-                  onTap: getImage,
-                  // onTap: (){
-                  //   print('object');
-                  // },
+                  onTap: (){
+                    ShowPicker(context);
+                  },
+                  
                   child: Container(
-                    child:Text('Upload Your image') ,
-                  )):Image.file(_image!),
-                //   child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red))
+                    child:CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  ):ClipOval(
+                    //radius:70,
+                    //backgroundColor: Colors.white,
+                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                  ),
+                //   
                 // :Image.file(_image!)
               ),
               Column(
@@ -163,6 +183,33 @@ class _BusinessLocationState extends State<BusinessLocation> {
           ),
         ),
       ),
+    );
+  }
+Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+  }
+
+  void ShowPicker(content) {
+     showModalBottomSheet(context: context, builder: (BuildContext bc){
+      return SafeArea(child: Wrap(
+         children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+      )
+      );
+    }
     );
   }
 }
