@@ -1,6 +1,14 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+
 
 
 class BusinessLocation extends StatefulWidget {
@@ -11,6 +19,24 @@ class BusinessLocation extends StatefulWidget {
 }
 
 class _BusinessLocationState extends State<BusinessLocation> {
+   File? _image;
+    final ImagePicker _picker = ImagePicker();
+   Future<void> getImage()async{
+  final image =await _picker.pickImage(source: ImageSource.camera);
+  
+  if(image != null){
+    setState(()=> _image = File(image.path));
+  }
+  Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+  }
+  
+  
+  
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,11 +102,32 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ),
                 ],
               ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
-                radius: 80,
+              Container(
+                
+                
+                child:_image==null ? InkWell(
+                  onTap: (){
+                    ShowPicker(context);
+                  },
+                  
+                  child: Container(
+                    child:CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  ):ClipOval(
+                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                  )
               ),
+              TextButton(onPressed:RemoveImage
+                
+              , child:Text('X Remove',style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
@@ -128,6 +175,38 @@ class _BusinessLocationState extends State<BusinessLocation> {
           ),
         ),
       ),
+    );
+  }
+Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+  }
+ void RemoveImage(){
+    setState(() {
+      _image=null;
+    });
+  }
+  void ShowPicker(content) {
+     showModalBottomSheet(context: context, builder: (BuildContext bc){
+      return SafeArea(child: Wrap(
+         children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+      )
+      );
+    }
+    
     );
   }
 }

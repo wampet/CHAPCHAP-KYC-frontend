@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chapchap_kyc_frontend">
    <application
+        android:requestLegacyExternalStorage="true"
         android:label="chapchap_kyc_frontend"
         android:icon="@mipmap/ic_launcher">
         <activity
