@@ -2,15 +2,9 @@ import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-
-
 import 'dart:async';
-//import 'dart:io';
-
 import 'package:flutter/foundation.dart';
-//import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
-//import 'package:video_player/video_player.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({ Key? key }) : super(key: key);
@@ -24,6 +18,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
     final ImagePicker _picker = ImagePicker();
    Future<void> getImage()async{
   final image =await _picker.pickImage(source: ImageSource.camera);
+  
   if(image != null){
     setState(()=> _image = File(image.path));
   }
@@ -34,9 +29,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
     }
   }
   
-  // void ShowPicker(content)  {
-    
-  // }
+  
   
 }
   @override
@@ -129,13 +122,16 @@ class _BusinessLocationState extends State<BusinessLocation> {
                       )
                     )
                   ):ClipOval(
-                    //radius:70,
-                    //backgroundColor: Colors.white,
                     child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
-                  ),
-                //   
-                // :Image.file(_image!)
+                  )
               ),
+              TextButton(onPressed:RemoveImage
+                
+              , child:Text('X Remove',style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
@@ -191,7 +187,11 @@ Future<void> galleryImage()async{
       setState(()=> _image = File(image.path));
     }
   }
-
+ void RemoveImage(){
+    setState(() {
+      _image=null;
+    });
+  }
   void ShowPicker(content) {
      showModalBottomSheet(context: context, builder: (BuildContext bc){
       return SafeArea(child: Wrap(
@@ -210,6 +210,7 @@ Future<void> galleryImage()async{
       )
       );
     }
+    
     );
   }
 }
