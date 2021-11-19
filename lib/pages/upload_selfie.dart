@@ -2,6 +2,7 @@ import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class BusinessSelfie extends StatefulWidget {
   const BusinessSelfie({Key? key}) : super(key: key);
@@ -37,21 +38,16 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 10.0),
-                        child: const Text(
-                          'Progress',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      
                       Container(
                         alignment: Alignment.topCenter,
                         margin: const EdgeInsets.all(10),
-                        child: const LinearProgressIndicator(
-                            value: 0.7,
-                            backgroundColor: Colors.grey,
-                            minHeight: 10,
-                            color: Colors.red),
+                        child: const StepProgressIndicator(
+                                totalSteps: 5,
+                                currentStep: 1,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                       ),
                     ],
                   )),
