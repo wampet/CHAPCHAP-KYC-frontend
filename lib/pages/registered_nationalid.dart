@@ -3,6 +3,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../kyc_icons_icons.dart';
 
@@ -37,23 +38,14 @@ class RegisteredNationalID extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 5, 10, 0),
-                  child: const Text(
-                    'Progress',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-                Container(
                   margin: const EdgeInsets.fromLTRB(0, 3, 10, 0),
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: const LinearProgressIndicator(
-                      value: 0.7,
-                      backgroundColor: Colors.grey,
-                      minHeight: 10,
-                      color: Colors.red),
+                  child: const StepProgressIndicator(
+                                totalSteps: 5,
+                                currentStep: 2,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                 ),
               ],
             ),

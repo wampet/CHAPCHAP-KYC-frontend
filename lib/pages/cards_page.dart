@@ -33,31 +33,6 @@ class _CardsPageState extends State<CardsPage> {
         centerTitle: true,
       ),
       body: Column(children: [
-        Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
-                    child: const Text(
-                      'Progress',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const LinearProgressIndicator(
-                        value: 0.7,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red),
-                  ),
-                ],
-              ),
         Container(
           margin: const EdgeInsets.fromLTRB(20, 30, 20, 10),
           child: const Text(
