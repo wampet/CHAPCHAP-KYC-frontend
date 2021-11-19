@@ -42,11 +42,7 @@ class IndividualCardsState extends State<IndividualCards> {
                   fontSize: 17,
                   fontWeight: FontWeight.bold)),
         ),
-        // CustomCard(),
-        //selfie
-        //id
-        //business location
-        //LCletter
+    
          Card(
           margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
           color: Colors.red,
@@ -54,21 +50,24 @@ class IndividualCardsState extends State<IndividualCards> {
             onTap: () {
               Navigator.pushNamed(context, '/selfieUpload');
             },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.doc_text_inv,
-                    size: 20,
-                    color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+              child: ListTile(
+                leading: Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.all(5),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      KycIcons.user_2,
+                      size: 25,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
+                title: Text('Upload your Selfie',
+                    style: TextStyle(color: Colors.white, fontSize: 16)),
               ),
-              title: Text('Upload your Selfie',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),
         ),
@@ -79,21 +78,24 @@ class IndividualCardsState extends State<IndividualCards> {
             onTap: () {
               Navigator.pushNamed(context, '/individualNationalId');
             },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.id_card,
-                    size: 20,
-                    color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+              child: ListTile(
+                leading: Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.all(5),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      KycIcons.id_card,
+                      size: 25,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
+                title: Text('Upload your National ID',
+                    style: TextStyle(color: Colors.white, fontSize: 16)),
               ),
-              title: Text('Upload your National ID',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),
         ),
@@ -107,21 +109,24 @@ class IndividualCardsState extends State<IndividualCards> {
             onTap: () {
               Navigator.pushNamed(context, '/individuallocation');
             },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.store_mall_directory,
-                    size: 20,
-                    color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+              child: ListTile(
+                leading: Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.all(5),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      KycIcons.store_mall_directory,
+                      size: 25,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
+                title: Text('Upload your Business Shop',
+                    style: TextStyle(color: Colors.white, fontSize: 16)),
               ),
-              title: Text('Upload your Business location',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),
         ),
@@ -132,21 +137,24 @@ class IndividualCardsState extends State<IndividualCards> {
             onTap: () {
               Navigator.pushNamed(context, '/optionalletter');
             },
-            child: ListTile(
-              leading: Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(5),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(
-                    KycIcons.doc_text_inv,
-                    size: 20,
-                    color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+              child: ListTile(
+                leading: Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.all(5),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      KycIcons.doc_text_inv,
+                      size: 25,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
+                title: Text('Upload your LC1 Letter(Optional)',
+                    style: TextStyle(color: Colors.white, fontSize: 16)),
               ),
-              title: Text('Upload your LC1 Letter(Optional)',
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
           ),
         )

@@ -1,3 +1,4 @@
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -153,20 +154,20 @@ class _BusinessLocationState extends State<BusinessLocation> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/finalScreen');
-                            },
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.red),
-                            ),
-                            child: const Text('Next',
-                                style: TextStyle(color: Colors.white))),
-                      ),
+                       Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/finalScreen');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
                     ],
                   ),
                 ],
@@ -210,3 +211,4 @@ Future<void> galleryImage()async{
     );
   }
 }
+

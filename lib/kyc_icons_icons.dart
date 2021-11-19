@@ -16,10 +16,10 @@
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
-/// * Entypo, Copyright (C) 2012 by Daniel Bruce
-///         Author:    Daniel Bruce
+/// * Web Symbols, Copyright (c) 2011 by Just Be Nice studio. All rights reserved.
+///         Author:    Just Be Nice studio
 ///         License:   SIL (http://scripts.sil.org/OFL)
-///         Homepage:  http://www.entypo.com
+///         Homepage:  http://www.justbenicestudio.com/
 /// * Typicons, (c) Stephen Hutchings 2012
 ///         Author:    Stephen Hutchings
 ///         License:   SIL (http://scripts.sil.org/OFL)
@@ -32,18 +32,22 @@
 ///         Author:    Aristeides Stathopoulos
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://aristeides.com/
+/// * Entypo, Copyright (C) 2012 by Daniel Bruce
+///         Author:    Daniel Bruce
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://www.entypo.com
 /// * Iconic, Copyright (C) 2012 by P.J. Onori
 ///         Author:    P.J. Onori
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://somerandomdude.com/work/iconic/
-/// * MFG Labs, Copyright (C) 2012 by Daniel Bruce
-///         Author:    MFG Labs
-///         License:   SIL (http://scripts.sil.org/OFL)
-///         Homepage:  http://www.mfglabs.com/
 /// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
 ///         Homepage:  http://fortawesome.github.com/Font-Awesome/
+/// * MFG Labs, Copyright (C) 2012 by Daniel Bruce
+///         Author:    MFG Labs
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://www.mfglabs.com/
 /// * Octicons, Copyright (C) 2020 by GitHub Inc.
 ///         Author:    GitHub
 ///         License:   MIT (http://opensource.org/licenses/mit-license.php)
@@ -60,10 +64,9 @@ class KycIcons {
   static const String? _kFontPkg = null;
 
   static const IconData add_a_photo = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData perm_media = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData photo_camera = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData verified_user = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData right_circle = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData note_add = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData user = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData arrow_back = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData account_circle = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData check_circle = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -78,18 +81,25 @@ class KycIcons {
   static const IconData store_mall_directory = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData file_upload = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData home_circled = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home = IconData(0xe814, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user_1 = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData done = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData chat = IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData home_1 = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData navigate_next = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData navigate_before = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData right_open = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData left_open = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData check = IconData(0xf00c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData times = IconData(0xf00d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user_2 = IconData(0xf061, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData doc_text = IconData(0xf0f6, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData folder_empty = IconData(0xf114, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData folder_open_empty = IconData(0xf115, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData chevron_circle_right = IconData(0xf138, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData doc_inv = IconData(0xf15b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData doc_text_inv = IconData(0xf15c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData file_pdf = IconData(0xf1c1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData file_image = IconData(0xf1c5, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData id_card = IconData(0xf2c2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData verified = IconData(0xf3a2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData id_card_alt = IconData(0xf47f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
