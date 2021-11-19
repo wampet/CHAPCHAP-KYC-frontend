@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -62,9 +64,9 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 40, 20, 50),
+                    margin: const EdgeInsets.fromLTRB(10, 40, 10, 50),
                     child: const Text(
-                      'Upload your business Premises',
+                      'Upload your business \nShop',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -84,16 +86,29 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ),
                 ],
               ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
-                radius: 80,
+              Container(
+                margin: const EdgeInsets.fromLTRB(10, 30, 10, 30),
+                child: Card(
+                  color: Colors.white,
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.red,
+                        onPressed: () {},
+                        icon: const Icon(KycIcons.add_a_photo),
+                        iconSize: 25.0,
+                      ),
+                    ),
+                  ),
+                ),
               ),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
+                    margin: const EdgeInsets.fromLTRB(10, 60, 10, 50),
                     child: const Text(
                       'Your upload will help us to know your location and to serve you better.',
                       style: TextStyle(color: Colors.black, fontSize: 16),
@@ -104,7 +119,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: const Text(
                           '5 of 5',
                           style: TextStyle(
@@ -114,20 +129,21 @@ class _BusinessLocationState extends State<BusinessLocation> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/finalScreen');
-                            },
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.red),
-                            ),
-                            child: const Text('Next',
-                                style: TextStyle(color: Colors.white))),
-                      ),
+                       Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/finalScreen');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+                      
                     ],
                   ),
                 ],

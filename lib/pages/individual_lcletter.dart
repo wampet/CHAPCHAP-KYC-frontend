@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../kyc_icons_icons.dart';
@@ -98,22 +100,30 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                     fontSize: 17,
                   )
                   )),
-              Expanded(
-                flex: 1,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                    const Text('4 of 4',
-                    style: TextStyle(color: Colors.red),),
-                    const SizedBox(width: 200),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){
-                         Navigator.pushNamed(context, '/finalScreen');
-                      }, 
-                      child: const Text('Next'))
-                  ],
-                ))
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  const Text('4 of 4',
+                  style: TextStyle(color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,),),
+                  Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/finalScreen');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+              
+                ],
+              )
             ],
          ),
          )

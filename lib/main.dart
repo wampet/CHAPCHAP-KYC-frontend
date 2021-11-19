@@ -29,7 +29,6 @@ void main() => runApp(MaterialApp(
         '/individuallocation': (context) => const IndividualLocation(),
         '/businesslocation':(context)=>const BusinessLocation(),
         '/businessselfie': (context) => const BusinessSelfie(),
-//'/individualselfie': (context)=>const  IndividualSelfie(),
         '/individualNationalId': (context) => const National_id(),
         '/registeredNationalId': (context) => const RegisteredNationalID(),
       },

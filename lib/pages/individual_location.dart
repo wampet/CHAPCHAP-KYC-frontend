@@ -10,28 +10,28 @@ class IndividualLocation extends StatefulWidget {
 }
 
 class _IndividualLocationState extends State<IndividualLocation> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+        appBar: AppBar(
           title: const Text(
             'Individual Owner',
             style: TextStyle(color: Colors.red),
           ),
-          leading:IconButton(onPressed: (){
-            Navigator.of(context).pop();
-          }, 
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
             icon: const Icon(KycIcons.arrow_back),
             color: Colors.red,
-            ),  
-            backgroundColor: Colors.white,
-         ),
-         body: Container(  
-           margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
+          ),
+          backgroundColor: Colors.white,
+        ),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
           child: Column(
             children: [
-              Column( 
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
@@ -39,10 +39,11 @@ class _IndividualLocationState extends State<IndividualLocation> {
                     child: const Text(
                       'Progress',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
                       ),
                     ),
-                  ) ,
+                  ),
                   Container(
                     alignment: Alignment.topCenter,
                     margin: const EdgeInsets.fromLTRB(0, 5, 10, 30),
@@ -50,72 +51,82 @@ class _IndividualLocationState extends State<IndividualLocation> {
                         value: 0.9,
                         backgroundColor: Colors.grey,
                         minHeight: 10,
-                        color: Colors.red
-                    ) ,
+                        color: Colors.red),
                   ),
                 ],
               ),
-              
-            Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                  'Upload your \nBusiness Premises',
-                  style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                        )
-                     ),
-                    //  SizedBox(width: 10),
-                    Text(
-                  'pending',
-                  style: TextStyle(color: Colors.orange,
-                  fontWeight: FontWeight.bold,)
-                  )
-                  ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text('Upload your \nBusiness Premises',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  //  SizedBox(width: 10),
+                  Text('pending',
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontWeight: FontWeight.bold,
+                      ))
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                child: Card(
+                  color: Colors.white,
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.red,
+                        onPressed: () {},
+                        icon: const Icon(KycIcons.add_a_photo),
+                        iconSize: 25.0,
+                      ),
+                    ),
+                  ),
                 ),
-              Expanded(
-                flex: 2,
-                child: CircleAvatar(
-                    radius: 90.0,
-                    backgroundColor: Colors.white,
-                    child: IconButton( 
-                      color: Colors.red,
-                    onPressed: (){}, 
-                    icon: const Icon(KycIcons.add_a_photo),
-                    iconSize: 100.0,),
-                  )),
+              ),
               const Expanded(
-                flex: 1,
-                child: Text(
-                  'Your upload will help us to serve to \nconfirm your identity',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17,
-                  )
-                  )),
+                  flex: 1,
+                  child: Text(
+                      'Your upload will help us to serve to \nconfirm your identity',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                      ))),
               Expanded(
-                flex: 1,
-                child: Row(
+                  flex: 1,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    const Text('3 of 4',
-                    style: TextStyle( fontSize: 15,
-                      fontWeight: FontWeight.bold,color: Colors.red),),
-                    const SizedBox(width: 40),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){
-                        //Navigator.pushNamed(context, '/finalScreen');
-                        Navigator.pushNamed(context, '/optionalletter');
-                      }, 
-                      child: const Text('Next'))
-                  ],
-                ))
+                      const Text(
+                        '3 of 4',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red),
+                      ),
+                      Container(
+                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/optionalletter');
+                            },
+                            child: Icon(
+                              KycIcons.navigate_next,
+                              color: Colors.red,
+                              size: 50,
+                            ),
+                          )),
+                      
+                    ],
+                  ))
             ],
-         ),
-         )
-    );
+          ),
+        ));
   }
 }

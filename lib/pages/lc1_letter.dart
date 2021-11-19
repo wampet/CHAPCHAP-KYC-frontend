@@ -83,17 +83,26 @@ class _LcLetterState extends State<LcLetter> {
                     ],
                   )
               ),
-              Expanded(
-                flex: 4,
-                child: CircleAvatar(
-                    radius: 90.0,
-                    backgroundColor: Colors.white,
-                    child: IconButton( 
-                      color: Colors.red,
-                    onPressed: (){}, 
-                    icon: const Icon(KycIcons.doc_text_inv),
-                    iconSize: 100.0,),
-                  )),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                child: Card(
+                  color: Colors.white,
+                  child: Container(
+                    
+                    padding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.red,
+                        onPressed: () {},
+                        icon: const Icon(KycIcons.doc_text_inv),
+                        iconSize: 25.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              
               const Expanded(
                 flex: 1,
                 child: Text(
@@ -110,13 +119,22 @@ class _LcLetterState extends State<LcLetter> {
                     children: [
                     const Text('3 of 5',
                     style: TextStyle(color: Colors.red),),
-                    const SizedBox(width: 200),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){
-                         Navigator.pushNamed(context, '/businesscertificate');
-                      }, 
-                      child: const Text('Next'))
+                        Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/businesscertificate');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+                 
+                   
                   ],
                 ))
             ],
