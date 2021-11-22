@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
+//import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 
 class IndividualLCletter extends StatefulWidget {
@@ -41,12 +41,12 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                   Container(
                       alignment: Alignment.topCenter,
                       margin: const EdgeInsets.all(10),
-                      child: const StepProgressIndicator(
-                                totalSteps: 4,
-                                currentStep: 4,
-                                selectedColor: Colors.red,
-                                unselectedColor: Colors.grey
-                            ),
+                      // child: const StepProgressIndicator(
+                      //           totalSteps: 4,
+                      //           currentStep: 4,
+                      //           selectedColor: Colors.red,
+                      //           unselectedColor: Colors.grey
+                      //       ),
                     ),
                   ],
               )),
