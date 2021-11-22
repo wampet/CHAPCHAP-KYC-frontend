@@ -13,6 +13,9 @@ class BusinessLocation extends StatefulWidget {
   _BusinessLocationState createState() => _BusinessLocationState();
 }
 
+
+
+
 class _BusinessLocationState extends State<BusinessLocation> {
    File? _image;
     final ImagePicker _picker = ImagePicker();
@@ -22,6 +25,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
   if(image != null){
     setState(()=> _image = File(image.path));
   }
+   Navigator.pop(context);
   Future<void> galleryImage()async{
     final image =await _picker.pickImage(source: ImageSource.gallery);
     if(image != null){
@@ -29,6 +33,21 @@ class _BusinessLocationState extends State<BusinessLocation> {
     }
   }
   
+  // ignore: unused_element
+  
+
+  // final Permission _permission;
+  // PermissionStatus _permissionStatus = PermissionStatus.denied;
+
+  //  Future<void> requestPermission(Permission permission) async {
+  //   final status = await permission.request();
+
+  //   setState(() {
+  //     print(status);
+  //     _permissionStatus = status;
+  //     print(_permissionStatus);
+  //   });
+  // }
   
   
 }
@@ -110,9 +129,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 
                 
                 child:_image==null ? InkWell(
-                  onTap: (){
-                    ShowPicker(context);
-                  },
+                  onTap:openCamera ,
                   
                   child: Container(
                     child:CircleAvatar(
@@ -181,11 +198,33 @@ class _BusinessLocationState extends State<BusinessLocation> {
       ),
     );
   }
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted!=true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted!=true) {
+      Permission.storage.request();
+    }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
+    }
+    
+  }
+
 Future<void> galleryImage()async{
     final image =await _picker.pickImage(source: ImageSource.gallery);
     if(image != null){
       setState(()=> _image = File(image.path));
     }
+    Navigator.pop(context);
   }
  void RemoveImage(){
     setState(() {
@@ -193,9 +232,13 @@ Future<void> galleryImage()async{
     });
   }
   void ShowPicker(content) {
-     showModalBottomSheet(context: context, builder: (BuildContext bc){
-      return SafeArea(child: Wrap(
-         children: [
+    
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
            ListTile(
              leading: Icon(Icons.library_books),
              title: Text('Gallery'),
@@ -207,8 +250,9 @@ Future<void> galleryImage()async{
              onTap: getImage  
            )
          ],
-      )
+        ),  
       );
+      
     }
     
     );
