@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 
 class IndividualLCletter extends StatefulWidget {
@@ -35,24 +38,15 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                 child: Column( 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 10.0),
-                      child: const Text(
-                        'Progress',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ) ,
-                    Container(
+                  Container(
                       alignment: Alignment.topCenter,
                       margin: const EdgeInsets.all(10),
-                      child: const LinearProgressIndicator(
-                          value: 0.7,
-                          backgroundColor: Colors.grey,
-                          minHeight: 10,
-                          color: Colors.red
-                      ) ,
+                      child: const StepProgressIndicator(
+                                totalSteps: 4,
+                                currentStep: 4,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                     ),
                   ],
               )),
@@ -98,22 +92,30 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                     fontSize: 17,
                   )
                   )),
-              Expanded(
-                flex: 1,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                    const Text('4 of 4',
-                    style: TextStyle(color: Colors.red),),
-                    const SizedBox(width: 200),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.red),
-                      onPressed: (){
-                         Navigator.pushNamed(context, '/finalScreen');
-                      }, 
-                      child: const Text('Next'))
-                  ],
-                ))
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  const Text('4 of 4',
+                  style: TextStyle(color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,),),
+                  Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/finalScreen');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+              
+                ],
+              )
             ],
          ),
          )
