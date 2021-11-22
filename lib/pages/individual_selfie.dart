@@ -1,5 +1,6 @@
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class SelfieUpload extends StatefulWidget {
   const SelfieUpload({Key? key}) : super(key: key);
@@ -37,23 +38,14 @@ class _SelfieUploadState extends State<SelfieUpload> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
-                    child: const Text(
-                      'Progress',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const LinearProgressIndicator(
-                        value: 0.7,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red),
+                    child: const StepProgressIndicator(
+                                totalSteps: 4,
+                                currentStep: 1,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                   ),
                 ],
               ),

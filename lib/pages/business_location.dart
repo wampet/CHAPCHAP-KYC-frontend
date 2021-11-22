@@ -1,3 +1,4 @@
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -33,21 +34,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
     }
   }
   
-  // ignore: unused_element
   
-
-  // final Permission _permission;
-  // PermissionStatus _permissionStatus = PermissionStatus.denied;
-
-  //  Future<void> requestPermission(Permission permission) async {
-  //   final status = await permission.request();
-
-  //   setState(() {
-  //     print(status);
-  //     _permissionStatus = status;
-  //     print(_permissionStatus);
-  //   });
-  // }
   
   
 }
@@ -258,3 +245,5 @@ Future<void> galleryImage()async{
     );
   }
 }
+
+
