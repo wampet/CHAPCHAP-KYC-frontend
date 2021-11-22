@@ -1,6 +1,11 @@
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({ Key? key }) : super(key: key);
@@ -9,7 +14,30 @@ class BusinessLocation extends StatefulWidget {
   _BusinessLocationState createState() => _BusinessLocationState();
 }
 
+
+
+
 class _BusinessLocationState extends State<BusinessLocation> {
+   File? _image;
+    final ImagePicker _picker = ImagePicker();
+   Future<void> getImage()async{
+  final image =await _picker.pickImage(source: ImageSource.camera);
+  
+  if(image != null){
+    setState(()=> _image = File(image.path));
+  }
+   Navigator.pop(context);
+  Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+  }
+  
+  
+  
+  
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,11 +112,30 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ),
                 ],
               ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(KycIcons.add_a_photo, size: 80, color: Colors.red),
-                radius: 80,
+              Container(
+                
+                
+                child:_image==null ? InkWell(
+                  onTap:openCamera ,
+                  
+                  child: Container(
+                    child:CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  ):ClipOval(
+                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                  )
               ),
+              TextButton(onPressed:RemoveImage
+                
+              , child:Text('X Remove',style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
@@ -138,4 +185,65 @@ class _BusinessLocationState extends State<BusinessLocation> {
       ),
     );
   }
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted!=true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted!=true) {
+      Permission.storage.request();
+    }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
+    }
+    
+  }
+
+Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+    Navigator.pop(context);
+  }
+ void RemoveImage(){
+    setState(() {
+      _image=null;
+    });
+  }
+  void ShowPicker(content) {
+    
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+        ),  
+      );
+      
+    }
+    
+    );
+  }
 }
+
+

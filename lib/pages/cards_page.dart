@@ -34,7 +34,7 @@ class _CardsPageState extends State<CardsPage> {
       ),
       body: Column(children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsets.fromLTRB(20, 30, 20, 10),
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(

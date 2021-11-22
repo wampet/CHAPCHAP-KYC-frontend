@@ -13,6 +13,7 @@ class _FinalScreenState extends State<FinalScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment:CrossAxisAlignment.stretch,
         children: <Widget>[
           const SizedBox(
             height: 90,
@@ -22,7 +23,7 @@ class _FinalScreenState extends State<FinalScreen> {
           ),
           const Icon(
             KycIcons.check_circle,
-            size: 250,
+            size: 200,
             color: Colors.red,
           ),
           const SizedBox(
@@ -32,7 +33,7 @@ class _FinalScreenState extends State<FinalScreen> {
             children: [
               // ignore: avoid_unnecessary_containers
               Container(
-                padding: const EdgeInsets.fromLTRB(30, 10, 30, 20),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: const Text(
                   'Successfully  Uploaded',
                   style: TextStyle(
@@ -43,10 +44,10 @@ class _FinalScreenState extends State<FinalScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(35, 10, 30, 10),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: const Text(
                   ' Your documents have been submitted.\n Please allow us verify your submission.\n   We will notify you once we are done',
-                  style: TextStyle(color: Colors.red, fontSize: 13.8),
+                  style: TextStyle(color: Colors.red, fontSize: 17),
                 ),
               ),
               const SizedBox(

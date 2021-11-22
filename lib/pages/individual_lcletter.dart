@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+//import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 
 class IndividualLCletter extends StatefulWidget {
@@ -35,24 +36,15 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                 child: Column( 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 10.0),
-                      child: const Text(
-                        'Progress',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ) ,
-                    Container(
+                  Container(
                       alignment: Alignment.topCenter,
                       margin: const EdgeInsets.all(10),
-                      child: const LinearProgressIndicator(
-                          value: 0.7,
-                          backgroundColor: Colors.grey,
-                          minHeight: 10,
-                          color: Colors.red
-                      ) ,
+                      // child: const StepProgressIndicator(
+                      //           totalSteps: 4,
+                      //           currentStep: 4,
+                      //           selectedColor: Colors.red,
+                      //           unselectedColor: Colors.grey
+                      //       ),
                     ),
                   ],
               )),

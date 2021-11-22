@@ -15,7 +15,7 @@ import 'package:chapchap_kyc_frontend/pages/individual_lcletter.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      initialRoute: '/selectuser',
+      initialRoute: '/splashScreen',
       routes: {
         '/selfieUpload': (context) => const SelfieUpload(),
         '/splashScreen': (context) => const SplashScreen(),

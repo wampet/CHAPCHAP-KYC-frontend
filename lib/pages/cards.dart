@@ -32,8 +32,9 @@ class IndividualCardsState extends State<IndividualCards> {
         centerTitle: true,
       ),
       body: Column(children: [
+        
         Container(
-          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
@@ -72,7 +73,7 @@ class IndividualCardsState extends State<IndividualCards> {
           ),
         ),
         Card(
-          margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
+          margin: EdgeInsets.fromLTRB(20, 9, 20, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -100,7 +101,7 @@ class IndividualCardsState extends State<IndividualCards> {
        
 
         Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(20, 10, 20, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -125,7 +126,7 @@ class IndividualCardsState extends State<IndividualCards> {
           ),
         ),
         Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(20, 10, 20, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
