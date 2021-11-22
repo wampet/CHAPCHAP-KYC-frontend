@@ -146,19 +146,22 @@ class RegisteredNationalID extends StatelessWidget {
                   ),
 
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/Lcletter');
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.red),
-                      ),
-                      child: const Text('Next',
-                          style: TextStyle(color: Colors.white))),
-                ),
+                  Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/Lcletter');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+        
+             
               ],
             ),
 

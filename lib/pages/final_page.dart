@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -15,25 +17,21 @@ class _FinalScreenState extends State<FinalScreen> {
       body: Column(
         crossAxisAlignment:CrossAxisAlignment.stretch,
         children: <Widget>[
-          const SizedBox(
-            height: 90,
+        
+          Container(
+            margin: EdgeInsets.fromLTRB(20,80,20,30),
+            child: const Icon(
+              KycIcons.check_circle,
+              size: 150,
+              color: Colors.red,
+            ),
           ),
-          const SizedBox(
-            height: 60,
-          ),
-          const Icon(
-            KycIcons.check_circle,
-            size: 200,
-            color: Colors.red,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+          
           Column(
             children: [
               // ignore: avoid_unnecessary_containers
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                 child: const Text(
                   'Successfully  Uploaded',
                   style: TextStyle(
@@ -44,15 +42,14 @@ class _FinalScreenState extends State<FinalScreen> {
                 ),
               ),
               Container(
+                     margin: const EdgeInsets.fromLTRB(20, 10, 20, 50),
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: const Text(
-                  ' Your documents have been submitted.\n Please allow us verify your submission.\n   We will notify you once we are done',
-                  style: TextStyle(color: Colors.red, fontSize: 17),
+                  'Your documents have been submitted. Please allow us verify your submission.    We will notify you once we are done',
+                  style: TextStyle(color: Colors.red, fontSize: 13.5),
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+            
             ],
           )
         ],

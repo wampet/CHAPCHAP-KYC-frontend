@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -68,18 +70,25 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                           ))
                     ],
                   )),
-              Expanded(
-                  flex: 4,
-                  child: CircleAvatar(
-                    radius: 90.0,
-                    backgroundColor: Colors.white,
-                    child: IconButton(
-                      color: Colors.red,
-                      onPressed: () {},
-                      icon: const Icon(KycIcons.add_a_photo),
-                      iconSize: 100.0,
+            Container(
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                child: Card(
+                  color: Colors.white,
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        color: Colors.red,
+                        onPressed: () {},
+                        icon: const Icon(KycIcons.add_a_photo),
+                        iconSize: 25.0,
+                      ),
                     ),
-                  )),
+                  ),
+                ),
+              ), 
+              
               const Expanded(
                   flex: 1,
                   child: Text(
@@ -97,13 +106,21 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                         '4 of 5',
                         style: TextStyle(color: Colors.red),
                       ),
-                      const SizedBox(width: 60),
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary: Colors.red),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/businesslocation');
+                       Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/businesslocation');
                           },
-                          child: const Text('Next'))
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+        
                     ],
                   ))
             ],

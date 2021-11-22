@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -105,20 +107,22 @@ class _SelfieUploadState extends State<SelfieUpload> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/individualNationalId');
-                            },
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.red),
-                            ),
-                            child: const Text('Next',
-                                style: TextStyle(color: Colors.white))),
-                      ),
+                          Container(
+ 
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/individualNationalId');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+                 
+                 
                     ],
                   ),
                 ],
