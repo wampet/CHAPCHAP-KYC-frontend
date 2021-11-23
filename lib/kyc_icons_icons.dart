@@ -67,6 +67,7 @@ class KycIcons {
   static const IconData verified_user = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData right_circle = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData note_add = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData badlight_id = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData arrow_back = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData account_circle = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData check_circle = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -81,6 +82,7 @@ class KycIcons {
   static const IconData store_mall_directory = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData file_upload = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData normal_id = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home = IconData(0xe814, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user_1 = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData done = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -90,6 +92,8 @@ class KycIcons {
   static const IconData navigate_before = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData right_open = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData left_open = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData blurry_id = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cut_id = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData check = IconData(0xf00c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData times = IconData(0xf00d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user_2 = IconData(0xf061, fontFamily: _kFontFam, fontPackage: _kFontPkg);
