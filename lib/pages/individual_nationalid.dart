@@ -7,6 +7,7 @@ import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -15,264 +16,277 @@ class National_id extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          color: Colors.red,
-          iconSize: 30,
+    return Sizer(builder: (context, orientation, deviceType) {
+      return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            color: Colors.red,
+            iconSize: 30,
+          ),
+          backgroundColor: Colors.white70,
+          title: const Text(
+            "Individual Owner",
+            style: TextStyle(color: Colors.red),
+          ),
+          centerTitle: true,
         ),
-        backgroundColor: Colors.white70,
-        title: const Text(
-          "Individual Owner",
-          style: TextStyle(color: Colors.red),
-        ),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 3, 0, 10),
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: const StepProgressIndicator(
-                      totalSteps: 4,
-                      currentStep: 2,
-                      selectedColor: Colors.red,
-                      unselectedColor: Colors.grey),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 10, 10, 0),
-                  child: const Text(
-                    'Upload your National ID ',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(5, 30, 10, 20),
-                  child: const Text(
-                    'pending',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 9,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(children: [
+        body: Container(
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+            width: 90.w,
+            height: 80.h,
+          child: Column(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child:
-                        Image.asset('assets/normal.png', height: 50, width: 60),
+                    margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    child: const StepProgressIndicator(
+                        totalSteps: 4,
+                        currentStep: 2,
+                        selectedColor: Colors.red,
+                        unselectedColor: Colors.grey),
                   ),
-                  Text('Good',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 7,
-                      )),
-                ]),
-                Column(children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child: Image.asset('assets/cut.png', height: 50, width: 60),
-                  ),
-                  Text('Not cut',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 7,
-                      )),
-                ]),
-                Column(children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child:
-                        Image.asset('assets/blurry.png', height: 50, width: 60),
-                  ),
-                  Text('Not blur',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 7,
-                      )),
-                ]),
-                Column(children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child: Image.asset('assets/reflective.png',
-                        height: 50, width: 60),
-                  ),
-                  Text('Not reflective',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 7,
-                      )),
-                ])
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 20, 0, 3),
-              child: Column(
-                children: <Widget>[
-                  Row(children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      child: Icon(
-                        KycIcons.check,
-                        size: 10,
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                      child: Text('Government-issued',
-                          style: TextStyle(color: Colors.grey, fontSize: 10)),
-                    ),
-                  ]),
-                  Row(children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      child: Icon(
-                        KycIcons.check,
-                        size: 10,
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                      child: Text('Original full-size, unedited documents',
-                          style: TextStyle(color: Colors.grey, fontSize: 10)),
-                    ),
-                  ]),
-                  Row(children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      child: Icon(
-                        KycIcons.check,
-                        size: 10,
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                      child: Text('Readable well-lit, coloured images',
-                          style: TextStyle(color: Colors.grey, fontSize: 10)),
-                    ),
-                  ]),
-                  Row(children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      child: Icon(
-                        KycIcons.times,
-                        size: 10,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                      child: Text('No edited or expired documents',
-                          style: TextStyle(color: Colors.grey, fontSize: 10)),
-                    ),
-                  ]),
                 ],
               ),
-            ),
-            SizedBox(height: 3),
-            Row(
-              children: [
-                Container(
-                    margin: const EdgeInsets.fromLTRB(0, 25, 0, 0),
-                    child: Text(
-                        'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
-                        style: TextStyle(fontSize: 11))),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                
-                SizedBox(
-                  height: 5,
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: const Text(
+                        'Upload your National ID ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(5, 30, 10, 20),
+                      child: const Text(
+                        'pending',
+                        style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                DottedBorder(
-                  color: Colors.red,
-                  strokeWidth: 1,
-                  child: Container(
-                     color:Colors.grey[300],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      child: Image.asset('assets/normal.png',
+                          height: 50, width: 60),
+                    ),
+                    Text('Good',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 7,
+                        )),
+                  ]),
+                  Column(children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      child:
+                          Image.asset('assets/cut.png', height: 50, width: 60),
+                    ),
+                    Text('Not cut',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 7,
+                        )),
+                  ]),
+                  Column(children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      child: Image.asset('assets/blurry.png',
+                          height: 50, width: 60),
+                    ),
+                    Text('Not blur',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 7,
+                        )),
+                  ]),
+                  Column(children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      child: Image.asset('assets/reflective.png',
+                          height: 50, width: 60),
+                    ),
+                    Text('Not reflective',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 7,
+                        )),
+                  ])
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Government-issued',
+                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                      ),
+                    ]),
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Original full-size, unedited documents',
+                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                      ),
+                    ]),
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Readable well-lit, coloured images',
+                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                      ),
+                    ]),
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.times,
+                          size: 10,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('No edited or expired documents',
+                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                      ),
+                    ]),
+                  ],
+                ),
+              ),
+              SizedBox(height: 3),
+              Row(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text(
+                          'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
+                          style: TextStyle(fontSize: 11))),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  SizedBox(
+                    height: 5,
+                  ),
+                  DottedBorder(
+                    color: Colors.red,
+                    strokeWidth: 1,
+                    child: Container(
+                      color: Colors.grey[300],
                       padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
                       //This is where the camera implementaion will take place from
-                    child: InkWell(
-                      onTap:(){},
-                      child: Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Icon(
-                                KycIcons.id_card,
-                                color: Colors.black,
-                                size: 30,
-                              ),
-                              Container(
-                                  margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                  child: Text('Front of document', style: TextStyle(fontSize: 13,color:Colors.grey[900]))),
-                            ],
-                          )),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
-                  child: const Text(
-                    '2 of 4',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/individuallocation');
-                      },
-                      child: Icon(
-                        KycIcons.navigate_next,
-                        color: Colors.red,
-                        size: 60,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: [
+                                Icon(
+                                  KycIcons.id_card,
+                                  color: Colors.black,
+                                  size: 30,
+                                ),
+                                Container(
+                                    margin:
+                                        const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                    child: Text('Front of document',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            color: Colors.grey[900]))),
+                              ],
+                            )),
                       ),
-                    )),
-              ],
-            ),
-          ],
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      // margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                      child: const Text(
+                        '2 of 4',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/individuallocation');
+                          },
+                          child: Icon(
+                            KycIcons.navigate_next,
+                            color: Colors.red,
+                            size: 50,
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
