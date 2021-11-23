@@ -1,16 +1,11 @@
 
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'package:step_progress_indicator/step_progress_indicator.dart';
-
-
 
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({ Key? key }) : super(key: key);
@@ -18,6 +13,7 @@ class BusinessLocation extends StatefulWidget {
   @override
   _BusinessLocationState createState() => _BusinessLocationState();
 }
+
 
 class _BusinessLocationState extends State<BusinessLocation> {
    File? _image;
@@ -28,13 +24,13 @@ class _BusinessLocationState extends State<BusinessLocation> {
   if(image != null){
     setState(()=> _image = File(image.path));
   }
+   Navigator.pop(context);
   Future<void> galleryImage()async{
     final image =await _picker.pickImage(source: ImageSource.gallery);
     if(image != null){
       setState(()=> _image = File(image.path));
     }
   }
-  
   
   
 }
@@ -66,14 +62,23 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 10, 0),
+                    child: const Text(
+                      'Progress',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const StepProgressIndicator(
-                                totalSteps: 5,
-                                currentStep: 5,
-                                selectedColor: Colors.red,
-                                unselectedColor: Colors.grey
-                            ),
+                    child: const LinearProgressIndicator(
+                        value: 0.7,
+                        backgroundColor: Colors.grey,
+                        minHeight: 10,
+                        color: Colors.red),
                   ),
                 ],
               ),
@@ -107,9 +112,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 
                 
                 child:_image==null ? InkWell(
-                  onTap: (){
-                    ShowPicker(context);
-                  },
+                  onTap:openCamera ,
                   
                   child: Container(
                     child:CircleAvatar(
@@ -154,20 +157,20 @@ class _BusinessLocationState extends State<BusinessLocation> {
                           ),
                         ),
                       ),
-                       Container(
-                          margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, '/finalScreen');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        padding:const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/finalScreen');
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.red),
+                            ),
+                            child: const Text('Next',
+                                style: TextStyle(color: Colors.white))),
+                      ),
                     ],
                   ),
                 ],
@@ -178,11 +181,34 @@ class _BusinessLocationState extends State<BusinessLocation> {
       ),
     );
   }
+
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted!=true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted!=true) {
+      Permission.storage.request();
+    }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
+    }
+    
+  }
+
 Future<void> galleryImage()async{
     final image =await _picker.pickImage(source: ImageSource.gallery);
     if(image != null){
       setState(()=> _image = File(image.path));
     }
+    Navigator.pop(context);
   }
  void RemoveImage(){
     setState(() {
@@ -190,9 +216,13 @@ Future<void> galleryImage()async{
     });
   }
   void ShowPicker(content) {
-     showModalBottomSheet(context: context, builder: (BuildContext bc){
-      return SafeArea(child: Wrap(
-         children: [
+    
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
            ListTile(
              leading: Icon(Icons.library_books),
              title: Text('Gallery'),
@@ -204,11 +234,11 @@ Future<void> galleryImage()async{
              onTap: getImage  
            )
          ],
-      )
+        ),  
       );
+      
     }
     
     );
   }
 }
-
