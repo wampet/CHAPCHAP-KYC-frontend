@@ -1,11 +1,10 @@
-
-import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
+import '../kyc_icons_icons.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({ Key? key }) : super(key: key);
@@ -19,18 +18,13 @@ class _BusinessLocationState extends State<BusinessLocation> {
    File? _image;
     final ImagePicker _picker = ImagePicker();
    Future<void> getImage()async{
-  final image =await _picker.pickImage(source: ImageSource.camera);
+      final image =await _picker.pickImage(source: ImageSource.camera);
+      
+      if(image != null){
+        setState(()=> _image = File(image.path));
+      }
+      Navigator.pop(context);
   
-  if(image != null){
-    setState(()=> _image = File(image.path));
-  }
-   Navigator.pop(context);
-  Future<void> galleryImage()async{
-    final image =await _picker.pickImage(source: ImageSource.gallery);
-    if(image != null){
-      setState(()=> _image = File(image.path));
-    }
-  }
   
   
 }
@@ -109,8 +103,6 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 ],
               ),
               Container(
-                
-                
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                   

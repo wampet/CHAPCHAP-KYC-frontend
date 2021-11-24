@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class LcLetter extends StatefulWidget {
   const LcLetter({Key? key}) : super(key: key);
@@ -13,6 +14,17 @@ class LcLetter extends StatefulWidget {
 }
 
 class _LcLetterState extends State<LcLetter> {
+  
+  File? _image;
+    final ImagePicker _picker = ImagePicker();
+   Future<void> getImage()async{
+      final image =await _picker.pickImage(source: ImageSource.camera);
+      
+      if(image != null){
+        setState(()=> _image = File(image.path));
+      }
+      Navigator.pop(context);
+   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,24 +88,27 @@ class _LcLetterState extends State<LcLetter> {
                   )
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                child: Card(
-                  color: Colors.white,
+                child:_image==null ? InkWell(
+                  onTap:openCamera ,
+                  
                   child: Container(
-                    
-                    padding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: IconButton(
-                        color: Colors.red,
-                        onPressed: () {},
-                        icon: const Icon(KycIcons.doc_text_inv),
-                        iconSize: 25.0,
-                      ),
-                    ),
-                  ),
-                ),
+                    child:CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  ):ClipOval(
+                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                  )
               ),
+              TextButton(onPressed:RemoveImage
+                
+              , child:Text('X Remove',style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
               
               const Expanded(
                 flex: 1,
@@ -132,6 +147,65 @@ class _LcLetterState extends State<LcLetter> {
             ],
          ),
          )
+    );
+  }
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted!=true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted!=true) {
+      Permission.storage.request();
+    }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
+    }
+    
+  }
+  
+  Future<void> galleryImage()async{
+    final image =await _picker.pickImage(source: ImageSource.gallery);
+    if(image != null){
+      setState(()=> _image = File(image.path));
+    }
+    Navigator.pop(context);
+  }
+ void RemoveImage(){
+    setState(() {
+      _image=null;
+    });
+  }
+  void ShowPicker(content) {
+    
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+        ),  
+      );
+      
+    }
+    
     );
   }
 }
