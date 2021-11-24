@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -27,71 +28,52 @@ class _LcLetterState extends State<LcLetter> {
    }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          color: Colors.red,
-          iconSize: 30,
-        ),
-        backgroundColor: Colors.white70,
-        title: const Text(
-          "Registered Company",
-          style: TextStyle(color: Colors.red),
-        ),
-        centerTitle: true,
-      ),
-      body:  Container(  
-           margin: const EdgeInsets.fromLTRB(25.0, 15, 25, 25),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Column( 
+    return Sizer(builder: (context, orientation, deviceType) {
+      return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              color: Colors.red,
+              iconSize: 30,
+            ),
+            backgroundColor: Colors.white70,
+            title: const Text(
+              "Registered Company",
+              style: TextStyle(color: Colors.red),
+            ),
+            centerTitle: true,
+          ),
+          body: Container(
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+            width: 90.w,
+            height: 80.h,
+            child: Column(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      alignment: Alignment.topCenter,
-                      margin: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                       child: const StepProgressIndicator(
-                                totalSteps: 5,
-                                currentStep: 3,
-                                selectedColor: Colors.red,
-                                unselectedColor: Colors.grey
-                            ),
+                          totalSteps: 5,
+                          currentStep: 3,
+                          selectedColor: Colors.red,
+                          unselectedColor: Colors.grey),
                     ),
                   ],
+
               )),
-              
-            Expanded(
-              flex: 1,
-              child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                    'Upload your LC1 Letter ',
-                    style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                          )
-                       ),
-                      Text(
-                    'pending',
-                    style: TextStyle(color: Colors.amber,
-                    fontWeight: FontWeight.bold,)
-                    )
-                    ],
-                  )
-              ),
+   
               Container(
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                   
                   child: Container(
+                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                  height: 35.h,
                     child:CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 70,
@@ -110,44 +92,62 @@ class _LcLetterState extends State<LcLetter> {
                             fontWeight: FontWeight.bold,
                           ))),
               
-              const Expanded(
-                flex: 1,
-                child: Text(
-                  'Your upload will help us to serve to \nconfirm your identity',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17,
-                  )
-                  )),
-              Expanded(
-                flex: 1,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                    const Text('3 of 5',
-                    style: TextStyle(color: Colors.red),),
-                        Container(
- 
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, '/businesscertificate');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Upload your LC1 Letter ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         )),
-                 
-                   
+                    Text('pending',
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ))
                   ],
-                ))
-            ],
-         ),
-         )
-    );
+                ),
+                
+                Container(
+                    child: Text(
+                        'Your upload will help us to serve to \nconfirm your identity',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17,
+                        ))),
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          '3 of 5',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold, )
+                        ),
+                        Container(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, '/businesscertificate');
+                              },
+                              child: Icon(
+                                KycIcons.navigate_next,
+                                color: Colors.red,
+                                size: 50,
+                              ),
+                            )),
+                      ],
+                    ))
+              ],
+            ),
+          ));
+    });
   }
   Future <void> openCamera() async{
     var CameraStatus= await Permission.camera;

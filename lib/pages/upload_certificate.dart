@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -28,62 +30,62 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
    }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Registered Company',
-            style: TextStyle(color: Colors.red),
+    return Sizer(builder: (context, orientation, deviceType) {
+      return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              'Registered Company',
+              style: TextStyle(color: Colors.red),
+            ),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(KycIcons.arrow_back),
+              color: Colors.red,
+            ),
+            backgroundColor: Colors.white,
           ),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(KycIcons.arrow_back),
-            color: Colors.red,
-          ),
-          backgroundColor: Colors.white,
-        ),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(25.0, 15, 25, 25),
-          child: Column(
-            children: [
-              Expanded(
-                  flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        alignment: Alignment.topCenter,
-                        margin: const EdgeInsets.all(10),
-                        child: const StepProgressIndicator(
-                                totalSteps: 5,
-                                currentStep: 4,
-                                selectedColor: Colors.red,
-                                unselectedColor: Colors.grey
-                            ),
-                      ),
-                    ],
-                  )),
-              Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                          'Upload your Certificate \nof incorporation',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text('pending',
-                          style: TextStyle(
-                            color: Colors.amber,
-                            fontWeight: FontWeight.bold,
-                          ))
-                    ],
-                  )),
-            Container(
+
+            
+              
+
+          body: Container(
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+            width: 90.w,
+            height: 80.h,            
+            child: Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      child: const StepProgressIndicator(
+                          totalSteps: 5,
+                          currentStep: 4,
+                          selectedColor: Colors.red,
+                          unselectedColor: Colors.grey),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Upload your Certificate \nof incorporation',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text('pending',
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
+                Container(
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                   
@@ -106,43 +108,46 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                             fontWeight: FontWeight.bold,
                           ))),
               
-              const Expanded(
-                  flex: 1,
-                  child: Text(
-                      'Your upload will help us to serve to \nconfirm your identity',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17,
-                      ))),
-              Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        '4 of 5',
-                        style: TextStyle(color: Colors.red),
-                      ),
-                       Container(
- 
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, '/businesslocation');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
+              
+                Container(
+                    child: Text(
+                        'Your upload will help us to serve to \nconfirm your identity',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17,
+                        ))),
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          '4 of 5',
+                          style: TextStyle(
                             color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
-        
-                    ],
-                  ))
-            ],
-          ),
-        ));
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            ),
+                        ),
+                        Container(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, '/businesslocation');
+                              },
+                              child: Icon(
+                                KycIcons.navigate_next,
+                                color: Colors.red,
+                                size: 50,
+                              ),
+                            )),
+                      ],
+                    ))
+              ],
+            ),
+          ));
+    });
   }
   Future <void> openCamera() async{
     var CameraStatus= await Permission.camera;
