@@ -66,14 +66,16 @@ class _BusinessLocationState extends State<BusinessLocation> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 3, 20, 0),
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const LinearProgressIndicator(
-                        value: 0.7,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red),
-                  ),
+                    alignment: Alignment.topCenter,
+                    margin: const EdgeInsets.fromLTRB(0, 5, 10, 30),
+             
+                  child: const StepProgressIndicator(
+                                totalSteps: 5,
+                                currentStep: 5,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
+                ),
                 ],
               ),
               Row(

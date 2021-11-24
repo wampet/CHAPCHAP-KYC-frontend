@@ -62,13 +62,15 @@ class _IndividualLocationState extends State<IndividualLocation> {
                   Container(
                     alignment: Alignment.topCenter,
                     margin: const EdgeInsets.fromLTRB(0, 5, 10, 30),
-                    child: const LinearProgressIndicator(
-                        value: 0.9,
-                        backgroundColor: Colors.grey,
-                        minHeight: 10,
-                        color: Colors.red),
-
-                  ),
+             
+                  child: const StepProgressIndicator(
+                                totalSteps: 4,
+                                currentStep: 3,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
+                ),
+                  
                 ],
               ),
               Row(
