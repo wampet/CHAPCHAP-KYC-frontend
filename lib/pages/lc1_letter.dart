@@ -69,7 +69,26 @@ class _LcLetterState extends State<LcLetter> {
               
               
    
-              Container(
+             
+              
+                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Upload your LC1 Letter ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text('pending',
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
+                 Container(
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                   
@@ -93,25 +112,6 @@ class _LcLetterState extends State<LcLetter> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ))),
-              
-                
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your LC1 Letter ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Text('pending',
-                        style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
-                ),
-                
                 Container(
                     child: Text(
                         'Your upload will help us to serve to \nconfirm your identity',

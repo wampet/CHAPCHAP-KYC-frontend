@@ -44,109 +44,124 @@ class _IndividualLocationState extends State<IndividualLocation> {
             ),
             backgroundColor: Colors.white,
           ),
-          body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
-            width: 90.w,
-            height: 80.h,
-            child: Column(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [ 
-                    Container(
+           body: Container(
+          margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+          width: 90.w,
+          height: 80.h,
+          child: Column(
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+
                       margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                       child: const StepProgressIndicator(
-                          totalSteps: 4,
-                          currentStep: 3,
-                          selectedColor: Colors.red,
-                          unselectedColor: Colors.grey),
+                                totalSteps: 3,
+                                currentStep: 3,
+                                selectedColor: Colors.red,
+                                unselectedColor: Colors.grey
+                            ),
                     ),
 
-                  
-              
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text('Upload your \nBusiness Premises',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  //  SizedBox(width: 10),
-                  Text('pending',
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontWeight: FontWeight.bold,
-                      ))
                 ],
               ),
-              
-
-                
-                
-                Container(
-                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  height: 35.h,
-                child:_image==null ? InkWell(
-                  onTap:openCamera ,
-                  child: Container(
-                    child:CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
-                      )
-                    )
-                  ):ClipOval(
-                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
-                  )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // margin: const EdgeInsets.fromLTRB(20, 40, 20, 50),
+                children: [
+                  const Text(
+                  'Upload your \nBusiness Shop',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              Container(
+                // margin: const EdgeInsets.fromLTRB(30, 40, 20, 50),
+                child: const Text(
+                  'pending',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              TextButton(onPressed:RemoveImage
-                
-              , child:Text('X Remove',style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ))),
-                Container(
-                    child: Text(
-                        'Your upload will help us to serve to \nconfirm your identity',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                        ))),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          '3 of 4',
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red),
-                        ),
-                        Container(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/optionalletter');
-                              },
-                              child: Icon(
-                                KycIcons.navigate_next,
-                                color: Colors.red,
-                                size: 50,
-                              ),
-                            )),
-                      ],
-                    ))
-              ],
-            ),
-              ])
-          
-          )
-          );
+                ],
+              ),
+              Container(
+
+              child: _image == null
+                  ? InkWell(
+                      onTap: openCamera,
+                      child: Container(
+                          margin: const EdgeInsets.fromLTRB(0, 25, 0, 10),
+                          height: 35.h,
+                          child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 70,
+                              child: Icon(KycIcons.add_a_photo,
+                                  size: 80, color: Colors.red))))
+                  : ClipOval(
+                      child: Image.file(_image!,
+                          fit: BoxFit.cover, width: 200, height: 200),
+                    )),
+              TextButton(
+              onPressed: RemoveImage,
+              child: Text('X Remove',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ))),
+
+              Column(
+                children: [
+              // ignore: avoid_unnecessary_containers
+              Container(
+                // margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
+                child: const Text(
+                  'Your upload will help us to know your location and to serve you better.',
+                  style: TextStyle(color: Colors.black, fontSize: 17),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      '3 of 3',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+
+                    ),
+                      Container(
+                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/finalScreen');
+                            },
+                            child: Icon(
+                              KycIcons.navigate_next,
+                              color: Colors.red,
+                              size: 50,
+                            ),
+                          )),
+                  ],
+                ),
+              ),
+
+                ],
+              ),
+            ]),
+      ));
     });
   }
   Future <void> openCamera() async{

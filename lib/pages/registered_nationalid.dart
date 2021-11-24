@@ -4,7 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-
+import 'package:sizer/sizer.dart';
 import '../kyc_icons_icons.dart';
 
 class RegisteredNationalID extends StatelessWidget {
@@ -12,7 +12,8 @@ class RegisteredNationalID extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Sizer(builder: (context, orientation, deviceType) {
+     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -169,5 +170,7 @@ class RegisteredNationalID extends StatelessWidget {
         ),
       ),
     );
+    });
+    
   }
 }

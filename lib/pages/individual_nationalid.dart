@@ -46,7 +46,7 @@ class National_id extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                     child: const StepProgressIndicator(
-                        totalSteps: 4,
+                        totalSteps: 3,
                         currentStep: 2,
                         selectedColor: Colors.red,
                         unselectedColor: Colors.grey),
@@ -260,7 +260,7 @@ class National_id extends StatelessWidget {
                     Container(
                       // margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                       child: const Text(
-                        '2 of 4',
+                        '2 of 3',
                         style: TextStyle(
                           color: Colors.red,
                           fontSize: 15,

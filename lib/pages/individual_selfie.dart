@@ -60,7 +60,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: const StepProgressIndicator(
-                          totalSteps: 4,
+                          totalSteps: 3,
                           currentStep: 1,
                           selectedColor: Colors.red,
                           unselectedColor: Colors.grey),
@@ -138,7 +138,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         Container(
                           margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                           child: const Text(
-                            '1 of 4',
+                            '1 of 3',
                             style: TextStyle(
                               color: Colors.red,
                               fontSize: 15,
