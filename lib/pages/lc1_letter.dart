@@ -64,8 +64,10 @@ class _LcLetterState extends State<LcLetter> {
                           unselectedColor: Colors.grey),
                     ),
                   ],
+                ),
 
-              )),
+              
+              
    
               Container(
                 child:_image==null ? InkWell(
@@ -92,7 +94,7 @@ class _LcLetterState extends State<LcLetter> {
                             fontWeight: FontWeight.bold,
                           ))),
               
-                ),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [

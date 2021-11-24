@@ -5,7 +5,7 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sizer/sizer.dart';
+import "package:sizer/sizer.dart";
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 

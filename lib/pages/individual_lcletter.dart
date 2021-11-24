@@ -68,8 +68,26 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                             ),
                     ),
                   ],
+                
+                ),
+                
+                Row(
 
-              )),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Upload your LC1 Letter ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+               Text('pending',
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ))
+                ],
+              ),
               Container(
                 
                 child:_image==null ? InkWell(
@@ -94,104 +112,9 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                             color: Colors.red,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                          ))),
-              
-      
-                Row(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your LC1 Letter ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )),
-               Text('pending',
-                        style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
-                        ))
-                ],
-              )
-            ],
-         ),
-         )
-         
-    );
-    
-  }
-                 
-  Future <void> openCamera() async{
-    var CameraStatus= await Permission.camera;
-    var GalleryStatus= await Permission.storage;
-    //print(CameraStatus);
-    //print(GalleryStatus);
-
-    if (CameraStatus.isGranted!=true) {
-      await Permission.camera.request();
-    }
-    if (GalleryStatus.isGranted!=true) {
-      Permission.storage.request();
-    }
-    if(await Permission.camera.isGranted){
-       if (await Permission.storage.isGranted) {
-          ShowPicker(context);
-       }
-         
-    }
-    
-  }
-  
-  Future<void> galleryImage()async{
-    final image =await _picker.pickImage(source: ImageSource.gallery);
-    if(image != null){
-      setState(()=> _image = File(image.path));
-    }
-    Navigator.pop(context);
-  }
- void RemoveImage(){
-    setState(() {
-      _image=null;
-    });
-  }
-  void ShowPicker(content) {
-    
-     showDialog(context: context, builder: (BuildContext bc){
-      return  AlertDialog(
-        
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-           ListTile(
-             leading: Icon(Icons.library_books),
-             title: Text('Gallery'),
-             onTap: galleryImage  
-           ),
-           ListTile(
-             leading: Icon(Icons.camera),
-             title: Text('Camera'),
-             onTap: getImage  
-           )
-         ],
-        ),  
-      );
-      
-    }
-    
-    );
-
-                   
-                
-                Container(
-                  child: Text(
-                      'Your upload will help us to serve to \nconfirm your identity',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17,
-                      )),
-                ),
-                Container(
+                          ))),          
+          
+              Container(
                   margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -219,10 +142,84 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                     ],
                   ),
                 )
-              ],
-            ),
-          ));
+              ])
+              
+          ),
+          
+         
+      );
+    
+  }
+                 
+
+    
+    );
+
+                   
+                
+               
+                
+  
+  }
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted!=true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted!=true) {
+      Permission.storage.request();
+    }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
+    }
+    
+  }
+
+  Future<void> galleryImage() async {
+    final image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() => _image = File(image.path));
+    }
+    Navigator.pop(context);
+  }
+
+  void RemoveImage() {
+    setState(() {
+      _image = null;
     });
+  }
+
+  void ShowPicker(content) {   
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+        ),  
+      );
+      
+    }
+    
+    );
 
   }
 }

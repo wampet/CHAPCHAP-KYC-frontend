@@ -62,7 +62,7 @@ class _IndividualLocationState extends State<IndividualLocation> {
                           unselectedColor: Colors.grey),
                     ),
 
-                  ),
+                  
               
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,7 +83,7 @@ class _IndividualLocationState extends State<IndividualLocation> {
               ),
               
 
-                ),
+                
                 
                 Container(
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
@@ -143,7 +143,10 @@ class _IndividualLocationState extends State<IndividualLocation> {
                     ))
               ],
             ),
-          ));
+              ])
+          
+          )
+          );
     });
   }
   Future <void> openCamera() async{

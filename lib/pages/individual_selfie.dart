@@ -92,7 +92,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       ),
                     ),
 
-                  ),
+                  
                 ],
               ),
               Container(
@@ -125,8 +125,9 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     child: const Text(
                       'Your selfie will help us to confirm your identity and to serve you better.',
                       style: TextStyle(color: Colors.black, fontSize: 16),
-
-                  ],
+                    )
+                  )
+                ]
                 ),
               
                
@@ -162,10 +163,10 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     ),
                   ],
                 )
-              ],
+              
             ),
           ),
-        ),
+        
       );
     });
   }
