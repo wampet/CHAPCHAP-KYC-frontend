@@ -65,14 +65,30 @@ class _LcLetterState extends State<LcLetter> {
                     ),
                   ],
 
-              )),
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Upload your LC1 Letter ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text('pending',
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
    
               Container(
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                   
                   child: Container(
-                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
                   height: 35.h,
                     child:CircleAvatar(
                       backgroundColor: Colors.white,
@@ -91,25 +107,7 @@ class _LcLetterState extends State<LcLetter> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ))),
-              
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your LC1 Letter ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Text('pending',
-                        style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
-                ),
-                
+  
                 Container(
                     child: Text(
                         'Your upload will help us to serve to \nconfirm your identity',
