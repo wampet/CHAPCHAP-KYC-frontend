@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -10,6 +8,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
+
 class BusinessLocation extends StatefulWidget {
   const BusinessLocation({Key? key}) : super(key: key);
 
@@ -17,24 +16,19 @@ class BusinessLocation extends StatefulWidget {
   _BusinessLocationState createState() => _BusinessLocationState();
 }
 
+
 class _BusinessLocationState extends State<BusinessLocation> {
-  File? _image;
-  final ImagePicker _picker = ImagePicker();
-  Future<void> getImage() async {
-    final image = await _picker.pickImage(source: ImageSource.camera);
 
-    if (image != null) {
-      setState(() => _image = File(image.path));
-    }
-    Navigator.pop(context);
-    Future<void> galleryImage() async {
-      final image = await _picker.pickImage(source: ImageSource.gallery);
-      if (image != null) {
-        setState(() => _image = File(image.path));
+   File? _image;
+    final ImagePicker _picker = ImagePicker();
+   Future<void> getImage()async{
+      final image =await _picker.pickImage(source: ImageSource.camera);
+      
+      if(image != null){
+        setState(()=> _image = File(image.path));
       }
-    }
-  }
-
+      Navigator.pop(context); 
+}
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +60,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
+
                       margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                       child: const StepProgressIndicator(
                                 totalSteps: 4,
@@ -74,6 +69,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                                 unselectedColor: Colors.grey
                             ),
                     ),
+
                 ],
               ),
               Row(
@@ -101,6 +97,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 ],
               ),
               Container(
+
               child: _image == null
                   ? InkWell(
                       onTap: openCamera,
@@ -124,6 +121,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ))),
+
               Column(
                 children: [
               // ignore: avoid_unnecessary_containers
@@ -147,6 +145,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
+
                     ),
                       Container(
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
@@ -163,6 +162,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ],
                 ),
               ),
+
                 ],
               ),
             ]),
@@ -170,23 +170,26 @@ class _BusinessLocationState extends State<BusinessLocation> {
     });
   }
 
-  Future<void> openCamera() async {
-    var CameraStatus = await Permission.camera;
-    var GalleryStatus = await Permission.storage;
+
+  Future <void> openCamera() async{
+    var CameraStatus= await Permission.camera;
+    var GalleryStatus= await Permission.storage;
     //print(CameraStatus);
     //print(GalleryStatus);
 
-    if (CameraStatus.isGranted != true) {
+    if (CameraStatus.isGranted!=true) {
       await Permission.camera.request();
     }
-    if (GalleryStatus.isGranted != true) {
+    if (GalleryStatus.isGranted!=true) {
       Permission.storage.request();
     }
-    if (await Permission.camera.isGranted) {
-      if (await Permission.storage.isGranted) {
-        ShowPicker(context);
-      }
+    if(await Permission.camera.isGranted){
+       if (await Permission.storage.isGranted) {
+          ShowPicker(context);
+       }
+         
     }
+    
   }
 
   Future<void> galleryImage() async {
@@ -203,25 +206,30 @@ class _BusinessLocationState extends State<BusinessLocation> {
     });
   }
 
-  void ShowPicker(content) {
-    showDialog(
-        context: context,
-        builder: (BuildContext bc) {
-          return AlertDialog(
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ListTile(
-                    leading: Icon(Icons.library_books),
-                    title: Text('Gallery'),
-                    onTap: galleryImage),
-                ListTile(
-                    leading: Icon(Icons.camera),
-                    title: Text('Camera'),
-                    onTap: getImage)
-              ],
-            ),
-          );
-        });
+  void ShowPicker(content) {   
+     showDialog(context: context, builder: (BuildContext bc){
+      return  AlertDialog(
+        
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+           ListTile(
+             leading: Icon(Icons.library_books),
+             title: Text('Gallery'),
+             onTap: galleryImage  
+           ),
+           ListTile(
+             leading: Icon(Icons.camera),
+             title: Text('Camera'),
+             onTap: getImage  
+           )
+         ],
+        ),  
+      );
+      
+    }
+    
+    );
+
   }
 }
