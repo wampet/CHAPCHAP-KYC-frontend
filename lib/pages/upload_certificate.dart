@@ -46,10 +46,6 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
             ),
             backgroundColor: Colors.white,
           ),
-
-            
-              
-
           body: Container(
             margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
             width: 90.w,
@@ -90,6 +86,8 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                   onTap:openCamera ,
                   
                   child: Container(
+                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                  height: 35.h,
                     child:CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 70,

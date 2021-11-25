@@ -61,9 +61,8 @@ class _IndividualLocationState extends State<IndividualLocation> {
                           selectedColor: Colors.red,
                           unselectedColor: Colors.grey),
                     ),
-
+                  ]
                   ),
-              
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -73,19 +72,14 @@ class _IndividualLocationState extends State<IndividualLocation> {
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       )),
-                  //  SizedBox(width: 10),
                   Text('pending',
                       style: TextStyle(
                         color: Colors.orange,
                         fontWeight: FontWeight.bold,
                       ))
                 ],
-              ),
-              
-
-                ),
-                
-                Container(
+              ),  
+              Container(
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
                   height: 35.h,
                 child:_image==null ? InkWell(

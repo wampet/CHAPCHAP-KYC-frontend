@@ -28,7 +28,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
         setState(()=> _image = File(image.path));
       }
       Navigator.pop(context); 
-}
+    }
 
   @override
   Widget build(BuildContext context) {
