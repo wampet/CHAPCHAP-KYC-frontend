@@ -105,7 +105,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                                           size: 80, color: Colors.red))))
                           : ClipOval(
                               child: Image.file(_image!,
-                                  fit: BoxFit.cover, width: 200, height: 200),
+                                  fit: BoxFit.cover, width: 200, height: 199),
                             )),
                   TextButton(
                       onPressed: RemoveImage,

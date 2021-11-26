@@ -82,21 +82,21 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                   ],
                 ),
                 Container(
-                    child: _image == null
-                        ? InkWell(
-                            onTap: openCamera,
-                            child: Container(
-                                margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                                height: 35.h,
-                                child: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    radius: 70,
-                                    child: Icon(KycIcons.add_a_photo,
-                                        size: 80, color: Colors.red))))
-                        : ClipOval(
-                            child: Image.file(_image!,
-                                fit: BoxFit.cover, width: 200, height: 200),
-                          )),
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  height: 40.h,
+                  width: 300,
+                child:_image==null ? InkWell(
+                  onTap:openCamera ,
+                    child:Card(
+
+                      //radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  :Container(
+                    child: Image.file(_image!,fit: BoxFit.cover,width:300,height:36.h),
+                  )
+              ),
                 TextButton(
                     onPressed: RemoveImage,
                     child: Text('X Remove',
