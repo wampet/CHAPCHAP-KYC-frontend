@@ -18,8 +18,8 @@ class _FinalScreenState extends State<FinalScreen> {
         crossAxisAlignment:CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            alignment: Alignment.centerRight,
-            margin: EdgeInsets.fromLTRB(0, 50, 40, 0),
+            alignment: Alignment.topRight,
+            margin: EdgeInsets.fromLTRB(0, 50, 15, 0),
             child: IconButton(
               onPressed: (){
                 Navigator.pushNamed(context, '/selectuser');
@@ -30,7 +30,7 @@ class _FinalScreenState extends State<FinalScreen> {
               ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(20,80,20,30),
+            margin: EdgeInsets.fromLTRB(15,80,15,30),
             child: const Icon(
               KycIcons.check_circle,
               size: 150,
@@ -42,7 +42,7 @@ class _FinalScreenState extends State<FinalScreen> {
             children: [
               // ignore: avoid_unnecessary_containers
               Container(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
                 child: const Text(
                   'Successfully  Uploaded',
                   style: TextStyle(
@@ -53,11 +53,11 @@ class _FinalScreenState extends State<FinalScreen> {
                 ),
               ),
               Container(
-                     margin: const EdgeInsets.fromLTRB(20, 10, 20, 50),
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                     margin: const EdgeInsets.fromLTRB(15, 10, 10, 50),
+                padding: const EdgeInsets.fromLTRB(15, 10, 10, 10),
                 child: const Text(
                   'Your documents have been submitted. Please allow us verify your submission.    We will notify you once we are done',
-                  style: TextStyle(color: Colors.red, fontSize: 13.5),
+                  style: TextStyle(color: Colors.red, fontSize: 14),
                 ),
               ),
             

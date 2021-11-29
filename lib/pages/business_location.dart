@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 children: [
                   Container(
 
-                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                       child: const StepProgressIndicator(
                                 totalSteps: 4,
                                 currentStep: 4,
@@ -76,7 +76,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                // margin: const EdgeInsets.fromLTRB(20, 40, 20, 50),
+               
                 children: [
                   const Text(
                   'Upload your \nBusiness Shop',
@@ -87,27 +87,27 @@ class _BusinessLocationState extends State<BusinessLocation> {
                   ),
                 ),
               Container(
-                // margin: const EdgeInsets.fromLTRB(30, 40, 20, 50),
+             
                 child: const Text(
                   'pending',
                   style: TextStyle(
-                    color: Colors.amber,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                    fontWeight: FontWeight.bold,fontSize:9
                   ),
                 ),
               ),
                 ],
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
                   height: 32.h,
-                  width: 250,
+                  width: 250.w,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                     child:Card(
 
                       //radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      child:Icon(KycIcons.add_a_photo, size: 50, color: Colors.red)
                       )
                     )
                   :Container(
@@ -129,8 +129,8 @@ class _BusinessLocationState extends State<BusinessLocation> {
               Container(
                 // margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                 child: const Text(
-                  'The Image of your Shop will help us identify where your shop is located',
-                  style: TextStyle(color: Colors.black, fontSize: 17),
+                  'Your business shop upload will help us identify where your shop is located',
+                  style: TextStyle(color: Colors.black, fontSize: 15),
                 ),
               ),
 

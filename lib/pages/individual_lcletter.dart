@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -48,7 +48,7 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
             backgroundColor: Colors.white,
           ),
           body: Container(
-              margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+              margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
               width: 90.w,
               height: 80.h,
               child: Column(children: [
@@ -56,7 +56,7 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                       child: const StepProgressIndicator(
                           totalSteps: 4,
                           currentStep: 4,
@@ -68,7 +68,7 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text('Upload your LC1 Letter(Optional) ',
+                    Text('Upload your LC1 \nLetter(Optional) ',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,
@@ -76,21 +76,21 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         )),
                     Text('pending',
                         style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
+                          color: Colors.orange,
+                          fontWeight: FontWeight.bold,fontSize: 9
                         ))
                   ],
                 ),
                 Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
                   height: 32.h,
-                  width: 250,
+                  width: 250.w,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                     child:Card(
 
                       //radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      child:Icon(KycIcons.add_a_photo, size: 50, color: Colors.red)
                       )
                     )
                   :Container(
@@ -107,10 +107,10 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         ))),
                 Container(
                   child: Text(
-                      'The Image of your LC1 Letter will let us know if the LC Approved of your Business',
+                      'The Image of your LC1 letter will let us know if the LC approved of your business',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 17,
+                        fontSize: 15,
                       )),
                 ),
                 Container(
