@@ -98,14 +98,16 @@ class _SelfieUploadState extends State<SelfieUpload> {
                           ? InkWell(
                               onTap: openCamera,
                               child: Container(
+                  
                                   child: CircleAvatar(
                                       backgroundColor: Colors.white,
                                       radius: 70,
                                       child: Icon(KycIcons.add_a_photo,
                                           size: 80, color: Colors.red))))
                           : ClipOval(
-                              child: Image.file(_image!,
-                                  fit: BoxFit.cover, width: 200, height: 199),
+                              child: Image.file(_image!,fit: BoxFit.cover,height: 25.h, 
+                  width: 180
+                  )
                             )),
                   TextButton(
                       onPressed: RemoveImage,

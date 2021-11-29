@@ -98,8 +98,8 @@ class _BusinessLocationState extends State<BusinessLocation> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  height: 40.h,
-                  width: 300,
+                  height: 32.h,
+                  width: 250,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                     child:Card(
@@ -109,7 +109,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
                       )
                     )
                   :Container(
-                    child: Image.file(_image!,fit: BoxFit.cover,width:300,height:36.h),
+                    child: Image.file(_image!,fit: BoxFit.fill),
                   )
               ),
               TextButton(

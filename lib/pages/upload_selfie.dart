@@ -144,6 +144,7 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                   onTap:openCamera ,
                   
                   child: Container(
+                  
                     child:CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 70,
@@ -151,7 +152,8 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                       )
                     )
                   ):ClipOval(
-                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                    child: Image.file(_image!,height: 32.h, fit: BoxFit.cover,
+                  width: 250,),
                   )
               ),
               TextButton(onPressed:RemoveImage
