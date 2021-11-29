@@ -129,7 +129,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
               Container(
                 // margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                 child: const Text(
-                  'Your upload will help us to know your location and to serve you better.',
+                  'The Image of your Shop will help us identify where your shop is located',
                   style: TextStyle(color: Colors.black, fontSize: 17),
                 ),
               ),

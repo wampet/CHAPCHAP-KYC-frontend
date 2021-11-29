@@ -105,7 +105,7 @@ class _IndividualLocationState extends State<IndividualLocation> {
                           ))),
                 Container(
                     child: Text(
-                        'Your upload will help us to serve to \nconfirm your identity',
+                        'The Image of your Shop will help us identify where your shop is located',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,

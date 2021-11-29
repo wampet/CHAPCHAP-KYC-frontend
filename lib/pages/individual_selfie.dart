@@ -199,7 +199,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                     child: const Text(
-                      'Your selfie will help us to confirm your identity and to serve you better.',
+                      'Your Image will help us identify who you are',
                       style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ),

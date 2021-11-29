@@ -164,7 +164,7 @@ class RegisteredNationalID extends StatelessWidget {
              
               ],
             ),
-
+            Text('The image of Your NationalID will help us identify who you are')
           ],
         ),
       ),

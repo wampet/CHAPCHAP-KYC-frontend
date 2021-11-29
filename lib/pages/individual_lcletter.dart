@@ -107,7 +107,7 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         ))),
                 Container(
                   child: Text(
-                      'Your upload will help us to serve to \nconfirm your identity',
+                      'The Image of your LC1 Letter will let us know if the LC Approved of your Business',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 17,

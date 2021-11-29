@@ -168,7 +168,7 @@ class _BusinessSelfieState extends State<BusinessSelfie> {
                 
                 Container(
                     child: Text(
-                        'Your upload will help us to serve to \nconfirm your identity',
+                        'Your Image will help us identify who you are',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,

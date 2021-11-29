@@ -7,10 +7,30 @@ import 'package:flutter/rendering.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+import 'dart:io';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:image_picker/image_picker.dart';
 
-class National_id extends StatelessWidget {
+class National_id extends StatefulWidget {
   const National_id({Key? key}) : super(key: key);
 
+  @override
+  State<National_id> createState() => _National_idState();
+}
+
+class _National_idState extends  State<National_id> {
+ 
+
+  File? _image;
+  final ImagePicker _picker = ImagePicker();
+  Future<void> getImage() async {
+    final image = await _picker.pickImage(source: ImageSource.camera);
+
+    if (image != null) {
+      setState(() => _image = File(image.path));
+    }
+    Navigator.pop(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
@@ -224,8 +244,8 @@ class National_id extends StatelessWidget {
                       color: Colors.grey[300],
                       padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
                       //This is where the camera implementaion will take place from
-                      child: InkWell(
-                        onTap: () {},
+                      child:_image==null? InkWell(
+                        onTap: openCamera,
                         child: Align(
                             alignment: Alignment.center,
                             child: Column(
@@ -244,9 +264,23 @@ class National_id extends StatelessWidget {
                                             color: Colors.grey[900]))),
                               ],
                             )),
+                      ):Container(
+                        height: 70,
+                        width:180,
+                         child: Image.file(_image!,fit: BoxFit.cover,height: 90, 
+                  width: 170
+                  )
                       ),
                     ),
                   ),
+                  TextButton(
+                      onPressed: RemoveImage,
+                      child: Text('X Remove',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          )))
                 ],
               ),
               Container(
@@ -280,10 +314,65 @@ class National_id extends StatelessWidget {
                   ],
                 ),
               ),
+              Text('The image of Your NationalID will help us identify who you are')
             ],
           ),
         ),
       );
     });
   }
+  Future<void> openCamera() async {
+    var CameraStatus = await Permission.camera;
+    var GalleryStatus = await Permission.storage;
+    //print(CameraStatus);
+    //print(GalleryStatus);
+
+    if (CameraStatus.isGranted != true) {
+      await Permission.camera.request();
+    }
+    if (GalleryStatus.isGranted != true) {
+      Permission.storage.request();
+    }
+    if (await Permission.camera.isGranted) {
+      if (await Permission.storage.isGranted) {
+        ShowPicker(context);
+      }
+    }
+  }
+
+  Future<void> galleryImage() async {
+    final image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() => _image = File(image.path));
+    }
+    Navigator.pop(context);
+  }
+
+  void RemoveImage() {
+    setState(() {
+      _image = null;
+    });
+  }
+
+  void ShowPicker(content) {
+    showDialog(
+        context: context,
+        builder: (BuildContext bc) {
+          return AlertDialog(
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                    leading: Icon(Icons.library_books),
+                    title: Text('Gallery'),
+                    onTap: galleryImage),
+                ListTile(
+                    leading: Icon(Icons.camera),
+                    title: Text('Camera'),
+                    onTap: getImage)
+              ],
+            ),
+          );
+        });
+}
 }

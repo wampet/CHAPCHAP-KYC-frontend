@@ -109,7 +109,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
               
                 Container(
                     child: Text(
-                        'Your upload will help us to serve to \nconfirm your identity',
+                        'The Image of your certificate will help us confirm the validality of your Business',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,
