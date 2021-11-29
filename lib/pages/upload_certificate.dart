@@ -82,20 +82,20 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                   ],
                 ),
                 Container(
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                 height: 32.h,
+                  width: 250,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
-                  
-                  child: Container(
-                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  height: 35.h,
-                    child:CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 70,
+                    child:Card(
+
+                      //radius: 70,
                       child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
                       )
                     )
-                  ):ClipOval(
-                    child: Image.file(_image!,fit: BoxFit.cover,width:200,height:200),
+                  :Container(
+                    child: Image.file(_image!,height: 32.h, fit: BoxFit.cover,
+                  width: 250,),
                   )
               ),
               TextButton(onPressed:RemoveImage
@@ -109,7 +109,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
               
                 Container(
                     child: Text(
-                        'Your upload will help us to serve to \nconfirm your identity',
+                        'The Image of your certificate will help us confirm the validality of your Business',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,

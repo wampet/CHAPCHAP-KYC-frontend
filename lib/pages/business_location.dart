@@ -99,22 +99,21 @@ class _BusinessLocationState extends State<BusinessLocation> {
                 ],
               ),
               Container(
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  height: 32.h,
+                  width: 250,
+                child:_image==null ? InkWell(
+                  onTap:openCamera ,
+                    child:Card(
 
-              child: _image == null
-                  ? InkWell(
-                      onTap: openCamera,
-                      child: Container(
-                          margin: const EdgeInsets.fromLTRB(0, 25, 0, 10),
-                          height: 35.h,
-                          child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 70,
-                              child: Icon(KycIcons.add_a_photo,
-                                  size: 80, color: Colors.red))))
-                  : ClipOval(
-                      child: Image.file(_image!,
-                          fit: BoxFit.cover, width: 200, height: 200),
-                    )),
+                      //radius: 70,
+                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      )
+                    )
+                  :Container(
+                    child: Image.file(_image!,fit: BoxFit.fill),
+                  )
+              ),
               TextButton(
               onPressed: RemoveImage,
               child: Text('X Remove',
@@ -130,7 +129,7 @@ class _BusinessLocationState extends State<BusinessLocation> {
               Container(
                 // margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                 child: const Text(
-                  'Your upload will help us to know your location and to serve you better.',
+                  'The Image of your Shop will help us identify where your shop is located',
                   style: TextStyle(color: Colors.black, fontSize: 17),
                 ),
               ),

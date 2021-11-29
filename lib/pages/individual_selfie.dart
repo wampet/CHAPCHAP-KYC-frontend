@@ -177,14 +177,16 @@ class _SelfieUploadState extends State<SelfieUpload> {
                           ? InkWell(
                               onTap: openCamera,
                               child: Container(
+                  
                                   child: CircleAvatar(
                                       backgroundColor: Colors.white,
                                       radius: 70,
                                       child: Icon(KycIcons.add_a_photo,
                                           size: 80, color: Colors.red))))
                           : ClipOval(
-                              child: Image.file(_image!,
-                                  fit: BoxFit.cover, width: 200, height: 200),
+                              child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
+                  width: 161
+                  )
                             )),
                   TextButton(
                       onPressed: RemoveImage,
@@ -197,7 +199,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
                     child: const Text(
-                      'Your selfie will help us to confirm your identity and to serve you better.',
+                      'Your Image will help us identify who you are',
                       style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
                   ),
