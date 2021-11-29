@@ -71,7 +71,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 40, 20, 50),
+                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                         child: const Text(
                           'Take your selfie',
                           style: TextStyle(
@@ -82,7 +82,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(30, 40, 20, 50),
+                        margin: const EdgeInsets.fromLTRB(30, 20, 10, 20),
                         child: const Text(
                           'pending',
                           style: TextStyle(
@@ -90,6 +90,85 @@ class _SelfieUploadState extends State<SelfieUpload> {
                             fontSize: 9,
                           ),
                         ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('assets/kyc_selfie.png',
+                          height: 50, width: 40),
+                      Column(
+                        children: <Widget>[
+                          Row(children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.all(3),
+                              child: Icon(
+                                KycIcons.check,
+                                size: 7,
+                                color: Colors.green,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 3),
+                              child: Text(
+                                  'Take a selfie of yourself with a neutral expression',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 9)),
+                            ),
+                          ]),
+                          Row(children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.all(3),
+                              child: Icon(
+                                KycIcons.check,
+                                size: 7,
+                                color: Colors.green,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 3),
+                              child: Text(
+                                  'Face should be visible, centered and your eyes open',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 9)),
+                            ),
+                          ]),
+                          Row(children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.all(3),
+                              child: Icon(
+                                KycIcons.check,
+                                size: 7,
+                                color: Colors.green,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 3),
+                              child: Text(
+                                  'Do not crop your ID or use screenshots of your ID',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 9)),
+                            ),
+                          ]),
+                          Row(children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.all(3),
+                              child: Icon(
+                                KycIcons.times,
+                                size: 7,
+                                color: Colors.red,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 3),
+                              child: Text(
+                                  'No hats/beauty images/filters/headgear',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 9)),
+                            ),
+                          ]),
+                        ],
                       ),
                     ],
                   ),
