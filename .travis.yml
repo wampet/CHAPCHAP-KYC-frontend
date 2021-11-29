@@ -1,0 +1,17 @@
+language: dart
+os:
+  - linux
+  - osx
+dart:
+  - dev
+  # Install a specific stable release - 2.14.4
+  - "2.14.4"
+dart_task:
+  # As long as you don't want any other configuration, you can just use the name
+  # of a task instead of "name: true".
+  - test
+  # Warnings are fatal, but we only analyze the lib/ directory.
+  - dartanalyzer: --fatal-warnings lib
+after_success:
+  - lcov --compat-libtool --directory . --capture --output-file coverage.info
+  - coveralls-lcov coverage.info
