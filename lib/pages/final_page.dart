@@ -17,7 +17,18 @@ class _FinalScreenState extends State<FinalScreen> {
       body: Column(
         crossAxisAlignment:CrossAxisAlignment.stretch,
         children: <Widget>[
-        
+          Container(
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.fromLTRB(0, 50, 40, 0),
+            child: IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/selectuser');
+                finalScreen(context);
+              },
+              icon: const Icon(Icons.close) ,
+              color: Colors.red,
+              ),
+          ),
           Container(
             margin: EdgeInsets.fromLTRB(20,80,20,30),
             child: const Icon(
@@ -55,5 +66,22 @@ class _FinalScreenState extends State<FinalScreen> {
         ],
       ),
     );
+  }
+
+  void finalScreen(BuildContext context) {
+    var alertDialog = AlertDialog(
+      title: Text("Thank you for your submission"),
+      content: Text(
+          "You'll receive a message when your account info has been reviewed"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
+          ],
+    );
+    showDialog(
+        context: context, 
+        builder: (BuildContext context) => alertDialog);
   }
 }
