@@ -57,8 +57,8 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
+                   
                         child: const StepProgressIndicator(
                             totalSteps: 4,
                             currentStep: 1,
@@ -71,7 +71,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                        margin: const EdgeInsets.fromLTRB(15, 20, 15, 20),
                         child: const Text(
                           'Take your selfie',
                           style: TextStyle(
@@ -82,7 +82,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(30, 20, 10, 20),
+                        margin: const EdgeInsets.fromLTRB(15, 20, 15, 10),
                         child: const Text(
                           'pending',
                           style: TextStyle(
@@ -173,6 +173,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     ],
                   ),
                   Container(
+                      margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                       child: _image == null
                           ? InkWell(
                               onTap: openCamera,
@@ -182,7 +183,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                                       backgroundColor: Colors.white,
                                       radius: 70,
                                       child: Icon(KycIcons.add_a_photo,
-                                          size: 80, color: Colors.red))))
+                                          size: 50, color: Colors.red))))
                           : ClipOval(
                               child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
                   width: 161
@@ -197,7 +198,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                             fontWeight: FontWeight.bold,
                           ))),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 60, 20, 50),
+                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 50),
                     child: const Text(
                       'Your Image will help us identify who you are',
                       style: TextStyle(color: Colors.black, fontSize: 16),
@@ -209,7 +210,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                           child: const Text(
                             '1 of 4',
                             style: TextStyle(
@@ -220,7 +221,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                           ),
                         ),
                         Container(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(15, 0, 20, 0),
                             child: InkWell(
                               onTap: () {
                                 Navigator.pushNamed(

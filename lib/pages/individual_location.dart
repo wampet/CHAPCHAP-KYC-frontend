@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -45,7 +47,7 @@ class _IndividualLocationState extends State<IndividualLocation> {
             backgroundColor: Colors.white,
           ),
           body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
             width: 90.w,
             height: 80.h,
             child: Column(
@@ -54,7 +56,7 @@ class _IndividualLocationState extends State<IndividualLocation> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [ 
                     Container(
-                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                       child: const StepProgressIndicator(
                           totalSteps: 4,
                           currentStep: 3,
@@ -75,20 +77,20 @@ class _IndividualLocationState extends State<IndividualLocation> {
                   Text('pending',
                       style: TextStyle(
                         color: Colors.orange,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.bold,fontSize: 9
                       ))
                 ],
               ),  
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
                   height: 32.h,
-                  width: 250,
+                  width: 250.w,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                     child:Card(
 
                       //radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      child:Icon(KycIcons.add_a_photo, size: 50, color: Colors.red)
                       )
                     )
                   :Container(
@@ -105,10 +107,10 @@ class _IndividualLocationState extends State<IndividualLocation> {
                           ))),
                 Container(
                     child: Text(
-                        'The Image of your Shop will help us identify where your shop is located',
+                        'The image of your shop will help us identify where your shop is located',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: 15,
                         ))),
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
