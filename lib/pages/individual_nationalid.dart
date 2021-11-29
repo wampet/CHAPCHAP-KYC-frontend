@@ -1,6 +1,4 @@
 // ignore: file_names
-// ignore: file_names
-// ignore: file_names
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
@@ -9,7 +7,6 @@ import 'package:flutter/rendering.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'package:image_picker/image_picker.dart';
 
 class National_id extends StatelessWidget {
   const National_id({Key? key}) : super(key: key);
@@ -35,7 +32,7 @@ class National_id extends StatelessWidget {
           centerTitle: true,
         ),
         body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 5, 20),
             width: 90.w,
             height: 80.h,
           child: Column(
@@ -44,7 +41,7 @@ class National_id extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                     child: const StepProgressIndicator(
                         totalSteps: 4,
                         currentStep: 2,
@@ -89,7 +86,7 @@ class National_id extends StatelessWidget {
                   Column(children: [
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/normal.png',
+                      child: Image.asset('assets/best.png',
                           height: 50, width: 60),
                     ),
                     Text('Good',
@@ -102,7 +99,7 @@ class National_id extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
                       child:
-                          Image.asset('assets/cut.png', height: 50, width: 60),
+                        Image.asset('assets/cut.png', height: 50, width: 60),
                     ),
                     Text('Not cut',
                         style: TextStyle(
@@ -125,7 +122,7 @@ class National_id extends StatelessWidget {
                   Column(children: [
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/reflective.png',
+                      child: Image.asset('assets/badlight.png',
                           height: 50, width: 60),
                     ),
                     Text('Not reflective',
