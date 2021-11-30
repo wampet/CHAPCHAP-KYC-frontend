@@ -34,7 +34,7 @@ class _CardsPageState extends State<CardsPage> {
       ),
       body: Column(children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(20, 30, 20, 10),
+          margin: const EdgeInsets.fromLTRB(15, 30, 15, 10),
           child: const Text(
               'Please complete the steps below to register your Profile',
               style: TextStyle(
@@ -44,7 +44,7 @@ class _CardsPageState extends State<CardsPage> {
         ),
        
        Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(15, 1, 15, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -72,7 +72,7 @@ class _CardsPageState extends State<CardsPage> {
           ),
         ),
         Card(
-          margin: EdgeInsets.fromLTRB(20, 9, 20, 10),
+          margin: EdgeInsets.fromLTRB(15, 9, 15, 10),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -100,7 +100,7 @@ class _CardsPageState extends State<CardsPage> {
           ),
         ),
         Card(
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(15, 1, 15, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -129,7 +129,7 @@ class _CardsPageState extends State<CardsPage> {
         ),
         
         Card(
-          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
           color: Colors.red,
           child: InkWell(
             onTap: () {
@@ -158,7 +158,7 @@ class _CardsPageState extends State<CardsPage> {
         ),
         Card(
        
-          margin: EdgeInsets.fromLTRB(20, 1, 20, 1),
+          margin: EdgeInsets.fromLTRB(15, 1, 15, 1),
           color: Colors.red,
           child: InkWell(
             onTap: () {

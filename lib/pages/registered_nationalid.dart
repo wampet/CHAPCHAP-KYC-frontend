@@ -9,6 +9,7 @@ import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+
 class RegisteredNationalID extends StatefulWidget {
   const RegisteredNationalID({Key? key}) : super(key: key);
 
@@ -16,8 +17,7 @@ class RegisteredNationalID extends StatefulWidget {
   State<RegisteredNationalID> createState() => _RegisteredNationalIDState();
 }
 
-class _RegisteredNationalIDState extends State<RegisteredNationalID>{
-  
+class _RegisteredNationalIDState extends State<RegisteredNationalID> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
@@ -28,6 +28,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
     }
     Navigator.pop(context);
   }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
@@ -49,16 +50,16 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
           centerTitle: true,
         ),
         body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 5, 20),
-            width: 90.w,
-            height: 80.h,
+          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
+          width: 90.w,
+          height: 80.h,
           child: Column(
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: const StepProgressIndicator(
                         totalSteps: 4,
                         currentStep: 2,
@@ -103,8 +104,8 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                   Column(children: [
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/best.png',
-                          height: 50, width: 60),
+                      child:
+                          Image.asset('assets/best.png', height: 50, width: 60),
                     ),
                     Text('Good',
                         style: TextStyle(
@@ -116,7 +117,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
                       child:
-                        Image.asset('assets/cut.png', height: 50, width: 60),
+                          Image.asset('assets/cut.png', height: 50, width: 60),
                     ),
                     Text('Not cut',
                         style: TextStyle(
@@ -241,32 +242,31 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                       //color: Colors.grey[300],
                       padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
                       //This is where the camera implementaion will take place from
-                      child:_image==null? InkWell(
-                        onTap: openCamera,
-                        child: Align(
-                            alignment: Alignment.center,
-                            child: Column(
-                              children: [
-                                Icon(
-                                  KycIcons.id_card,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                                Container(
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                    child: Text('Front of document',
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: Colors.grey[900]))),
-                              ],
-                            )),
-                      ):Container(
-                         height: 70,
-                         child: Image.file(_image!,fit: BoxFit.cover 
-                 
-                  )
-                      ),
+                      child: _image == null
+                          ? InkWell(
+                              onTap: openCamera,
+                              child: Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        KycIcons.id_card,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      Container(
+                                          margin: const EdgeInsets.fromLTRB(
+                                              0, 5, 0, 0),
+                                          child: Text('Front of document',
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.grey[900]))),
+                                    ],
+                                  )),
+                            )
+                          : Container(
+                              height: 70,
+                              child: Image.file(_image!, fit: BoxFit.cover)),
                     ),
                   ),
                   TextButton(
@@ -307,17 +307,16 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                             size: 50,
                           ),
                         )),
-                        
                   ],
                 ),
               ),
-              
             ],
           ),
         ),
       );
     });
   }
+
   Future<void> openCamera() async {
     var CameraStatus = await Permission.camera;
     var GalleryStatus = await Permission.storage;
@@ -371,5 +370,5 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
             ),
           );
         });
-}
+  }
 }

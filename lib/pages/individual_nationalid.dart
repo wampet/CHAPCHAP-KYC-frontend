@@ -283,11 +283,11 @@ class _National_idState extends  State<National_id> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ))),
-                          Text('The image of Your NationalID will help us identify who you are'),
+                          Text('Your upload will help us identify who you are'),
                 ],
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -303,7 +303,7 @@ class _National_idState extends  State<National_id> {
                       ),
                     ),
                     Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, '/individuallocation');

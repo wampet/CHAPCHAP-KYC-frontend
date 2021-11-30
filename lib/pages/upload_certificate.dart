@@ -47,7 +47,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
             backgroundColor: Colors.white,
           ),
           body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 25, 20),
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
             width: 90.w,
             height: 80.h,            
             child: Column(
@@ -56,7 +56,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                       child: const StepProgressIndicator(
                           totalSteps: 5,
                           currentStep: 4,
@@ -76,21 +76,21 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                         )),
                     Text('pending',
                         style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
+                          color: Colors.orange,
+                          fontWeight: FontWeight.bold,fontSize:9
                         ))
                   ],
                 ),
                 Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
                  height: 32.h,
-                  width: 250,
+                  width: 250.w,
                 child:_image==null ? InkWell(
                   onTap:openCamera ,
                     child:Card(
 
                       //radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 80, color: Colors.red)
+                      child:Icon(KycIcons.add_a_photo, size: 50, color: Colors.red)
                       )
                     )
                   :Container(
@@ -112,7 +112,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                         'The Image of your certificate will help us confirm the validality of your Business',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: 15,
                         ))),
                 Container(
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -128,7 +128,7 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                             ),
                         ),
                         Container(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                             child: InkWell(
                               onTap: () {
                                 Navigator.pushNamed(
