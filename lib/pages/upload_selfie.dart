@@ -171,6 +171,7 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                       ),
                     ],
                   ),
+                  
                   Container(
                       child: _image == null
                           ? InkWell(
