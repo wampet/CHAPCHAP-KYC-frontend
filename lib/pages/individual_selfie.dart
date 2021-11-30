@@ -184,8 +184,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                                       radius: 70,
                                       child: Icon(KycIcons.add_a_photo,
                                           size: 50, color: Colors.red))))
-                          : ClipOval(
-                              child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
+                          : ClipOval(   child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
                   width: 161
                   )
                             )),
