@@ -61,7 +61,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: const StepProgressIndicator(
-                        totalSteps: 4,
+                        totalSteps: 5,
                         currentStep: 2,
                         selectedColor: Colors.red,
                         unselectedColor: Colors.grey),
@@ -287,7 +287,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
                     Container(
                       // margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                       child: const Text(
-                        '4 of 5',
+                        '2 of 5',
                         style: TextStyle(
                           color: Colors.red,
                           fontSize: 15,
