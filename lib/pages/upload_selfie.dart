@@ -32,7 +32,7 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
     return Sizer(builder: (context, orientation, deviceType) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Individual Customer',
+          title: const Text('Registered Company',
               style: TextStyle(
                 color: Colors.red,
               )),

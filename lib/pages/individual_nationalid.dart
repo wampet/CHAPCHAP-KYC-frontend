@@ -228,12 +228,14 @@ class _National_idState extends  State<National_id> {
                       child: Text(
                           'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
                           style: TextStyle(fontSize: 11))),
+                          
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  
                   SizedBox(
                     height: 5,
                   ),
@@ -241,8 +243,8 @@ class _National_idState extends  State<National_id> {
                     color: Colors.red,
                     strokeWidth: 1,
                     child: Container(
-                      color: Colors.grey[300],
-                      padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
+                      //color: Colors.grey[300],
+                      padding: const EdgeInsets.fromLTRB(80, 50, 80, 30),
                       //This is where the camera implementaion will take place from
                       child:_image==null? InkWell(
                         onTap: openCamera,
@@ -265,10 +267,10 @@ class _National_idState extends  State<National_id> {
                               ],
                             )),
                       ):Container(
-                        height: 70,
+                        height: 75,
                         width:180,
-                         child: Image.file(_image!,fit: BoxFit.cover,height: 90, 
-                  width: 170
+                         child: Image.file(_image!,fit: BoxFit.cover 
+                  
                   )
                       ),
                     ),
@@ -280,11 +282,12 @@ class _National_idState extends  State<National_id> {
                             color: Colors.red,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                          )))
+                          ))),
+                          Text('The image of Your NationalID will help us identify who you are'),
                 ],
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -314,7 +317,7 @@ class _National_idState extends  State<National_id> {
                   ],
                 ),
               ),
-              Text('The image of Your NationalID will help us identify who you are')
+              
             ],
           ),
         ),

@@ -43,7 +43,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
           ),
           backgroundColor: Colors.white70,
           title: const Text(
-            "Individual Owner",
+            "Registered Company",
             style: TextStyle(color: Colors.red),
           ),
           centerTitle: true,
@@ -262,10 +262,10 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                               ],
                             )),
                       ):Container(
-                        height: 70,
+                         height: 71,
                         width:180,
-                         child: Image.file(_image!,fit: BoxFit.cover,height: 90, 
-                  width: 170
+                         child: Image.file(_image!,fit: BoxFit.cover 
+                 
                   )
                       ),
                     ),
@@ -308,10 +308,11 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                             size: 50,
                           ),
                         )),
+                        
                   ],
                 ),
               ),
-              Text('The image of Your NationalID will help us identify who you are')
+              
             ],
           ),
         ),

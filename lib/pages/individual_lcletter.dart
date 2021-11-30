@@ -68,10 +68,10 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text('Upload your LC1 Letter ',
+                    Text('Upload your LC1 Letter(Optional) ',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
                         )),
                     Text('pending',
