@@ -183,8 +183,8 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                                       child: Icon(KycIcons.add_a_photo,
                                           size: 80, color: Colors.red))))
                           : ClipOval(
-                              child: Image.file(_image!,fit: BoxFit.cover,height: 25.h, 
-                  width: 180
+                              child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
+                  width: 161
                   )
                             )),
                   TextButton(

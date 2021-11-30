@@ -262,8 +262,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID>{
                               ],
                             )),
                       ):Container(
-                         height: 71,
-                        width:180,
+                         height: 70,
                          child: Image.file(_image!,fit: BoxFit.cover 
                  
                   )
