@@ -51,7 +51,7 @@ class _LcLetterState extends State<LcLetter> {
           body: Container(
             margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
             width: 90.w,
-            height: 80.h,
+            height: 90.h,
             child: Column(
               children: [
                 Column(
@@ -73,7 +73,7 @@ class _LcLetterState extends State<LcLetter> {
                     Text('Upload your LC1 \nLetter(Optional) ',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         )),
                     Text('pending',
@@ -82,10 +82,99 @@ class _LcLetterState extends State<LcLetter> {
                             fontWeight: FontWeight.bold,
                             fontSize: 9))
                   ],
+                ),Row(
+               
+                children: <Widget>[
+                
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                    child: Image.asset('assets/lc_letter.png',
+                        height: 150, width: 110),
+                  )
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Government-issued',
+                            style: TextStyle(color: Colors.grey, fontSize:  12)),
+                      ),
+                    ]),
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Original full-size, unedited documents',
+                            style: TextStyle(color: Colors.grey, fontSize: 12)),
+                      ),
+                    ]),
+                    Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.check,
+                          size: 10,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('Readable well-lit, coloured images',
+                            style: TextStyle(color: Colors.grey, fontSize:  12)),
+                      ),
+                    ]),
+                   
+                     Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.times,
+                          size: 10,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('No black and white images',
+                            style: TextStyle(color: Colors.grey, fontSize: 12)),
+                      ),
+                    ]),
+                  ],
                 ),
+              ),
+              SizedBox(height: 3),
+              Row(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: Text(
+                          'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
+                          style: TextStyle(fontSize: 11.5,fontWeight:FontWeight.w500)),
+                          
+                  )],
+              ),
                 Container(
-                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
-                    height: 32.h,
+                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    height: 12.h,
                     width: 250.w,
                     child: _image == null
                         ? InkWell(

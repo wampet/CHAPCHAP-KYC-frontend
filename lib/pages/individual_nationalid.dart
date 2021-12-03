@@ -52,16 +52,16 @@ class _National_idState extends  State<National_id> {
           centerTitle: true,
         ),
         body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 5, 20),
+            margin: const EdgeInsets.fromLTRB(15.0, 15, 5, 15),
             width: 90.w,
-            height: 80.h,
+            height: 90.h,
           child: Column(
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                     child: const StepProgressIndicator(
                         totalSteps: 4,
                         currentStep: 2,
@@ -70,91 +70,54 @@ class _National_idState extends  State<National_id> {
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: const Text(
-                        'Upload your National ID ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(5, 30, 10, 20),
-                      child: const Text(
-                        'pending',
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontSize: 9,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Column(children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/best.png',
-                          height: 50, width: 60),
+                  Container(
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: const Text(
+                      'Upload your National ID ',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    Text('Good',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 7,
-                        )),
-                  ]),
-                  Column(children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child:
-                        Image.asset('assets/cut.png', height: 50, width: 60),
+                  ),
+                  Container(
+             margin: const EdgeInsets.fromLTRB(0, 17, 0, 0),
+                    child: const Text(
+                      'pending',
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 9,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    Text('Not cut',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 7,
-                        )),
-                  ]),
-                  Column(children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/blurry.png',
-                          height: 50, width: 60),
-                    ),
-                    Text('Not blur',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 7,
-                        )),
-                  ]),
-                  Column(children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                      child: Image.asset('assets/badlight.png',
-                          height: 50, width: 60),
-                    ),
-                    Text('Not reflective',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 7,
-                        )),
-                  ])
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0) ,
+                          child: Text('Example',style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold),)
+                      ),
+                ],
+              ),
+              Row(
+               
+                children: <Widget>[
+                
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                    child: Image.asset('assets/kyc_frontid.png',
+                        height: 100, width: 110),
+                  )
                 ],
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
                   children: <Widget>[
                     Row(children: <Widget>[
@@ -169,7 +132,7 @@ class _National_idState extends  State<National_id> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
                         child: Text('Government-issued',
-                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                            style: TextStyle(color: Colors.grey, fontSize:  12)),
                       ),
                     ]),
                     Row(children: <Widget>[
@@ -184,7 +147,7 @@ class _National_idState extends  State<National_id> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
                         child: Text('Original full-size, unedited documents',
-                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                            style: TextStyle(color: Colors.grey, fontSize: 12)),
                       ),
                     ]),
                     Row(children: <Widget>[
@@ -199,7 +162,7 @@ class _National_idState extends  State<National_id> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
                         child: Text('Readable well-lit, coloured images',
-                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                            style: TextStyle(color: Colors.grey, fontSize:  12)),
                       ),
                     ]),
                     Row(children: <Widget>[
@@ -214,7 +177,22 @@ class _National_idState extends  State<National_id> {
                       Container(
                         margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
                         child: Text('No edited or expired documents',
-                            style: TextStyle(color: Colors.grey, fontSize: 10)),
+                            style: TextStyle(color: Colors.grey, fontSize:  12)),
+                      ),
+                    ]),
+                     Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        child: Icon(
+                          KycIcons.times,
+                          size: 10,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                        child: Text('No black and white images',
+                            style: TextStyle(color: Colors.grey, fontSize: 12)),
                       ),
                     ]),
                   ],
@@ -224,12 +202,12 @@ class _National_idState extends  State<National_id> {
               Row(
                 children: [
                   Container(
-                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: Text(
                           'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
-                          style: TextStyle(fontSize: 11))),
+                          style: TextStyle(fontSize: 11.5,fontWeight:FontWeight.w500)),
                           
-                ],
+                  )],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -239,40 +217,36 @@ class _National_idState extends  State<National_id> {
                   SizedBox(
                     height: 5,
                   ),
-                  DottedBorder(
-                    color: Colors.red,
-                    strokeWidth: 1,
-                    child: Container(
-                      //color: Colors.grey[300],
-                      padding: const EdgeInsets.fromLTRB(80, 50, 80, 30),
-                      //This is where the camera implementaion will take place from
-                      child:_image==null? InkWell(
-                        onTap: openCamera,
-                        child: Align(
-                            alignment: Alignment.center,
-                            child: Column(
-                              children: [
-                                Icon(
-                                  KycIcons.id_card,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                                Container(
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                    child: Text('Front of document',
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: Colors.grey[900]))),
-                              ],
-                            )),
-                      ):Container(
-                        height: 75,
-                        width:180,
-                         child: Image.file(_image!,fit: BoxFit.cover 
+                  Container(
+                    color: Colors.white,
+                    padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
+                    //This is where the camera implementaion will take place from
+                    child:_image==null? InkWell(
+                      onTap: openCamera,
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Column(
+                            children: [
+                              Icon(
+                                KycIcons.id_card,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                              Container(
+                                  margin:
+                                      const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                  child: Text('Front of document',
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: Colors.grey[900]))),
+                            ],
+                          )),
+                    ):Container(
+                      height: 75,
+                      width:180,
+                       child: Image.file(_image!,fit: BoxFit.cover 
                   
                   )
-                      ),
                     ),
                   ),
                   TextButton(
