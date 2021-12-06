@@ -60,7 +60,7 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                     margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: const StepProgressIndicator(
-                        totalSteps: 4,
+                        totalSteps: 5,
                         currentStep: 1,
                         selectedColor: Colors.red,
                         unselectedColor: Colors.grey),
