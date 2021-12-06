@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/chapchap-logo.png',height:200,width: 200,),
+            Image.asset('assets/chapchap_logo.png',height:150,width: 150,),
             const Text('Grow Your Business',style: TextStyle(color: Colors.red,fontSize:25)),
             const SizedBox(height: 10,),
             const CircularProgressIndicator(
