@@ -10,14 +10,14 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 
-class RegisteredNationalID extends StatefulWidget {
-  const RegisteredNationalID({Key? key}) : super(key: key);
+class Front_RegisteredNationalID extends StatefulWidget {
+  const Front_RegisteredNationalID({Key? key}) : super(key: key);
 
   @override
-  State<RegisteredNationalID> createState() => _RegisteredNationalIDState();
+  State<Front_RegisteredNationalID> createState() => _Front_RegisteredNationalIDState();
 }
 
-class _RegisteredNationalIDState extends State<RegisteredNationalID> {
+class _Front_RegisteredNationalIDState extends State<Front_RegisteredNationalID> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
@@ -269,7 +269,7 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/Lcletter');
+                        Navigator.pushNamed(context, '/BackregisteredNationalId');
                       },
                       child: Icon(
                         KycIcons.navigate_next,

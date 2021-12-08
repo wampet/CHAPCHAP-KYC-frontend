@@ -69,18 +69,26 @@ class _LcLetterState extends State<LcLetter> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your LC1 \nLetter(Optional) ',
+                  children: <Widget> [
+                    Text('Upload your LC1 Letter ',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         )),
-                    Text('pending',
-                        style: TextStyle(
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 9))
+                        if(_image==null)
+                         Text('pending',
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 9)),
+                        if(_image!=null)
+                         Text('Verified',
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 9)),
+                    
                   ],
                 ),Row(
                

@@ -1,26 +1,21 @@
-// ignore: file_names
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'dart:io';
+import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sizer/sizer.dart';
 
-class National_id extends StatefulWidget {
-  const National_id({Key? key}) : super(key: key);
+class Back_RegisteredNationalID extends StatefulWidget {
+  const Back_RegisteredNationalID({Key? key}) : super(key: key);
 
   @override
-  State<National_id> createState() => _National_idState();
+  State<Back_RegisteredNationalID> createState() => _Back_RegisteredNationalIDState();
 }
 
-class _National_idState extends  State<National_id> {
- 
-
+class _Back_RegisteredNationalIDState extends State<Back_RegisteredNationalID> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
@@ -31,6 +26,7 @@ class _National_idState extends  State<National_id> {
     }
     Navigator.pop(context);
   }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
@@ -46,24 +42,24 @@ class _National_idState extends  State<National_id> {
           ),
           backgroundColor: Colors.white70,
           title: const Text(
-            "Individual Owner",
+            "Registered Company",
             style: TextStyle(color: Colors.red),
           ),
           centerTitle: true,
         ),
         body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 5, 15),
-            width: 90.w,
-            height: 90.h,
+          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
+          width: 90.w,
+          height: 80.h,
           child: Column(
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: const StepProgressIndicator(
-                        totalSteps: 4,
+                        totalSteps: 5,
                         currentStep: 2,
                         selectedColor: Colors.red,
                         unselectedColor: Colors.grey),
@@ -74,7 +70,7 @@ class _National_idState extends  State<National_id> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: const Text(
                       'Upload your National ID ',
                       style: TextStyle(
@@ -85,7 +81,7 @@ class _National_idState extends  State<National_id> {
                     ),
                   ),
                   Container(
-             margin: const EdgeInsets.fromLTRB(0, 17, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(5, 20, 10, 0),
                     child: const Text(
                       'pending',
                       style: TextStyle(
@@ -213,41 +209,38 @@ class _National_idState extends  State<National_id> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  
                   SizedBox(
                     height: 5,
                   ),
                   Container(
-                    color: Colors.white,
+                    color: Colors.grey[200],
                     padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
                     //This is where the camera implementaion will take place from
-                    child:_image==null? InkWell(
-                      onTap: openCamera,
-                      child: Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Icon(
-                                KycIcons.id_card,
-                                color: Colors.black,
-                                size: 30,
-                              ),
-                              Container(
-                                  margin:
-                                      const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                  child: Text('Front of document',
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          color: Colors.grey[900]))),
-                            ],
-                          )),
-                    ):Container(
-                      height: 75,
-                      width:180,
-                       child: Image.file(_image!,fit: BoxFit.cover 
-                  
-                  )
-                    ),
+                    child: _image == null
+                        ? InkWell(
+                            onTap: openCamera,
+                            child: Align(
+                                alignment: Alignment.center,
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      KycIcons.id_card,
+                                      color: Colors.black,
+                                      size: 30,
+                                    ),
+                                    Container(
+                                        margin: const EdgeInsets.fromLTRB(
+                                            0, 5, 0, 0),
+                                        child: Text('Back of document',
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.grey[900]))),
+                                  ],
+                                )),
+                          )
+                        : Container(
+                            height: 70,
+                            child: Image.file(_image!, fit: BoxFit.cover)),
                   ),
                   TextButton(
                       onPressed: RemoveImage,
@@ -256,8 +249,7 @@ class _National_idState extends  State<National_id> {
                             color: Colors.red,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                          ))),
-                          Text('Your upload will help us identify who you are'),
+                          )))
                 ],
               ),
               Container(
@@ -265,39 +257,34 @@ class _National_idState extends  State<National_id> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      // margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: const Text(
-                        '2 of 4',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    const Text(
+                      '2 of 5',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Container(
-                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/individuallocation');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Lcletter');
+                      },
+                      child: Icon(
+                        KycIcons.navigate_next,
+                        color: Colors.red,
+                        size: 50,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              
             ],
           ),
         ),
       );
     });
   }
+
   Future<void> openCamera() async {
     var CameraStatus = await Permission.camera;
     var GalleryStatus = await Permission.storage;
@@ -351,5 +338,5 @@ class _National_idState extends  State<National_id> {
             ),
           );
         });
-}
+  }
 }

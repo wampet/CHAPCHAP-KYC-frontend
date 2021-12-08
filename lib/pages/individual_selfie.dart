@@ -249,7 +249,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         child: InkWell(
                           onTap: () {
                             Navigator.pushNamed(
-                                context, '/individualNationalId');
+                                context, '/FrontindividualNationalId');
                           },
                           child: Icon(
                             KycIcons.navigate_next,

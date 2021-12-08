@@ -65,8 +65,8 @@ class _BusinessLocationState extends State<BusinessLocation> {
 
                       margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                       child: const StepProgressIndicator(
-                                totalSteps: 4,
-                                currentStep: 4,
+                                totalSteps: 5,
+                                currentStep: 5,
                                 selectedColor: Colors.red,
                                 unselectedColor: Colors.grey
                             ),
@@ -86,16 +86,18 @@ class _BusinessLocationState extends State<BusinessLocation> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              Container(
-             
-                child: const Text(
-                  'pending',
-                  style: TextStyle(
-                    color: Colors.orange,
-                    fontWeight: FontWeight.bold,fontSize:9
-                  ),
-                ),
-              ),
+              if(_image==null)
+                Text('pending',
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontWeight: FontWeight.bold,
+                    fontSize: 9)),
+              if(_image!=null)
+                Text('Verified',
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 9)),
                 ],
               ),
               Container(
