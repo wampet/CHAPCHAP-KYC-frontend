@@ -1,6 +1,3 @@
-// ignore: file_names
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -11,14 +8,15 @@ import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 
-class National_id extends StatefulWidget {
-  const National_id({Key? key}) : super(key: key);
+
+class BackIndividual_National_id extends StatefulWidget {
+  const BackIndividual_National_id({Key? key}) : super(key: key);
 
   @override
-  State<National_id> createState() => _National_idState();
+  State<BackIndividual_National_id> createState() => _BackIndividual_National_idState();
 }
 
-class _National_idState extends  State<National_id> {
+class _BackIndividual_National_idState extends  State<BackIndividual_National_id> {
  
 
   File? _image;
@@ -235,7 +233,7 @@ class _National_idState extends  State<National_id> {
                               Container(
                                   margin:
                                       const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                  child: Text('Front of document',
+                                  child: Text('Back of document',
                                       style: TextStyle(
                                           fontSize: 13,
                                           color: Colors.grey[900]))),

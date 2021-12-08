@@ -1,14 +1,16 @@
+import 'package:chapchap_kyc_frontend/pages/Back_individual_nationalid.dart';
+import 'package:chapchap_kyc_frontend/pages/Back_registered_nationalid.dart';
 import 'package:chapchap_kyc_frontend/pages/business_location.dart';
 import 'package:chapchap_kyc_frontend/pages/cards_page.dart';
 import 'package:chapchap_kyc_frontend/pages/final_page.dart';
 import 'package:chapchap_kyc_frontend/pages/individual_selfie.dart';
-import 'package:chapchap_kyc_frontend/pages/registered_nationalid.dart';
+import 'package:chapchap_kyc_frontend/pages/Front_registered_nationalid.dart';
 import 'package:chapchap_kyc_frontend/pages/splashscreen.dart';
 import 'package:chapchap_kyc_frontend/pages/select_user.dart';
 import 'package:chapchap_kyc_frontend/pages/upload_certificate.dart';
 import 'package:chapchap_kyc_frontend/pages/individual_location.dart';
 import 'package:chapchap_kyc_frontend/pages/upload_selfie.dart';
-import 'package:chapchap_kyc_frontend/pages/individual_nationalid.dart';
+import 'package:chapchap_kyc_frontend/pages/Front_individual_nationalid.dart';
 import 'package:chapchap_kyc_frontend/pages/cards.dart';
 import 'package:chapchap_kyc_frontend/pages/lc1_letter.dart';
 import 'package:chapchap_kyc_frontend/pages/individual_lcletter.dart';
@@ -29,7 +31,9 @@ void main() => runApp(MaterialApp(
         '/individuallocation': (context) => const IndividualLocation(),
         '/businesslocation':(context)=>const BusinessLocation(),
         '/businessselfie': (context) => const BusinessSelfie(),
-        '/individualNationalId': (context) => const National_id(),
-        '/registeredNationalId': (context) => const RegisteredNationalID(),
+        '/FrontindividualNationalId': (context) => const FrontIndividual_National_id(),
+        '/BackindividualNationalId': (context) => const BackIndividual_National_id(),
+        '/FrontregisteredNationalId': (context) => const Front_RegisteredNationalID(),
+        '/BackregisteredNationalId': (context) => const Back_RegisteredNationalID(),
       },
     ));

@@ -248,7 +248,7 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                         child: InkWell(
                           onTap: () {
                             Navigator.pushNamed(
-                                context, '/registeredNationalId');
+                                context, '/FrontregisteredNationalId');
                           },
                           child: Icon(
                             KycIcons.navigate_next,
