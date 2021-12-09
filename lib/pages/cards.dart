@@ -76,7 +76,7 @@ class IndividualCardsState extends State<IndividualCards> {
           color: Colors.red,
           child: InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/individualNationalId');
+              Navigator.pushNamed(context, '/FrontindividualNationalId');
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),

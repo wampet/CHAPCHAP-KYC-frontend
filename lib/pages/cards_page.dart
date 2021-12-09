@@ -76,7 +76,7 @@ class _CardsPageState extends State<CardsPage> {
           color: Colors.red,
           child: InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/registeredNationalId');
+              Navigator.pushNamed(context, '/FrontregisteredNationalId');
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),

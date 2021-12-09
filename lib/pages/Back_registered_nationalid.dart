@@ -231,7 +231,7 @@ class _Back_RegisteredNationalIDState extends State<Back_RegisteredNationalID> {
                                     Container(
                                         margin: const EdgeInsets.fromLTRB(
                                             0, 5, 0, 0),
-                                        child: Text('Front of document',
+                                        child: Text('Back of document',
                                             style: TextStyle(
                                                 fontSize: 13,
                                                 color: Colors.grey[900]))),
