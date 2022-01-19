@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 // import 'package:chapchap_kyc_frontend/components/custom_card.dart';
+import 'package:chapchap_kyc_frontend/services/postRequest.dart';
 import 'package:flutter/material.dart';
-import  './../services/upload.dart';
+// import  '../services/session.dart';
 import '../kyc_icons_icons.dart';
 
 class CardsPage extends StatefulWidget {
@@ -48,7 +49,8 @@ class _CardsPageState extends State<CardsPage> {
           color: Colors.red,
           child: InkWell(
             onTap: () async {
-              await createSession();
+              await postSession();
+              // await createSession();
               Navigator.pushNamed(context, '/businessselfie');
             },
             child: Padding(

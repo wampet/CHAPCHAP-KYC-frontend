@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
 import 'dart:io';
 
 class BusinessSelfie extends StatefulWidget {
@@ -15,8 +15,17 @@ class BusinessSelfie extends StatefulWidget {
   _BusinessSelfieState createState() => _BusinessSelfieState();
 }
 
+///image upload
+// Future<String> uploadImage(filepath, url) async {
+//     var request = http.MultipartRequest('POST', Uri.parse(url));
+//     request.files.add(await http.MultipartFile.fromPath('image', filepath));
+//     var res = await request.send();
+//     return res.reasonPhrase;
+//   }
 class _BusinessSelfieState extends State<BusinessSelfie>  {
   File? _image;
+  //new one
+    // final String uploadUrl = 'https://api.imgur.com/3/upload';
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
     final image = await _picker.pickImage(source: ImageSource.camera);

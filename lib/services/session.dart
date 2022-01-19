@@ -3,7 +3,8 @@ import 'dart:convert';
 
 Future<void> createSession() async {
   try {
-    const url = "https://services.chapchap.dev/kyc-service/v1/sessions/";
+    const url ='https://api.chapchap.dev/kyc/sessions/';
+    // const url = "https://services.chapchap.dev/kyc-service/v1/sessions/";
     final response = await http.post(Uri.parse(url),
         body: json.encode({
           "customer": {
