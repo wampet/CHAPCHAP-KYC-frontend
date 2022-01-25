@@ -12,6 +12,7 @@ import 'package:chapchap_kyc_frontend/pages/individual_nationalid.dart';
 import 'package:chapchap_kyc_frontend/pages/cards.dart';
 import 'package:chapchap_kyc_frontend/pages/lc1_letter.dart';
 import 'package:chapchap_kyc_frontend/pages/individual_lcletter.dart';
+import 'package:chapchap_kyc_frontend/services/upload.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -31,5 +32,6 @@ void main() => runApp(MaterialApp(
         '/businessselfie': (context) => const BusinessSelfie(),
         '/individualNationalId': (context) => const National_id(),
         '/registeredNationalId': (context) => const RegisteredNationalID(),
+        '/upload': (context) => const Home(),
       },
     ));
