@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
-
 Customer customerFromJson(String str) => Customer.fromJson(json.decode(str));
 
 String customerToJson(Customer data) => json.encode(data.toJson());

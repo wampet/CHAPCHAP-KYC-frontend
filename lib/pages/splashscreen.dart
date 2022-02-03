@@ -3,6 +3,8 @@
 
 import 'dart:async';
 
+import 'package:chapchap_kyc_frontend/pages/startPage.dart';
+
 import 'select_user.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Duration(seconds: 3),
                 () =>
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => SelectUser())
+                builder: (BuildContext context) => StartPage())
                 )
                 );
     return Scaffold(

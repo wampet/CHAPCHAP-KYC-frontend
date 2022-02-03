@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -8,6 +10,7 @@ import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
 class SelfieUpload extends StatefulWidget {
   const SelfieUpload({Key? key}) : super(key: key);
@@ -19,14 +22,37 @@ class SelfieUpload extends StatefulWidget {
 class _SelfieUploadState extends State<SelfieUpload> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
+
   Future<void> getImage() async {
     final image = await _picker.pickImage(source: ImageSource.camera);
-
     if (image != null) {
       setState(() => _image = File(image.path));
+      // var res = await uploadImage(file.path, widget.url);
+      // setState(() {
+      //       state = res;
+      //       print(res);
+      //     });
     }
     Navigator.pop(context);
   }
+
+  // File? selectedImage;
+  // String? message = "";
+
+  // uploadImage() async {
+  //   final request = http.MultipartRequest(
+  //       "POST", Uri.parse("https://api.chapchap.dev/kyc/sessions/cc-kyc-sess-19g68kyu7p9b9/upload"));
+  //   final headers = {"Content-type": "multipart/form-data"};
+  //   request.files.add(http.MultipartFile('selfie',
+  //       selectedImage!.readAsBytes().asStream(), selectedImage!.lengthSync(),
+  //       filename: selectedImage!.path.split("/").last));
+  //   request.headers.addAll(headers);
+  //   final response = await request.send();
+  //   http.Response res = await http.Response.fromStream(response);
+  //   final resJson = jsonDecode(res.body);
+  //   message = resJson['message'];
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -213,14 +239,25 @@ class _SelfieUploadState extends State<SelfieUpload> {
               width: 161
               )
                         )),
-              TextButton(
-                  onPressed: RemoveImage,
-                  child: Text('X Remove',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ))),
+              Row(
+                children: [
+                  TextButton(
+                      onPressed: RemoveImage,
+                      child: Text('X Remove',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
+                  // selectedImage == null
+                // ? Text('Select Image')
+                // : Image.file(selectedImage!),
+                // TextButton(
+                //   onPressed: uploadImage,
+                //   child: Text("Upload"),
+                // ),
+                ],
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(15, 10, 15, 20),
                 child: const Text(
@@ -290,6 +327,11 @@ class _SelfieUploadState extends State<SelfieUpload> {
     final image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() => _image = File(image.path));
+      // var res = await uploadImage(file.path, widget.url);
+        // setState(() {
+          //   state = res;
+          //   print(res);
+          // });
     }
     Navigator.pop(context);
   }

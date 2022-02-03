@@ -2,7 +2,6 @@
 
 // import 'package:chapchap_kyc_frontend/components/custom_card.dart';
 import 'package:flutter/material.dart';
-import  './../services/upload.dart';
 import '../kyc_icons_icons.dart';
 
 class CardsPage extends StatefulWidget {
@@ -47,8 +46,7 @@ class _CardsPageState extends State<CardsPage> {
           margin: EdgeInsets.fromLTRB(15, 1, 15, 1),
           color: Colors.red,
           child: InkWell(
-            onTap: () async {
-              // await createSession();
+            onTap: () {
               Navigator.pushNamed(context, '/businessselfie');
             },
             child: Padding(

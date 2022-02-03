@@ -54,7 +54,7 @@ class SelectUser extends StatelessWidget {
                       color: Colors.red,
                       child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, '/upload');
+                            Navigator.pushNamed(context, '/individualcards');
                           },
 
 
