@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
-
+import 'dart:convert';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -9,6 +12,7 @@ import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
 class IndividualLCletter extends StatefulWidget {
   const IndividualLCletter({Key? key}) : super(key: key);
@@ -76,27 +80,26 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         )),
                     Text('pending',
                         style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,fontSize: 9
-                        ))
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 9))
                   ],
                 ),
                 Container(
-                margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
-                  height: 32.h,
-                  width: 250.w,
-                child:_image==null ? InkWell(
-                  onTap:openCamera ,
-                    child:Card(
+                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),
+                    height: 32.h,
+                    width: 250.w,
+                    child: _image == null
+                        ? InkWell(
+                            onTap: openCamera,
+                            child: Card(
 
-                      //radius: 70,
-                      child:Icon(KycIcons.add_a_photo, size: 50, color: Colors.red)
-                      )
-                    )
-                  :Container(
-                    child: Image.file(_image!,fit: BoxFit.fill),
-                  )
-              ),
+                                //radius: 70,
+                                child: Icon(KycIcons.add_a_photo,
+                                    size: 50, color: Colors.red)))
+                        : Container(
+                            child: Image.file(_image!, fit: BoxFit.fill),
+                          )),
                 TextButton(
                     onPressed: RemoveImage,
                     child: Text('X Remove',
@@ -164,12 +167,51 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
     }
   }
 
+  // Future<String> getFilePath(imgName) async {
+  //   Directory appDocumentsDirectory =
+  //       await getApplicationDocumentsDirectory(); // 1
+  //   String appDocumentsPath = appDocumentsDirectory.path; // 2
+  //   String filePath = '$appDocumentsPath/' '$imgName'; // 3
+  //   print(filePath);
+
+  //   return filePath;
+  // }
+
   Future<void> galleryImage() async {
     final image = await _picker.pickImage(source: ImageSource.gallery);
+    print({"file.path", image?.path});
     if (image != null) {
       setState(() => _image = File(image.path));
     }
+    // String? imgName = image?.name;
+    // Directory appDocumentsDirectory =
+    //     await getApplicationDocumentsDirectory(); // 1
+    // String appDocumentsPath = appDocumentsDirectory.path; // 2
+    // String filePath = '$appDocumentsPath/' '$imgName'; // 3
+    //   print(filePath);
+
+    //   return filePath;
+    // String imgName = getFilePath(image?.name);
+    var res = await uploadImage(image?.path);
+    // print(imgName);
+    print(res);
     Navigator.pop(context);
+  }
+
+  Future<String> uploadImage(filename) async {
+    String? username = dotenv.env['username'];
+    String? password = dotenv.env['password'];
+    String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    var request = http.MultipartRequest(
+        'POST',
+        Uri.parse(
+            "https://api.chapchap.dev/kyc/sessions/cc-kyc-sess-19g68kzbnl20n/upload"));
+    request.headers.addAll({"Authorization": basicAuth});
+    request.fields['uploadType'] = "selfie";
+    request.files.add(await http.MultipartFile.fromPath('file', filename));
+    var res = await request.send();
+    return res.stream.bytesToString();
   }
 
   void RemoveImage() {

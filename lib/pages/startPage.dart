@@ -147,7 +147,7 @@ class _StartPageState extends State<StartPage> {
                 //   ),
                 // ),
                 ElevatedButton(
-                    // style: butt,
+                    style: ButtonStyle(),
                     child: Center(child: Text('Get Started')),
                     onPressed: () async {
                       Navigator.pushNamed(context, '/individualcards');
@@ -156,11 +156,11 @@ class _StartPageState extends State<StartPage> {
                       final String middleName = "Doe";
                       final String lastName = "Telemetry";
                       const String dob = "1986-01-01";
-                      const String identifier = "256-74100009";
+                      const String identifier = "256-74150809";
                       const String country = "UG";
                       const String gender = "M";
                       const String phoneNumber = "256772123456";
-                      const String idNumber = "256-74800000";
+                      const String idNumber = "256-74800009";
                       const String role = "merchant";
 
                       final Customer user = await createSession(
