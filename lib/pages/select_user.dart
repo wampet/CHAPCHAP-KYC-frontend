@@ -19,7 +19,9 @@ class SelectUser extends StatelessWidget {
               style: TextStyle(color: Colors.red),
             ),
             leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+              Navigator.of(context).pop();
+            },
               icon: const Icon(Icons.arrow_back),
               color: Colors.red,
             ),

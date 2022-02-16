@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -11,6 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 class SelfieUpload extends StatefulWidget {
   const SelfieUpload({Key? key}) : super(key: key);
@@ -20,18 +22,19 @@ class SelfieUpload extends StatefulWidget {
 }
 
 class _SelfieUploadState extends State<SelfieUpload> {
-  File? _image;
+  XFile? _image;
   final ImagePicker _picker = ImagePicker();
 
   Future<void> getImage() async {
     final image = await _picker.pickImage(source: ImageSource.camera);
+    print({"image": image});
+    print({"image!.path": image!.path});
     if (image != null) {
-      setState(() => _image = File(image.path));
-      // var res = await uploadImage(file.path, widget.url);
-      // setState(() {
-      //       state = res;
-      //       print(res);
-      //     });
+      setState(() => _image = image);
+      print({"File(_image!.path)": File(_image!.path)});
+      // final appDir = await getApplicationDocumentsDirectory();
+      // final fileName = path.basename(image.path);
+      // final savedImage = await _image!.copy('${appDir.path}/$fileName');
     }
     Navigator.pop(context);
   }
@@ -54,6 +57,38 @@ class _SelfieUploadState extends State<SelfieUpload> {
   //   setState(() {});
   // }
 
+// Future<String> get _localPath async {
+//   final directory = await getApplicationDocumentsDirectory();
+
+//   return directory.path;
+// }
+// Future<String> get _localFile(filename) async {
+//   final path = await _localPath;
+
+//   return File;
+// }
+
+  Future<String> uploadImage(filename) async {
+    String? username = dotenv.env['username'];
+    String? password = dotenv.env['password'];
+    String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    var request = http.MultipartRequest(
+        'POST',
+        Uri.parse(
+            "https://api.chapchap.dev/kyc/sessions/cc-kyc-sess-19g67kzpmf1h6/upload"));
+    request.headers.addAll({
+      "Authorization": basicAuth,
+      // "content-type": "multipart/form-data"
+    });
+    request.fields['uploadType'] = "selfie";
+    request.files.add(await http.MultipartFile.fromPath('file', filename));
+    print({'req':request});
+    var res = await request.send();
+    print({'res': res.statusCode});
+    return res.stream.bytesToString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
@@ -74,10 +109,9 @@ class _SelfieUploadState extends State<SelfieUpload> {
           backgroundColor: Colors.white,
         ),
         body: Container(
-                       margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 2),
-            width: 90.w,
-            height: 90.h, 
-
+          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 2),
+          width: 90.w,
+          height: 90.h,
           child: Column(
             children: <Widget>[
               Column(
@@ -85,8 +119,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0,5, 0, 0),
-               
+                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                     child: const StepProgressIndicator(
                         totalSteps: 4,
                         currentStep: 1,
@@ -110,7 +143,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 20,0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: const Text(
                       'pending',
                       style: TextStyle(
@@ -124,21 +157,21 @@ class _SelfieUploadState extends State<SelfieUpload> {
               Row(
                 children: [
                   Container(
-                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 0) ,
-                          child: Text('Example',style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold),)
-                      ),
+                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                      child: Text(
+                        'Example',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      )),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  
                   Row(
                     children: [
                       Container(
-                     
-                         margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
-         
+                        margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(13),
                           child: Image.asset('assets/kyc_selfie.png',
@@ -176,7 +209,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0,5 ),
+                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
                           child: Text(
                               'Face should be visible, centered and your eyes open',
                               style: TextStyle(
@@ -202,7 +235,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       ]),
                       Row(children: <Widget>[
                         Container(
-                            margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                           padding: const EdgeInsets.all(3),
                           child: Icon(
                             KycIcons.times,
@@ -212,13 +245,11 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         ),
                         Container(
                           margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                          child: Text(
-                              'No hats/beauty images/filters/headgear',
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 11)),
+                          child: Text('No hats/beauty images/filters/headgear',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 11)),
                         ),
                       ]),
-                      
                     ],
                   ),
                 ],
@@ -229,16 +260,14 @@ class _SelfieUploadState extends State<SelfieUpload> {
                       ? InkWell(
                           onTap: openCamera,
                           child: Container(
-              
                               child: CircleAvatar(
                                   backgroundColor: Colors.white,
                                   radius: 70,
                                   child: Icon(KycIcons.add_a_photo,
                                       size: 50, color: Colors.red))))
-                      : ClipOval(   child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
-              width: 161
-              )
-                        )),
+                      : ClipOval(
+                          child: Image.file(File(_image!.path),
+                              fit: BoxFit.cover, height: 162, width: 161))),
               Row(
                 children: [
                   TextButton(
@@ -250,12 +279,14 @@ class _SelfieUploadState extends State<SelfieUpload> {
                             fontWeight: FontWeight.bold,
                           ))),
                   // selectedImage == null
-                // ? Text('Select Image')
-                // : Image.file(selectedImage!),
-                // TextButton(
-                //   onPressed: uploadImage,
-                //   child: Text("Upload"),
-                // ),
+                  // ? Text('Select Image')
+                  // : Image.file(selectedImage!),
+                  _image == null
+                      ? Text('upload file')
+                      : TextButton(
+                          onPressed: () => {uploadImage(_image!.path)},
+                          child: Text("Upload"),
+                        ),
                 ],
               ),
               Container(
@@ -326,12 +357,12 @@ class _SelfieUploadState extends State<SelfieUpload> {
   Future<void> galleryImage() async {
     final image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      setState(() => _image = File(image.path));
+      setState(() => _image = image);
       // var res = await uploadImage(file.path, widget.url);
-        // setState(() {
-          //   state = res;
-          //   print(res);
-          // });
+      // setState(() {
+      //   state = res;
+      //   print(res);
+      // });
     }
     Navigator.pop(context);
   }

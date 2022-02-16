@@ -150,13 +150,13 @@ class _StartPageState extends State<StartPage> {
                     style: ButtonStyle(),
                     child: Center(child: Text('Get Started')),
                     onPressed: () async {
-                      Navigator.pushNamed(context, '/individualcards');
+                      Navigator.pushNamed(context, '/selectuser');
 
                       const String firstName = "John";
                       final String middleName = "Doe";
                       final String lastName = "Telemetry";
                       const String dob = "1986-01-01";
-                      const String identifier = "256-74150809";
+                      const String identifier = "256-74580000";
                       const String country = "UG";
                       const String gender = "M";
                       const String phoneNumber = "256772123456";
