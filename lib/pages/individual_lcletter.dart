@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_constructors_in_immutables
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -113,34 +114,9 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         fontSize: 15,
                       )),
                 ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        '4 of 4',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Container(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/finalScreen');
-                            },
-                            child: Icon(
-                              KycIcons.navigate_next,
-                              color: Colors.red,
-                              size: 50,
-                            ),
-                          )),
-                    ],
-                  ),
-                )
+                BottomNavigation(navigationLabel: '4 of 4',bottomNavigationFunction:(){
+                   Navigator.pushNamed(context, '/finalScreen');
+                } ,)
               ])));
     });
   }

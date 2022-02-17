@@ -1,10 +1,9 @@
 // ignore: file_names
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'dart:io';
@@ -259,38 +258,13 @@ class _National_idState extends  State<National_id> {
                           ))),
                           Text('Your upload will help us identify who you are'),
                 ],
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      // margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: const Text(
-                        '2 of 4',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/individuallocation');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
-                  ],
+              ),BottomNavigation(
+                  navigationLabel: '2 of 4',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/individuallocation');
+                  },
                 ),
-              ),
+             
               
             ],
           ),

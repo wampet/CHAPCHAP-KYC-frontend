@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -228,38 +229,13 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: const Text(
-                        '1 of 4',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, '/individualNationalId');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
-                  ],
+              BottomNavigation(
+                  navigationLabel: '1 of 4',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/individualNationalId');
+                  },
                 ),
-              ),
+                          
             ],
           ),
         ),

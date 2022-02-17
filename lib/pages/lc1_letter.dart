@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
@@ -201,33 +202,13 @@ class _LcLetterState extends State<LcLetter> {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
-                        ))),
-                Container(
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('3 of 5',
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        Container(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/businesscertificate');
-                              },
-                              child: Icon(
-                                KycIcons.navigate_next,
-                                color: Colors.red,
-                                size: 50,
-                              ),
-                            )),
-                      ],
-                    ))
+                        ))),BottomNavigation(
+                  navigationLabel: '3 of 5',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/businesscertificate');
+                  },
+                ),
+                
               ],
             ),
           ));

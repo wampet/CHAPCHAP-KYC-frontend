@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -253,33 +254,13 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
                             fontWeight: FontWeight.bold,
                           )))
                 ],
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      '2 of 5',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/Lcletter');
-                      },
-                      child: Icon(
-                        KycIcons.navigate_next,
-                        color: Colors.red,
-                        size: 50,
-                      ),
-                    ),
-                  ],
+              ),BottomNavigation(
+                  navigationLabel: '2 of 5',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/Lcletter');
+                  },
                 ),
-              ),
+              
             ],
           ),
         ),

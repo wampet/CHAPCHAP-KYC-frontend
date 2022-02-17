@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -235,39 +236,13 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                   'Your Image will help us identify who you are',
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: const Text(
-                        '1 of 5',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, '/registeredNationalId');
-                          },
-                          child: Icon(
-                            KycIcons.navigate_next,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        )),
-                  ],
+              ),BottomNavigation(
+                  navigationLabel: '1 of 5',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/registeredNationalId');
+                  },
                 ),
-              ),
+             
             ],
           ),
         ),

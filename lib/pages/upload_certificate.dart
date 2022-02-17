@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -224,34 +225,13 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                           color: Colors.black,
                           fontSize: 15,
                         ))),
-                Container(
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          '4 of 5',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            ),
-                        ),
-                        Container(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/businesslocation');
-                              },
-                              child: Icon(
-                                KycIcons.navigate_next,
-                                color: Colors.red,
-                                size: 50,
-                              ),
-                            )),
-                      ],
-                    ))
+                        BottomNavigation(
+                  navigationLabel: '4 of 5',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/businesslocation');
+                  },
+                ),
+               
               ],
             ),
           ));

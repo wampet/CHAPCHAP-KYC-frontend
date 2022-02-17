@@ -1,91 +1,111 @@
-// ignore_for_file: unnecessary_this
+// import 'package:chapchap_kyc_frontend/models/postRequestModel.dart';
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
+// import 'dart:convert';
 
-import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// class Home extends StatefulWidget {
+//   const Home({Key? key}) : super(key: key);
 
-Future<Customer> postSession() async {
-  final response = await http.post(
-    Uri.parse('https://api.chapchap.dev/kyc/sessions/'),
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode({
-      "customer": {
-        "firstName": "John",
-        "middleName": "Telemetry",
-        "lastName": "Doe",
-        "dob": "1986-01-01",
-        "identifier": "256-74800000",
-        "country": "UG",
-        "gender": "M",
-        "phoneNumber": "256772123456",
-        "idNumber": "256-74800000",
-        "role": "merchant"
-      }
-    }),
-  );
-  
-  if (response.statusCode == 200) {
-    // If the server did return a 200 CREATED response,
-    // then parse the JSON.
-    return Customer.fromJson(jsonDecode(response.body));
-  } else {
-    // If the server did not return a 200 CREATED response,
-    // then throw an exception.
-    throw Exception('The sytem was unable to find the specified resource');
-  }
-}
+//   @override
+//   _HomeState createState() => _HomeState();
+// }
 
-class Customer {
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? dob;
-  String? identifier;
-  String? country;
-  String? gender;
-  String? phoneNumber;
-  String? idNumber;
-  String? role;
+// Future<Customer> createSession(
+//   String firstName,
+//   String middleName,
+//   String lastName,
+//   String dob,
+//   String identifier,
+//   String country,
+//   String gender,
+//   String phoneNumber,
+//   String idNumber,
+//   String role,
+// ) async {
+//   String username = 'kycuser';
+//   String password = 'ZS0ZE0XDWgrHB7noqa8n7g0VlJFX7n7M';
+//   String basicAuth =
+//       'Basic ' + base64Encode(utf8.encode('$username:$password'));
+//   const String apiUrl = 'https://api.chapchap.dev/kyc/sessions/';
+//   try {
+//     final response = await http.get(Uri.parse(apiUrl),
+//         headers: {
+//           'authorization': basicAuth,
+//           "Accept": "application/json",
+//           "content-type": "application/json"
+//         },
+//        );
+//     if (response.statusCode == 200) {
+//       final String respString = response.body;
+//       print(respString);
+//       return customerFromJson(respString);
+//     } else {
+//       print(response.statusCode.toString());
+//       throw Exception(
+//           'Failed load data with status code ${response.statusCode}');
+//     }
+//   } catch (e) {
+//     print(e);
+//     throw e;
+//   }
+// }
 
-  Customer(
-      {this.firstName,
-      this.middleName,
-      this.lastName,
-      this.dob,
-      this.identifier,
-      this.country,
-      this.gender,
-      this.phoneNumber,
-      this.idNumber,
-      this.role});
+// class _HomeState extends State<Home> {
+//   Customer? _user;
 
-  Customer.fromJson(Map<String, dynamic> json) {
-    firstName = json['firstName'];
-    middleName = json['middleName'];
-    lastName = json['lastName'];
-    dob = json['dob'];
-    identifier = json['identifier'];
-    country = json['country'];
-    gender = json['gender'];
-    phoneNumber = json['phoneNumber'];
-    idNumber = json['idNumber'];
-    role = json['role'];
-  }
+//   final TextEditingController nameController = TextEditingController();
+//   final TextEditingController jobController = TextEditingController();
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['firstName'] = this.firstName;
-    data['middleName'] = this.middleName;
-    data['lastName'] = this.lastName;
-    data['dob'] = this.dob;
-    data['identifier'] = this.identifier;
-    data['country'] = this.country;
-    data['gender'] = this.gender;
-    data['phoneNumber'] = this.phoneNumber;
-    data['idNumber'] = this.idNumber;
-    data['role'] = this.role;
-    return data;
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text(
+//             'Fooderlich',
+//             style: Theme.of(context).textTheme.headline6,
+//           ),
+//         ),
+//         body: Container(
+//           child: Column(
+//             children: [
+       
+//               const SizedBox(
+//                 height: 32,
+//               ),
+//               _user == null ? Container() : Text('this is ${_user?.sessionId}')
+//             ],
+//           ),
+//         ),
+
+//         floatingActionButton: FloatingActionButton(
+//           onPressed: () async {
+//      const String firstName = "LUBANGAAFAFFA";
+//             final String middleName = "DoeDNDAFDAFA";
+//             final String lastName = "Tele";
+//             const String dob = "1986-01-05";
+//             const String identifier = "256-74803012";
+//             const String country = "KE";
+//             const String gender = "M";
+//             const String phoneNumber = "256772123456";
+//             const String idNumber = "256-74800002";
+//             const String role = "merchant";
+
+//             final Customer user = await createSession(
+//                 firstName,
+//                 middleName,
+//                 lastName,
+//                 dob,
+//                 identifier,
+//                 country,
+//                 gender,
+//                 phoneNumber,
+//                 idNumber,
+//                 role);
+//             print(user);
+//             setState(() {
+//               _user = user;
+//             });
+//           },
+//         ));
+//   }
+// }

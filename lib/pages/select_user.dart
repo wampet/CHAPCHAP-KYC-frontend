@@ -1,9 +1,12 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors
 
-import 'dart:ui';
-import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
+import 'package:chapchap_kyc_frontend/components/userCard.dart';
+import 'package:chapchap_kyc_frontend/components/userCardContent.dart';
+// import 'package:chapchap_kyc_frontend/kyc_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+
+import '../kyc_icons_icons.dart';
 
 class SelectUser extends StatelessWidget {
   const SelectUser({Key? key}) : super(key: key);
@@ -26,15 +29,15 @@ class SelectUser extends StatelessWidget {
             backgroundColor: Colors.white,
           ),
           body: Container(
-              width: 90.w,
-              height: 80.h,
-              margin :const EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 25.0),
+              // width: 90.w,
+              // height: 80.h,
+              margin: const EdgeInsets.fromLTRB(10.0, 25.0, 10.0, 25.0),
               child: Column(
-                crossAxisAlignment:CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
                     child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: const <Widget>[
                           Text('Hello John',
                               style: TextStyle(
@@ -45,67 +48,25 @@ class SelectUser extends StatelessWidget {
                           )
                         ]),
                   ),
-
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0,10,0,10),
-                    height: 30.h,
-                    width: 30.w,
-                    child: Card(
-                      color: Colors.red,
-                      child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/individualcards');
-                          },
-
-
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.person,
-                                color: Colors.white,
-                                size: 80.0,
-                              ),
-                              Text(
-                                'Individual Owner',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize:16),
-                              ),
-                            ],
-                          )),
-                    ),
+                  Expanded(
+                    child: UserCard(
+                        kolor: Colors.red,
+                        navigationFunction: () {
+                          Navigator.pushNamed(context, '/individualcards');
+                        },
+                        cardChild: UserCardContent(
+                            userIcon: Icons.person,
+                            userLabel: 'Individual Owner')),
                   ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0,10,0,10),
-                    height: 30.h,
-                    width: 30.w,
-                    child: Card(
-                        color: Colors.red,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/cardspage');
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                KycIcons.group,
-                                color: Colors.white,
-                                size: 80.0,
-                              ),
-                              Text(
-                                'Registered Owner',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16),
-                              ),
-                            ],
-                          ),
-                        )),
+                  Expanded(
+                    child: UserCard(
+                        kolor: Colors.red,
+                        navigationFunction: () {
+                          Navigator.pushNamed(context, '/cardspage');
+                        },
+                        cardChild: UserCardContent(
+                            userIcon: KycIcons.group,
+                            userLabel: 'Registered Owner')),
                   ),
                 ],
               )));
