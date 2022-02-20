@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -64,21 +65,8 @@ class _IndividualLocationState extends State<IndividualLocation> {
                         unselectedColor: Colors.grey),
                   ),
                 ]),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your \nBusiness Shop',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Text('pending',
-                        style: TextStyle(
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 9))
-                  ],
+                TopHeading(
+                  instructionLabel: 'Upload your \nBusiness Shop',
                 ),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 30, 0, 10),

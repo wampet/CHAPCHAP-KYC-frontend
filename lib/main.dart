@@ -1,19 +1,18 @@
-import 'package:chapchap_kyc_frontend/pages/business_location.dart';
-import 'package:chapchap_kyc_frontend/pages/cards_page.dart';
-import 'package:chapchap_kyc_frontend/pages/final_page.dart';
-import 'package:chapchap_kyc_frontend/pages/individual_selfie.dart';
-import 'package:chapchap_kyc_frontend/pages/registered_nationalid.dart';
-import 'package:chapchap_kyc_frontend/pages/splashscreen.dart';
-import 'package:chapchap_kyc_frontend/pages/select_user.dart';
-import 'package:chapchap_kyc_frontend/pages/upload_certificate.dart';
-import 'package:chapchap_kyc_frontend/pages/individual_location.dart';
-import 'package:chapchap_kyc_frontend/pages/upload_selfie.dart';
-import 'package:chapchap_kyc_frontend/pages/individual_nationalid.dart';
-import 'package:chapchap_kyc_frontend/pages/cards.dart';
-import 'package:chapchap_kyc_frontend/pages/lc1_letter.dart';
-import 'package:chapchap_kyc_frontend/pages/individual_lcletter.dart';
-// import 'package:chapchap_kyc_frontend/services/postRequest.dart';
+import 'package:chapchap_kyc_frontend/Screens/final_page.dart';
+import 'package:chapchap_kyc_frontend/Screens/individual_cards.dart';
+import 'package:chapchap_kyc_frontend/Screens/individual_lcletter.dart';
+import 'package:chapchap_kyc_frontend/Screens/individual_location.dart';
+import 'package:chapchap_kyc_frontend/Screens/individual_nationalid.dart';
+import 'package:chapchap_kyc_frontend/Screens/individual_selfie.dart';
+import 'package:chapchap_kyc_frontend/Screens/registered_cards.dart';
+import 'package:chapchap_kyc_frontend/Screens/registered_lcletter.dart';
+import 'package:chapchap_kyc_frontend/Screens/select_user.dart';
+import 'package:chapchap_kyc_frontend/Screens/splashscreen.dart';
 import 'package:flutter/material.dart';
+import 'Screens/registered_certificate.dart';
+import 'Screens/registered_location.dart';
+import 'Screens/registered_nationalid.dart';
+import 'Screens/registered_selfie.dart';
 
 void main() => runApp(MaterialApp(
       initialRoute: '/splashScreen',

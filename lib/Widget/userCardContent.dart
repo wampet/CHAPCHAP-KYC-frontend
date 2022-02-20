@@ -13,15 +13,16 @@ final String userLabel;
               children: [
                 Icon(
                   userIcon,
-                  color: Colors.white,
+                  color: Colors.red,
                   size: 80.0,
                 ),
                 Text(
                  userLabel,
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.grey[800]
+                      ,
                       fontWeight: FontWeight.bold,
-                      fontSize:16),
+                      fontSize:22),
                 ),
               ],
             );

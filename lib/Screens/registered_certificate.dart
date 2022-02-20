@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
@@ -66,22 +65,10 @@ class _BusinessCertificateState extends State<BusinessCertificate> {
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your Certificate \nof incorporation',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Text('pending',
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,fontSize:9
-                        ))
-                  ],
-                ), Row(
+                 TopHeading(
+                  instructionLabel: 'Upload your Certificate \nof incorporation',
+                ),
+                 Row(
                 children: [
                   Container(
                         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0) ,

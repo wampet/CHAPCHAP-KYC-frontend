@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
-import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 import 'dart:io';
 
 class BusinessSelfie extends StatefulWidget {
@@ -77,32 +77,10 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: const Text(
-                      'Take your selfie',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 20,0, 0),
-                    child: const Text(
-                      'pending',
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 9,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                TopHeading(
+                  instructionLabel:  'Take your selfie',
+                ),
+            
               Row(
                 children: [
                   Container(

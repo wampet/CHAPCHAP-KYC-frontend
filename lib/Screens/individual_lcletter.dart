@@ -1,23 +1,24 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_constructors_in_immutables
 
-import 'package:chapchap_kyc_frontend/components/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
+import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+//import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-class LcLetter extends StatefulWidget {
-  const LcLetter({Key? key}) : super(key: key);
+class IndividualLCletter extends StatefulWidget {
+  const IndividualLCletter({Key? key}) : super(key: key);
 
   @override
-  State<LcLetter> createState() => _LcLetterState();
+  State<IndividualLCletter> createState() => _IndividualLCletterState();
 }
 
-class _LcLetterState extends State<LcLetter> {
+class _IndividualLCletterState extends State<IndividualLCletter> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
@@ -44,7 +45,7 @@ class _LcLetterState extends State<LcLetter> {
             ),
             backgroundColor: Colors.white,
             title: const Text(
-              "Registered Company",
+              "Individual Owner",
               style: TextStyle(color: Colors.red),
             ),
             centerTitle: true,
@@ -68,111 +69,101 @@ class _LcLetterState extends State<LcLetter> {
                     ),
                   ],
                 ),
+                TopHeading(
+                  instructionLabel: 'Upload your LC1 \nLetter(Optional) ',
+                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Upload your LC1 \nLetter(Optional) ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Text('pending',
-                        style: TextStyle(
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 9))
-                  ],
-                ),Row(
-               
-                children: <Widget>[
-                
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child: Image.asset('assets/lc_letter.png',
-                        height: 150, width: 110),
-                  )
-                ],
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Column(
                   children: <Widget>[
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Government-issued',
-                            style: TextStyle(color: Colors.grey, fontSize:  12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Original full-size, unedited documents',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Readable well-lit, coloured images',
-                            style: TextStyle(color: Colors.grey, fontSize:  12)),
-                      ),
-                    ]),
-                   
-                     Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.times,
-                          size: 10,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('No black and white images',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                      child: Image.asset('assets/lc_letter.png',
+                          height: 150, width: 110),
+                    )
                   ],
                 ),
-              ),
-              SizedBox(height: 3),
-              Row(
-                children: [
-                  Container(
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          child: Icon(
+                            KycIcons.check,
+                            size: 10,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                          child: Text('Government-issued',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12)),
+                        ),
+                      ]),
+                      Row(children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          child: Icon(
+                            KycIcons.check,
+                            size: 10,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                          child: Text('Original full-size, unedited documents',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12)),
+                        ),
+                      ]),
+                      Row(children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          child: Icon(
+                            KycIcons.check,
+                            size: 10,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                          child: Text('Readable well-lit, coloured images',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12)),
+                        ),
+                      ]),
+                      Row(children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          child: Icon(
+                            KycIcons.times,
+                            size: 10,
+                            color: Colors.red,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                          child: Text('No black and white images',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12)),
+                        ),
+                      ]),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 3),
+                Row(
+                  children: [
+                    Container(
                       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: Text(
                           'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
-                          style: TextStyle(fontSize: 11.5,fontWeight:FontWeight.w500)),
-                          
-                  )],
-              ),
+                          style: TextStyle(
+                              fontSize: 11.5, fontWeight: FontWeight.w500)),
+                    )
+                  ],
+                ),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                     height: 12.h,
@@ -202,13 +193,13 @@ class _LcLetterState extends State<LcLetter> {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
-                        ))),BottomNavigation(
-                  navigationLabel: '3 of 5',
+                        ))),
+                BottomNavigation(
+                  navigationLabel: '4 of 4',
                   bottomNavigationFunction: () {
-                    Navigator.pushNamed(context, '/businesscertificate');
+                    Navigator.pushNamed(context, '/finalScreen');
                   },
                 ),
-                
               ],
             ),
           ));

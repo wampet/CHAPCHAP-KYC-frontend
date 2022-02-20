@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
-import 'package:chapchap_kyc_frontend/components/customCardUploads.dart';
-import 'package:chapchap_kyc_frontend/components/topCardsLabel.dart';
+import 'package:chapchap_kyc_frontend/Widget/customCardUploads.dart';
+import 'package:chapchap_kyc_frontend/Widget/topCardsLabel.dart';
 import 'package:flutter/material.dart';
 
 import '../kyc_icons_icons.dart';
