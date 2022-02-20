@@ -50,10 +50,9 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
             ),
             centerTitle: true,
           ),
-          body: Container(
-            margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 20),
-            width: 90.w,
-            height: 90.h,
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            padding: EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Column(
@@ -172,7 +171,7 @@ class _IndividualLCletterState extends State<IndividualLCletter> {
                         ? InkWell(
                             onTap: openCamera,
                             child: Card(
-
+          
                                 //radius: 70,
                                 child: Icon(KycIcons.add_a_photo,
                                     size: 50, color: Colors.red)))

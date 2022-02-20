@@ -23,10 +23,10 @@ class BusinessSelfie extends StatefulWidget {
 //     var res = await request.send();
 //     return res.reasonPhrase;
 //   }
-class _BusinessSelfieState extends State<BusinessSelfie>  {
+class _BusinessSelfieState extends State<BusinessSelfie> {
   File? _image;
   //new one
-    // final String uploadUrl = 'https://api.imgur.com/3/upload';
+  // final String uploadUrl = 'https://api.imgur.com/3/upload';
   final ImagePicker _picker = ImagePicker();
   Future<void> getImage() async {
     final image = await _picker.pickImage(source: ImageSource.camera);
@@ -56,172 +56,168 @@ class _BusinessSelfieState extends State<BusinessSelfie>  {
           ),
           backgroundColor: Colors.white,
         ),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
-            width: 90.w,
-            height: 90.h,     
-          child: Column(
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0,5, 0, 0),
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: const StepProgressIndicator(
-                        totalSteps: 4,
-                        currentStep: 1,
-                        selectedColor: Colors.red,
-                        unselectedColor: Colors.grey),
-                  ),
-                ],
-              ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: const StepProgressIndicator(
+                          totalSteps: 4,
+                          currentStep: 1,
+                          selectedColor: Colors.red,
+                          unselectedColor: Colors.grey),
+                    ),
+                  ],
+                ),
                 TopHeading(
-                  instructionLabel:  'Take your selfie',
+                  instructionLabel: 'Take your selfie',
                 ),
-            
-              Row(
-                children: [
-                  Container(
-                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 0) ,
-                          child: Text('Example',style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold),)
-                      ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  
-                  Row(
-                    children: [
-                      Container(
-                     
-                         margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
-         
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(13),
-                          child: Image.asset('assets/kyc_selfie.png',
-                              height: 90, width: 80),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Row(children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(3),
-                          child: Icon(
-                            KycIcons.check,
-                            size: 10,
-                            color: Colors.green,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                          child: Text(
-                              'Take a selfie of yourself with a neutral expression',
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 11.5)),
-                        ),
-                      ]),
-                      Row(children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(3),
-                          child: Icon(
-                            KycIcons.check,
-                            size: 10,
-                            color: Colors.green,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0,5 ),
-                          child: Text(
-                              'Face should be visible, centered and your eyes open',
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 11.5)),
-                        ),
-                      ]),
-                      Row(children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(3),
-                          child: Icon(
-                            KycIcons.check,
-                            size: 10,
-                            color: Colors.green,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                          child: Text(
-                              'Do not crop your ID or use screenshots of your ID',
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 11.5)),
-                        ),
-                      ]),
-                      Row(children: <Widget>[
-                        Container(
-                            margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                          padding: const EdgeInsets.all(3),
-                          child: Icon(
-                            KycIcons.times,
-                            size: 10,
-                            color: Colors.red,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                          child: Text(
-                              'No hats/beauty images/filters/headgear',
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 11)),
-                        ),
-                      ]),
-                      
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(15, 30, 15, 10),
-                  child: _image == null
-                      ? InkWell(
-                          onTap: openCamera,
-                          child: Container(
-              
-                              child: CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  radius: 70,
-                                  child: Icon(KycIcons.add_a_photo,
-                                      size: 50, color: Colors.red))))
-                      : ClipOval(
-                          child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
-              width: 161
-              )
+                Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: Text(
+                          'Example',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         )),
-              TextButton(
-                  onPressed: RemoveImage,
-                  child: Text('X Remove',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ))),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child: const Text(
-                  'Your Image will help us identify who you are',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  ],
                 ),
-              ),BottomNavigation(
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(13),
+                            child: Image.asset('assets/kyc_selfie.png',
+                                height: 90, width: 80),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(3),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
+                            child: Text(
+                                'Take a selfie of yourself with a neutral expression',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 11.5)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(3),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
+                            child: Text(
+                                'Face should be visible, centered and your eyes open',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 11.5)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(3),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
+                            child: Text(
+                                'Do not crop your ID or use screenshots of your ID',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 11.5)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                            padding: const EdgeInsets.all(3),
+                            child: Icon(
+                              KycIcons.times,
+                              size: 10,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
+                            child: Text(
+                                'No hats/beauty images/filters/headgear',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 11)),
+                          ),
+                        ]),
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                    margin: const EdgeInsets.fromLTRB(15, 30, 15, 10),
+                    child: _image == null
+                        ? InkWell(
+                            onTap: openCamera,
+                            child: Container(
+                                child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 70,
+                                    child: Icon(KycIcons.add_a_photo,
+                                        size: 50, color: Colors.red))))
+                        : ClipOval(
+                            child: Image.file(_image!,
+                                fit: BoxFit.cover, height: 162, width: 161))),
+                TextButton(
+                    onPressed: RemoveImage,
+                    child: Text('X Remove',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ))),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: const Text(
+                    'Your Image will help us identify who you are',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ),
+                BottomNavigation(
                   navigationLabel: '1 of 5',
                   bottomNavigationFunction: () {
                     Navigator.pushNamed(context, '/registeredNationalId');
                   },
                 ),
-             
-            ],
+              ],
+            ),
           ),
         ),
       );

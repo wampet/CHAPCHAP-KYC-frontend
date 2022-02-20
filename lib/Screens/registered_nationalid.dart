@@ -49,196 +49,208 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
           ),
           centerTitle: true,
         ),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
-          width: 90.w,
-          height: 80.h,
-          child: Column(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: const StepProgressIndicator(
-                        totalSteps: 5,
-                        currentStep: 2,
-                        selectedColor: Colors.red,
-                        unselectedColor: Colors.grey),
-                  ),
-                ],
-              ),
-              TopHeading(
-                instructionLabel: 'Upload your National ID ',
-              ),
-              Row(
-                children: [
-                  Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Text(
-                        'Example',
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      )),
-                ],
-              ),
-              Row(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
+              width: 90.w,
+              height: 80.h,
+              child: Column(
                 children: <Widget>[
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
-                    child: Image.asset('assets/kyc_frontid.png',
-                        height: 100, width: 110),
-                  )
-                ],
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Column(
-                  children: <Widget>[
-                    Row(children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
+                        margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: const StepProgressIndicator(
+                            totalSteps: 5,
+                            currentStep: 2,
+                            selectedColor: Colors.red,
+                            unselectedColor: Colors.grey),
                       ),
+                    ],
+                  ),
+                  TopHeading(
+                    instructionLabel: 'Upload your National ID ',
+                  ),
+                  Row(
+                    children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Government-issued',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: Text(
+                            'Example',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
                       Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Original full-size, unedited documents',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.check,
-                          size: 10,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('Readable well-lit, coloured images',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.times,
-                          size: 10,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('No edited or expired documents',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                    Row(children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        child: Icon(
-                          KycIcons.times,
-                          size: 10,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                        child: Text('No black and white images',
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ),
-                    ]),
-                  ],
-                ),
-              ),
-              SizedBox(height: 3),
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: Text(
-                        'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
-                        style: TextStyle(
-                            fontSize: 11.5, fontWeight: FontWeight.w500)),
-                  )
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  SizedBox(
-                    height: 5,
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 3),
+                        child: Image.asset('assets/kyc_frontid.png',
+                            height: 100, width: 110),
+                      )
+                    ],
                   ),
                   Container(
-                    color: Colors.grey[200],
-                    padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
-                    //This is where the camera implementaion will take place from
-                    child: _image == null
-                        ? InkWell(
-                            onTap: openCamera,
-                            child: Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      KycIcons.id_card,
-                                      color: Colors.black,
-                                      size: 30,
-                                    ),
-                                    Container(
-                                        margin: const EdgeInsets.fromLTRB(
-                                            0, 5, 0, 0),
-                                        child: Text('Front of document',
-                                            style: TextStyle(
-                                                fontSize: 13,
-                                                color: Colors.grey[900]))),
-                                  ],
-                                )),
-                          )
-                        : Container(
-                            height: 70,
-                            child: Image.file(_image!, fit: BoxFit.cover)),
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                            child: Text('Government-issued',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 12)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                            child: Text(
+                                'Original full-size, unedited documents',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 12)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: Icon(
+                              KycIcons.check,
+                              size: 10,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                            child: Text('Readable well-lit, coloured images',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 12)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: Icon(
+                              KycIcons.times,
+                              size: 10,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                            child: Text('No edited or expired documents',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 12)),
+                          ),
+                        ]),
+                        Row(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: Icon(
+                              KycIcons.times,
+                              size: 10,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
+                            child: Text('No black and white images',
+                                style: TextStyle(
+                                    color: Colors.grey, fontSize: 12)),
+                          ),
+                        ]),
+                      ],
+                    ),
                   ),
-                  TextButton(
-                      onPressed: RemoveImage,
-                      child: Text('X Remove',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          )))
+                  SizedBox(height: 3),
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                        child: Text(
+                            'File size must be between 10KB and 512KB in \n..jpg/.jpeg/.png format',
+                            style: TextStyle(
+                                fontSize: 11.5, fontWeight: FontWeight.w500)),
+                      )
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        color: Colors.grey[200],
+                        padding: const EdgeInsets.fromLTRB(80, 50, 80, 50),
+                        //This is where the camera implementaion will take place from
+                        child: _image == null
+                            ? InkWell(
+                                onTap: openCamera,
+                                child: Align(
+                                    alignment: Alignment.center,
+                                    child: Column(
+                                      children: [
+                                        Icon(
+                                          KycIcons.id_card,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        Container(
+                                            margin: const EdgeInsets.fromLTRB(
+                                                0, 5, 0, 0),
+                                            child: Text('Front of document',
+                                                style: TextStyle(
+                                                    fontSize: 13,
+                                                    color: Colors.grey[900]))),
+                                      ],
+                                    )),
+                              )
+                            : Container(
+                                height: 70,
+                                child: Image.file(_image!, fit: BoxFit.cover)),
+                      ),
+                      TextButton(
+                          onPressed: RemoveImage,
+                          child: Text('X Remove',
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              )))
+                    ],
+                  ),
+                  BottomNavigation(
+                    navigationLabel: '2 of 5',
+                    bottomNavigationFunction: () {
+                      Navigator.pushNamed(context, '/Lcletter');
+                    },
+                  ),
                 ],
               ),
-              BottomNavigation(
-                navigationLabel: '2 of 5',
-                bottomNavigationFunction: () {
-                  Navigator.pushNamed(context, '/Lcletter');
-                },
-              ),
-            ],
+            ),
           ),
         ),
       );
