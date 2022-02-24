@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
 import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
+import 'package:chapchap_kyc_frontend/Widget/uploadDescription.dart';
 import 'package:flutter/material.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'dart:io';
@@ -55,8 +56,8 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
             padding: EdgeInsets.all(8.0),
             child: Container(
               margin: const EdgeInsets.fromLTRB(15.0, 15, 15, 10),
-              width: 90.w,
-              height: 80.h,
+              // width: 90.w,
+              // height: 80.h,
               child: Column(
                 children: <Widget>[
                   Column(
@@ -95,93 +96,36 @@ class _RegisteredNationalIDState extends State<RegisteredNationalID> {
                       )
                     ],
                   ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Column(
-                      children: <Widget>[
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                            child: Text('Government-issued',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 12)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                            child: Text(
-                                'Original full-size, unedited documents',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 12)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                            child: Text('Readable well-lit, coloured images',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 12)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            child: Icon(
-                              KycIcons.times,
-                              size: 10,
-                              color: Colors.red,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                            child: Text('No edited or expired documents',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 12)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            child: Icon(
-                              KycIcons.times,
-                              size: 10,
-                              color: Colors.red,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 3),
-                            child: Text('No black and white images',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 12)),
-                          ),
-                        ]),
-                      ],
-                    ),
+                  Column(
+                    children: <Widget>[
+                      CustomDescription(
+                        describeIcon: KycIcons.check,
+                        descriptionLabel: 'Government-issued',
+                        iconColor: Colors.green,
+                      ),
+                      CustomDescription(
+                        describeIcon: KycIcons.check,
+                        descriptionLabel:
+                            'Original full-size, unedited documents',
+                        iconColor: Colors.green,
+                      ),
+                      CustomDescription(
+                        describeIcon: KycIcons.check,
+                        iconColor: Colors.green,
+                        descriptionLabel: 'Readable well-lit, coloured images',
+                      ),
+                      CustomDescription(
+                        describeIcon: KycIcons.times,
+                        iconColor: Colors.red,
+                        descriptionLabel: 'No edited or expired documents',
+                      ),
+                      CustomDescription(
+                        describeIcon: KycIcons.times,
+                        iconColor: Colors.red,
+                        descriptionLabel:
+                            'No black and white images',
+                      ),
+                    ],
                   ),
                   SizedBox(height: 3),
                   Row(

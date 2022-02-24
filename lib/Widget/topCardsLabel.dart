@@ -10,10 +10,10 @@ class TopCardsInstruction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
+      margin: const EdgeInsets.fromLTRB(8, 20, 20, 8),
       child: Text(topCardsLabel,
           style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+              color: Colors.white, fontSize: 23, fontWeight: FontWeight.w500)),
     );
   }
 }

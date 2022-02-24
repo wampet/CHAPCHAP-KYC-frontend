@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
 import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
+import 'package:chapchap_kyc_frontend/Widget/uploadDescription.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -59,8 +60,7 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.fromLTRB(0,5, 0, 0),
-                 
+                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                       child: const StepProgressIndicator(
                           totalSteps: 4,
                           currentStep: 1,
@@ -70,106 +70,61 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   ],
                 ),
                 TopHeading(
-                instructionLabel:  'Take your selfie',
-              ),
+                  instructionLabel: 'Take your selfie',
+                ),
                 Row(
                   children: [
                     Container(
-                          margin: const EdgeInsets.fromLTRB(0, 5, 0, 0) ,
-                            child: Text('Example',style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold),)
-                        ),
+                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: Text(
+                          'Example',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        )),
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    
                     Row(
                       children: [
                         Container(
-                       
-                           margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
-             
+                          margin: const EdgeInsets.fromLTRB(0, 15, 0, 10),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(13),
                             child: Image.asset('assets/kyc_selfie.png',
-                                height: 90, width: 80),
+                                height: 120, width: 100),
                           ),
                         ),
                       ],
                     ),
                     Column(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: <Widget>[
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(3),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                            child: Text(
-                                'Take a selfie of yourself with a neutral expression',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 11.5)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(3),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(4, 0, 0,5 ),
-                            child: Text(
-                                'Face should be visible, centered and your eyes open',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 11.5)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(3),
-                            child: Icon(
-                              KycIcons.check,
-                              size: 10,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                            child: Text(
-                                'Do not crop your ID or use screenshots of your ID',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 11.5)),
-                          ),
-                        ]),
-                        Row(children: <Widget>[
-                          Container(
-                              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            padding: const EdgeInsets.all(3),
-                            child: Icon(
-                              KycIcons.times,
-                              size: 10,
-                              color: Colors.red,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(4, 0, 0, 5),
-                            child: Text(
-                                'No hats/beauty images/filters/headgear',
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 11)),
-                          ),
-                        ]),
-                        
+                        CustomDescription(
+                          describeIcon: KycIcons.check,
+                          descriptionLabel:
+                              'Take a selfie of yourself with a neutral expression',
+                          iconColor: Colors.green,
+                        ),
+                        CustomDescription(
+                          describeIcon: KycIcons.check,
+                          descriptionLabel:
+                              'Face should be visible, centered and your eyes open',
+                          iconColor: Colors.green,
+                        ),
+                        CustomDescription(
+                          describeIcon: KycIcons.check,
+                          iconColor: Colors.green,
+                          descriptionLabel:
+                              'Take a selfie of yourself with a neutral expression',
+                        ),
+                        CustomDescription(
+                          describeIcon: KycIcons.times,
+                          iconColor: Colors.red,
+                          descriptionLabel:
+                              'No hats/beauty images/filters/headgear',
+                        ),
                       ],
                     ),
                   ],
@@ -180,16 +135,14 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         ? InkWell(
                             onTap: openCamera,
                             child: Container(
-                
                                 child: CircleAvatar(
                                     backgroundColor: Colors.white,
                                     radius: 70,
                                     child: Icon(KycIcons.add_a_photo,
                                         size: 50, color: Colors.red))))
-                        : ClipOval(   child: Image.file(_image!,fit: BoxFit.cover,height: 162, 
-                width: 161
-                )
-                          )),
+                        : ClipOval(
+                            child: Image.file(_image!,
+                                fit: BoxFit.cover, height: 162, width: 161))),
                 TextButton(
                     onPressed: RemoveImage,
                     child: Text('X Remove',
@@ -206,12 +159,11 @@ class _SelfieUploadState extends State<SelfieUpload> {
                   ),
                 ),
                 BottomNavigation(
-                    navigationLabel: '1 of 4',
-                    bottomNavigationFunction: () {
-                      Navigator.pushNamed(context, '/individualNationalId');
-                    },
-                  ),
-                            
+                  navigationLabel: '1 of 4',
+                  bottomNavigationFunction: () {
+                    Navigator.pushNamed(context, '/individualNationalId');
+                  },
+                ),
               ],
             ),
           ),
@@ -275,3 +227,4 @@ class _SelfieUploadState extends State<SelfieUpload> {
         });
   }
 }
+
