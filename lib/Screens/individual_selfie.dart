@@ -4,6 +4,7 @@ import 'package:chapchap_kyc_frontend/Widget/bottomNavigation.dart';
 import 'package:chapchap_kyc_frontend/Widget/topSectionHeading.dart';
 import 'package:chapchap_kyc_frontend/Widget/uploadDescription.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:sizer/sizer.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../kyc_icons_icons.dart';
@@ -13,6 +14,28 @@ import 'dart:io';
 
 class SelfieUpload extends StatefulWidget {
   const SelfieUpload({Key? key}) : super(key: key);
+
+ Future<String> uploadImage(filename) async {
+    // String? username = dotenv.env['username'];
+    // String? password = dotenv.env['password'];
+    // String basicAuth =
+    //     'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    var request = http.MultipartRequest(
+        'POST',
+        Uri.parse(
+            "https://chapchap-backend.herokuapp.com/upload"));
+    request.headers.addAll({
+      // "Authorization": basicAuth,
+      // "content-type": "multipart/form-data"
+    });
+    request.fields['uploadType'] = "selfie";
+    request.files.add(await http.MultipartFile.fromPath('file', filename));
+    print({'req':request});
+    var res = await request.send();
+    print({'res': res.statusCode});
+    return res.stream.bytesToString();
+  }
+
 
   @override
   State<SelfieUpload> createState() => _SelfieUploadState();
@@ -143,14 +166,24 @@ class _SelfieUploadState extends State<SelfieUpload> {
                         : ClipOval(
                             child: Image.file(_image!,
                                 fit: BoxFit.cover, height: 162, width: 161))),
-                TextButton(
-                    onPressed: RemoveImage,
-                    child: Text('X Remove',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ))),
+                Column(
+                  children: [
+                    TextButton(
+                        onPressed: RemoveImage,
+                        child: Text('X Remove',
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                             _image == null
+                      ? Text('upload file')
+                      : TextButton(
+                          onPressed: () => {uploadImage(_image!.path)},
+                          child: Text("Upload"),
+                        ),
+                  ],
+                ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(15, 10, 15, 20),
                   child: const Text(

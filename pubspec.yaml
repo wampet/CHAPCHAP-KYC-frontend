@@ -27,6 +27,8 @@ dependencies:
   dio: ^4.0.4
   painter: ^2.0.0
   lottie: ^1.2.2
+  flutter_dotenv: ^5.0.2
+  path_provider: ^2.0.8
   
 
 

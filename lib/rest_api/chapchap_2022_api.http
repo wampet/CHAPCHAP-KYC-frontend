@@ -1,0 +1,5 @@
+@baseUrl = https://api.chapchap.dev/kyc/
+# @authorisation
+
+POST {{baseUrl}}/kyc/sessions/
+# Authorization: Basic {{base64-user-password}}
